@@ -1,44 +1,28 @@
+
 "use client";
 import Image from "next/image";
-import { useState } from "react";
-
-const defaultTexts = {
-  vi: {
-    title: "Pháp Luật Một Chạm",
-  },
-  en: {
-    title: "One-Touch Law",
-  },
-};
-
-import { useContext } from "react";
-import { LangContext } from "./LangContext";
+import Link from "next/link";
 
 export default function Header() {
-  const { lang, setLang } = useContext(LangContext);
-
-  const handleLangChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
-    setLang(e.target.value);
-  };
-
-  const title = lang === "vi" ? "Pháp Luật Một Chạm" : "One-Touch Law";
-
   return (
-    <header className="w-full bg-[#233a5e] py-4 px-6 flex flex-col sm:flex-row items-center justify-between">
-      <div className="flex items-center gap-2">
-        <Image src="/file.svg" alt="Logo" width={40} height={40} />
-        <span className="text-white text-2xl font-bold">{title}</span>
+    <header className="w-full bg-white py-2 px-4 sm:px-8 flex items-center shadow-sm transition-all duration-500 ease-in-out mb-5 justify-between" style={{ fontFamily: 'Arial, Helvetica, "Segoe UI", "Roboto", "Noto Sans", "Liberation Sans", "sans-serif"' }}>
+      {/* Left: Logo */}
+      <div className="flex-1 flex justify-start">
+        <Link href="/home">
+          <Image src="/logo.png" alt="Logo" width={80} height={80} />
+        </Link>
       </div>
-      <div className="flex items-center gap-4 mt-2 sm:mt-0">
-        <select className="rounded px-2 py-1 text-base" value={lang} onChange={handleLangChange}>
-          <option value="vi">Tiếng Việt</option>
-          <option value="en">English</option>
-        </select>
-        <div className="flex gap-1">
-          <button className="bg-white text-[#233a5e] px-2 py-1 rounded text-lg">A-</button>
-          <button className="bg-white text-[#233a5e] px-2 py-1 rounded text-lg">A</button>
-          <button className="bg-white text-[#233a5e] px-2 py-1 rounded text-lg">A+</button>
-        </div>
+
+      {/* Center: Navigation */}
+      <nav className="hidden md:flex items-center gap-8 justify-center">
+        <Link href="/home" className="text-[#0074F8] text-lg font-bold hover:underline underline-offset-4 transition-all">Trang Chủ</Link>
+        <Link href="/explore" className="text-[#222] text-lg font-bold hover:text-[#0074F8] hover:underline underline-offset-4 transition-all">Khám phá</Link>
+        <Link href="/meeting" className="text-[#222] text-lg font-bold hover:text-[#0074F8] hover:underline underline-offset-4 transition-all">Phòng họp online</Link>
+      </nav>
+
+      {/* Right: Button */}
+      <div className="flex-1 flex justify-end">
+        <button className="bg-[#0074F8] text-white text-lg font-bold px-6 py-3 rounded-lg shadow hover:bg-[#005ecb] transition-all">Đăng Ký Tư Vấn</button>
       </div>
     </header>
   );
