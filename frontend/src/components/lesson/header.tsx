@@ -8,7 +8,7 @@ type props = {
 export const Header = ({ percentage }: props) => {
   const {open} = useExitModal();
   return (
-    <header className="lg:pt-[40px] pt-[20px] px-10 flex gap-x-7 items-center justify-between max-w-[1500px] mx-auto w-full">
+    <header className="lg:pt-[40px] pt-[20px] px-10 flex gap-x-7 items-center justify-between max-w-[1200px] mx-auto w-full">
       <X
         onClick={open}
         size={35}

@@ -15,7 +15,6 @@ export default function LayoutClient({
   const noLayoutRoutes = ["/lesson"];
 
   if (noLayoutRoutes.includes(pathname) && pathname === "/lesson") {
-    console.log(pathname);
     return <>
       {children}
       <ExitModal/>
