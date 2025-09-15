@@ -2,7 +2,7 @@
 
 import { useEffect, useRef, useState } from 'react';
 import { FaBrain, FaHeartbeat, FaUsers } from 'react-icons/fa';
-import { motion, useAnimation } from 'framer-motion';
+import { motion, useAnimation, easeOut } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
 
 const coreValueTitle = "// GIÁ TRỊ CỐT LÕI";
@@ -42,7 +42,7 @@ const itemVariants = {
     opacity: 1,
     transition: {
       duration: 1,
-      ease: "easeOut",
+      ease: easeOut,
     },
   },
 };
@@ -82,7 +82,7 @@ export default function CoreValues() {
           >
             <motion.div variants={itemVariants} className="text-white text-lg font-semibold mb-4 tracking-wider">{coreValueTitle}</motion.div>
             <motion.div variants={itemVariants} className="text-white text-4xl font-extrabold mb-12 max-w-4xl mx-auto" style={{ textShadow: '0 2px 8px rgba(0,0,0,0.15)' }}>{coreValueDesc}</motion.div>
-            <div 
+            <div
               className="flex flex-col md:flex-row justify-center items-start gap-12 md:gap-16 w-full"
             >
               {valueItems.map((item, idx) => (

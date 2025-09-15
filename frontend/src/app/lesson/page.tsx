@@ -8,6 +8,7 @@ import { Card } from "@/components/lesson/card";
 import { useRouter } from "next/navigation";
 import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
+import Badge from "@/components/lesson/ badge";
 
 export default function LessonPage() {
   const [currentQuestion, setCurrentQuestion] = useState<number>(0);
@@ -59,7 +60,7 @@ export default function LessonPage() {
   return (
     <div>
       <Header percentage={percentage} />
-
+      <Badge score={score}/>
       <div className="flex-1 mt-20">
         <div className="items-center justify-center h-full flex">
           <div className="lg:min-h-[350px] lg:w-[750px] w-full px-6 lg:px-0 flex flex-col gap-y-12">
