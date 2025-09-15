@@ -3,7 +3,7 @@
 import Banner from "../../components/Home/Banner";
 import CoreValues from "../../components/Home/CoreValues";
 import { Services } from "../../components/Home/Services";
-import Procedure from "../../components/Home/Procedure";
+// import Procedure from "../../components/Home/Procedure";
 import { useState } from "react";
 import { LangContext } from "../../components/LangContext";
 
@@ -16,7 +16,7 @@ export default function Home() {
         <CoreValues />
         <Services />
         <main className="flex flex-col items-center justify-center w-full max-w-3xl py-10 px-4">
-          <Procedure />
+          {/* <Procedure /> */}
         </main>
       </div>
     </LangContext.Provider>
