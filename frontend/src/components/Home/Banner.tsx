@@ -71,7 +71,7 @@ export default function Banner() {
             muted // Bắt đầu ở trạng thái tắt tiếng, JS sẽ quản lý
             loop
             playsInline // Cần thiết cho iOS
-            className="w-[65vw] h-auto object-cover transition-opacity duration-500 ease-in-out opacity-90"
+            className="h-[650px] w-[65vw] object-cover transition-opacity duration-500 ease-in-out opacity-90"
             style={{
               transform: 'translateX(25%)',
               maskImage: 'linear-gradient(to left, black 70%, transparent 100%)',
