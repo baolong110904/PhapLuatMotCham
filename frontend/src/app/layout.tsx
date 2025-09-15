@@ -13,6 +13,9 @@ const beVietnamPro = Be_Vietnam_Pro({
 export const metadata: Metadata = {
   title: "Tâm Lạc Center",
   description: "Không gian chăm sóc tinh thần cho người cao tuổi",
+  icons: {
+    icon: "/logo.png",
+  },
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
