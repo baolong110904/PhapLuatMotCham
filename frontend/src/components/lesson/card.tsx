@@ -10,7 +10,6 @@ type Props = {
 }
 
 export const Card = ({
-  id,
   text,
   onClick,
   disabled = false,
@@ -40,7 +39,7 @@ export const Card = ({
       // )} */}
 
       <div className="flex flex-col">
-        <span className="text-base">{text}</span>
+        <span className="text-lg">{text}</span>
       </div>
     </button>
   )
