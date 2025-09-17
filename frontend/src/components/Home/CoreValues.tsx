@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState } from 'react';
+import { useRouter } from 'next/navigation';
 import { FaBrain, FaHeartbeat, FaUsers } from 'react-icons/fa';
 import { motion, useAnimation, easeOut } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
@@ -49,22 +50,31 @@ const itemVariants = {
 
 export default function CoreValues() {
   const controls = useAnimation();
+  const router = useRouter();
   const [ref, inView] = useInView({
     triggerOnce: true,
     threshold: 0.2,
   });
   const audioRef = useRef<HTMLDivElement>(null);
   const [hasPlayed, setHasPlayed] = useState(false);
+  const [timeoutId, setTimeoutId] = useState<NodeJS.Timeout | null>(null);
 
   useEffect(() => {
-    if (inView) {
+    if (inView && !hasPlayed) {
       controls.start("visible");
-      if (!hasPlayed) {
+      const id = setTimeout(() => {
         const audio = new Audio('/audio1.mp3');
         audio.play().catch(error => console.error("Audio play failed:", error));
         setHasPlayed(true);
-      }
+      }, 3000);
+      setTimeoutId(id);
     }
+
+    return () => {
+      if (timeoutId) {
+        clearTimeout(timeoutId);
+      }
+    };
   }, [controls, inView, hasPlayed]);
 
   return (
@@ -92,6 +102,38 @@ export default function CoreValues() {
                   <div className="text-white/90 text-base md:text-lg font-normal" style={{ textShadow: '0 1px 4px rgba(0,0,0,0.10)' }}>{item.desc}</div>
                 </motion.div>
               ))}
+            </div>
+            {/* Mascot image with circular action buttons (left/right on md+, stacked on small) */}
+            <div className="mt-12 w-full flex flex-col items-center">
+              <div className="flex flex-col md:flex-row items-center justify-center gap-6">
+                <button
+                  aria-label="Trò chơi"
+                  title="Trò chơi"
+                  onClick={() => router.push('/lesson')}
+                  className="w-30 h-30 md:w-30 md:h-30 rounded-full bg-yellow-400 text-[#0b3b8a] flex items-center justify-center text-lg md:text-xl font-bold shadow-lg transform transition hover:scale-105 focus:outline-none focus:ring-4 focus:ring-yellow-300/60"
+                >
+                  Trò chơi
+                </button>
+
+                <video
+                  src="/mascot/8.mp4"
+                  aria-label="Mascot video"
+                  className="w-128 h-128 md:w-128 md:h-128 object-cover mx-auto"
+                  playsInline
+                  muted
+                  loop
+                  autoPlay
+                  style={{ backgroundColor: 'transparent' }}
+                />
+
+                <button
+                  aria-label="Phòng họp online"
+                  title="Phòng họp online"
+                  className="w-30 h-30 md:w-30 md:h-30 rounded-full bg-pink-500 text-white flex items-center justify-center text-xl md:text-2xl font-extrabold shadow-lg transform transition hover:scale-105 focus:outline-none focus:ring-4 focus:ring-pink-300/60"
+                >
+                  Phòng họp
+                </button>
+              </div>
             </div>
           </motion.div>
         </div>
