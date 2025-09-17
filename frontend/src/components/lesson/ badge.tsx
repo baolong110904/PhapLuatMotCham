@@ -3,6 +3,7 @@
 import { useEffect, useState, useRef } from "react";
 import { motion, AnimatePresence, easeInOut } from "framer-motion";
 import Image from "next/image";
+import { useSoundEffect } from "./soundEffect";
 
 // badges
 const badges = [
@@ -20,6 +21,7 @@ export default function Badge({ score }: Props) {
   const [newBadge, setNewBadge] = useState<number | null>(null);
   const [targetPosition, setTargetPosition] = useState<{ x: number; y: number } | null>(null);
   const [flyStart, setFlyStart] = useState(false);
+  const {playReward} = useSoundEffect();
 
   const badgeBarRef = useRef<HTMLDivElement | null>(null);
 
@@ -31,6 +33,7 @@ export default function Badge({ score }: Props) {
     if (unlocked) {
       setNewBadge(unlocked.id);
       setFlyStart(false);
+      playReward();
     }
   }, [score, earnedBadges]);
 

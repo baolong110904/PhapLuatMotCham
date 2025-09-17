@@ -4,8 +4,14 @@
     "mascot": "Xin chào ông bà, cháu là Tâm Lạc Nhí – hướng dẫn viên dễ thương của trò chơi hôm nay. Chào mừng ông bà đến với trò chơi Hành trình công dân cùng chúng cháu!",
     "chooseScenario": "Giờ mình cùng chọn tình huống cho hành trình hôm nay nha ^^",
     "options": [
-      {"label": "A. Thẻ cũ đã hết hạn", "id": "expired"},
-      {"label": "B. Thẻ chẳng may thất lạc mất rồi", "id": "lost"}
+      {
+        "label": "A. Thẻ cũ đã hết hạn",
+        "id": "expired"
+      },
+      {
+        "label": "B. Thẻ chẳng may thất lạc mất rồi",
+        "id": "lost"
+      }
     ]
   },
   "situations": {
@@ -21,11 +27,20 @@
   "questions": [
     {
       "id": 1,
-      "question": "Hồ sơ chuẩn bị: Ông bà cần chuẩn bị gì?",
+      "question": "Đi làm thẻ, cô/chú cần chuẩn bị gì nè?",
       "options": [
-        {"label": "A. Mang thật nhiều giấy tờ: hộ khẩu, giấy khai sinh, giấy kết hôn…", "correct": false},
-        {"label": "B. Công an sẽ tra cứu. Nếu thiếu thì bổ sung giấy khai sinh hoặc hộ khẩu cũ.", "correct": true},
-        {"label": "C. Phải viết tờ khai dài mấy trang.", "correct": false}
+        {
+          "label": "A. Mang thật nhiều giấy tờ: hộ khẩu, giấy khai sinh, giấy kết hôn…",
+          "correct": false
+        },
+        {
+          "label": "B. Công an sẽ tra cứu. Nếu thiếu thì bổ sung giấy khai sinh hoặc hộ khẩu cũ.",
+          "correct": true
+        },
+        {
+          "label": "C. Phải viết tờ khai dài mấy trang.",
+          "correct": false
+        }
       ],
       "feedback": {
         "correct": "Ding dong 🎉! Chuẩn công dân gương mẫu! Công an sẽ tra cứu, mình chỉ bổ sung nếu thiếu thôi.",
@@ -34,11 +49,20 @@
     },
     {
       "id": 2,
-      "question": "Đi làm thẻ căn cước thì tới đâu?",
+      "question": "Vậy đi làm thẻ căn cước thì tới đâu?",
       "options": [
-        {"label": "A. Tòa án nhân dân", "correct": false},
-        {"label": "B. Bệnh viện gần nhà", "correct": false},
-        {"label": "C. Công an cấp tỉnh/thành phố hoặc công an cấp huyện nơi thường trú/tạm trú", "correct": true}
+        {
+          "label": "A. Tòa án nhân dân",
+          "correct": false
+        },
+        {
+          "label": "B. Bệnh viện gần nhà",
+          "correct": false
+        },
+        {
+          "label": "C. Công an cấp tỉnh/thành phố hoặc công an cấp huyện nơi thường trú/tạm trú",
+          "correct": true
+        }
       ],
       "feedback": {
         "correct": "Tuyệt vời 👏! Không cần về quê, làm ở bất kỳ công an xã/phường nào có triển khai dịch vụ đều được.",
@@ -48,11 +72,20 @@
     },
     {
       "id": 3,
-      "question": "Các bước làm việc tại công an?",
+      "question": "Đến công an rồi, cô chú sẽ làm gì?",
       "options": [
-        {"label": "A. Khai thông tin, công an in phiếu, chụp ảnh, lăn tay, quét mống mắt, ký xác nhận", "correct": true},
-        {"label": "B. Tự viết đơn dài rồi nộp", "correct": false},
-        {"label": "C. Ngồi chờ mà không cần làm gì", "correct": false}
+        {
+          "label": "A. Khai thông tin, công an in phiếu, chụp ảnh, lăn tay, quét mống mắt, ký xác nhận",
+          "correct": true
+        },
+        {
+          "label": "B. Tự viết đơn dài rồi nộp",
+          "correct": false
+        },
+        {
+          "label": "C. Ngồi chờ mà không cần làm gì",
+          "correct": false
+        }
       ],
       "feedback": {
         "correct": "Xuất sắc 🎯! Các bước rất gọn gàng: kiểm tra thông tin → chụp ảnh → lăn tay → quét mống mắt → ký tên.",
@@ -63,9 +96,18 @@
       "id": 4,
       "question": "Sau khi ký xác nhận xong, bước kế tiếp là gì?",
       "options": [
-        {"label": "A. Nộp lại thẻ cũ (nếu có), đóng lệ phí, nhận giấy hẹn", "correct": true},
-        {"label": "B. Về nhà chờ, khỏi cần nộp gì", "correct": false},
-        {"label": "C. Đóng tiền phạt thật cao", "correct": false}
+        {
+          "label": "A. Nộp lại thẻ cũ (nếu có), đóng lệ phí, nhận giấy hẹn",
+          "correct": true
+        },
+        {
+          "label": "B. Về nhà chờ, khỏi cần nộp gì",
+          "correct": false
+        },
+        {
+          "label": "C. Đóng tiền phạt thật cao",
+          "correct": false
+        }
       ],
       "feedback": {
         "correct": "Chuẩn không cần chỉnh ✅! Ông bà chỉ cần nộp thẻ cũ, đóng lệ phí nhỏ và nhận giấy hẹn.",
@@ -76,9 +118,18 @@
       "id": 5,
       "question": "Ở thành phố, thị xã, nếu làm cấp mới hoặc đổi thẻ căn cước thì tối đa bao nhiêu ngày có kết quả?",
       "options": [
-        {"label": "A. Không quá 07 ngày làm việc (cấp mới/đổi), 15 ngày (cấp lại)", "correct": true},
-        {"label": "B. 15 ngày làm việc", "correct": false},
-        {"label": "C. 20 ngày làm việc", "correct": false}
+        {
+          "label": "A. Không quá 07 ngày làm việc (cấp mới/đổi), 15 ngày (cấp lại)",
+          "correct": true
+        },
+        {
+          "label": "B. 15 ngày làm việc",
+          "correct": false
+        },
+        {
+          "label": "C. 20 ngày làm việc",
+          "correct": false
+        }
       ],
       "feedback": {
         "correct": "Chuẩn quá 👏 Ở thành phố thì nhanh gọn, chỉ tối đa 7 ngày là có thẻ mới rồi ông bà ơi!",
@@ -87,37 +138,42 @@
     },
     {
       "id": 6,
-      "question": "Ở huyện miền núi, vùng cao, biên giới, hải đảo, làm thẻ căn cước mất tối đa bao nhiêu ngày?",
+      "question": "Đầu tiên, để khai báo đổi/cấp lại thẻ căn cước, cô chú cần truy cập trang web nào?",
       "options": [
-        {"label": "A. 7 ngày", "correct": false},
-        {"label": "B. 15 ngày", "correct": false},
-        {"label": "C. 20 ngày", "correct": true}
+        {
+          "label": "A. Trang Cổng dịch vụ công Bộ Công an.",
+          "correct": false
+        },
+        {
+          "label": "B. Trang web Bảo hiểm xã hội Việt Nam.",
+          "correct": true
+        },
+        {
+          "label": "C. Trang web Cục Thuế.",
+          "correct": false
+        }
       ],
       "feedback": {
-        "correct": "Đúng rồi nè 🌄 Ở vùng xa thì cần thêm thời gian, tối đa 20 ngày làm việc.",
-        "wrong": "Ui, chưa chính xác 😅 Ở miền núi, hải đảo thì lâu hơn, tối đa 20 ngày đó ạ."
+        "correct": "Chuẩn rồi 👏 Cổng Dịch vụ công Bộ Công an chính là địa chỉ đúng để làm thủ tục.",
+        "wrong": "Hơi nhầm rồi 😅 Phải vào trang Cổng dịch vụ công mới đúng nha."
       }
     },
     {
       "id": 7,
-      "question": "Muốn khai báo đổi/cấp lại thẻ căn cước online, ông bà cần truy cập trang web nào?",
-      "options": [
-        {"label": "A. www.facebook.com", "correct": false},
-        {"label": "B. dichvu.bocongan.gov.vn", "correct": true},
-        {"label": "C. www.youtube.com", "correct": false}
-      ],
-      "feedback": {
-        "correct": "Chuẩn rồi 👏 Cổng Dịch vụ công Bộ Công an chính là địa chỉ đúng để làm thủ tục.",
-        "wrong": "Hơi nhầm rồi 😅 Phải vào trang dichvu.bocongan.gov.vn mới đúng nha."
-      }
-    },
-    {
-      "id": 8,
       "question": "Khi đăng nhập, ông bà cần dùng loại tài khoản nào?",
       "options": [
-        {"label": "A. Tài khoản mạng xã hội", "correct": false},
-        {"label": "B. Tài khoản định danh điện tử VNeID", "correct": true},
-        {"label": "C. Tài khoản email", "correct": false}
+        {
+          "label": "A. Tài khoản mạng xã hội",
+          "correct": false
+        },
+        {
+          "label": "B. Tài khoản định danh điện tử VNeID",
+          "correct": true
+        },
+        {
+          "label": "C. Tài khoản email",
+          "correct": false
+        }
       ],
       "feedback": {
         "correct": "Tuyệt vời 🎉 Muốn làm online thì phải dùng tài khoản định danh điện tử VNeID.",
@@ -125,12 +181,43 @@
       }
     },
     {
-      "id": 9,
-      "question": "Khi chọn thủ tục trên hệ thống, ông bà cần bấm vào đâu?",
+      "id": 8,
+      "question": "Nếu thẻ căn cước cũ đã hết hạn khiến tài khoản VNeID bị khóa, cô chú có thể đăng nhập bằng tài khoản của ai?",
       "options": [
-        {"label": "A. Cấp/đổi giấy phép lái xe", "correct": false},
-        {"label": "B. Cấp giấy khai sinh", "correct": false},
-        {"label": "C. Cấp/đổi thẻ căn cước công dân", "correct": true}
+        {
+          "label": "A. Vợ/chồng",
+          "correct": false
+        },
+        {
+          "label": "B. Con ruột",
+          "correct": true
+        },
+        {
+          "label": "C. Bạn bè",
+          "correct": false
+        }
+      ],
+      "feedback": {
+        "correct": "Đúng chuẩn công dân gương mẫu 👏 Trường hợp VNeID bị khóa, có thể mượn tài khoản của con ruột để đăng nhập.",
+        "wrong": "Chưa chính xác 😅 Chỉ có thể dùng tài khoản VNeID của con ruột thôi ông bà ơi."
+      }
+    },
+    {
+      "id": 9,
+      "question": "Khi chọn thủ tục trên hệ thống, cô chú cần bấm vào đâu?",
+      "options": [
+        {
+          "label": "A. Cấp/đổi giấy phép lái xe",
+          "correct": false
+        },
+        {
+          "label": "B. Cấp giấy khai sinh",
+          "correct": false
+        },
+        {
+          "label": "C. Cấp/đổi thẻ căn cước công dân",
+          "correct": true
+        }
       ],
       "feedback": {
         "correct": "Tuyệt vời 🎉 Cần chọn mục ‘Cấp/đổi thẻ căn cước công dân’ mới đúng.",
@@ -139,15 +226,68 @@
     },
     {
       "id": 10,
-      "question": "Nếu thẻ căn cước cũ hết hạn khiến tài khoản VNeID bị khóa, ông bà có thể đăng nhập bằng tài khoản của ai?",
+      "question": "Sau khi chọn thủ tục, cô chú cần làm gì tiếp theo?",
       "options": [
-        {"label": "A. Vợ/chồng", "correct": false},
-        {"label": "B. Con ruột", "correct": true},
-        {"label": "C. Bạn bè", "correct": false}
+        {
+          "label": "A. Điền thông tin cá nhân theo yêu cầu",
+          "correct": true
+        },
+        {
+          "label": "B. Gửi email cho cán bộ công an",
+          "correct": false
+        },
+        {
+          "label": "C. Chỉ cần gọi điện thoại báo là xong",
+          "correct": false
+        }
       ],
       "feedback": {
-        "correct": "Đúng chuẩn công dân gương mẫu 👏 Trường hợp VNeID bị khóa, có thể mượn tài khoản của con ruột để đăng nhập.",
-        "wrong": "Chưa chính xác 😅 Chỉ có thể dùng tài khoản VNeID của con ruột thôi ông bà ơi."
+        "correct": "Chuẩn luôn 👏 Điền đầy đủ thông tin cá nhân thì hệ thống mới xử lý.",
+        "wrong": "Không đúng rồi 😅 Không phải email hay gọi điện, mà phải tự điền thông tin trên hệ thống."
+      }
+    },
+    {
+      "id": 11,
+      "question": "Sau khi đã nộp hồ sơ online, cô chú còn phải làm gì nữa?",
+      "options": [
+        {
+          "label": "A. Đúng hẹn đến công an để chụp ảnh, lấy vân tay, nộp lệ phí",
+          "correct": true
+        },
+        {
+          "label": "B. Ngồi nhà chờ bưu điện gửi thẻ luôn",
+          "correct": false
+        },
+        {
+          "label": "C. Nhờ hàng xóm đi hộ",
+          "correct": false
+        }
+      ],
+      "feedback": {
+        "correct": "Chính xác 👏 Dù đăng ký online vẫn phải đến công an chụp ảnh, lấy vân tay, ký xác nhận.",
+        "wrong": "Chưa chuẩn đâu 😅 Không thể chỉ ngồi nhà hay nhờ người khác đi hộ, vì cần chính cô chú đến để xác thực."
+      }
+    },
+    {
+      "id": 12,
+      "question": "Sau khi điền thông tin, cô chú phải chọn gì?",
+      "options": [
+        {
+          "label": "A. Địa điểm và thời gian đến làm thủ tục",
+          "correct": true
+        },
+        {
+          "label": "B. Chọn ngày giờ nhận kết quả, bỏ qua lịch đến làm thủ tục",
+          "correct": false
+        },
+        {
+          "label": "C. Chỉ chọn địa điểm công an, không chọn ngày giờ",
+          "correct": false
+        }
+      ],
+      "feedback": {
+        "correct": "Đúng rồi 🎉 Phải chọn địa điểm và thời gian hẹn để tới công an làm thủ tục.",
+        "wrong": "Hơi nhầm ạ 😅phải chọn chính xác địa điểm và thời gian làm thủ tục nhé."
       }
     }
   ],
