@@ -115,7 +115,7 @@ export default function Banner() {
             </motion.div>
             <motion.button
               variants={itemVariants}
-              className="bg-[#0074F8] text-white text-lg font-bold px-8 py-4 rounded-lg shadow-lg hover:bg-[#005ecb] transition-all"
+              className="bg-[#0074F8] text-white text-lg font-bold px-8 py-4 rounded-lg shadow-lg hover:bg-[#005ecb] transition-all cursor-pointer"
             >
               Tìm hiểu thêm <span className="ml-2">→</span>
             </motion.button>

@@ -27,12 +27,12 @@ export function Services() {
   const pauseHandlerRef = useRef<(() => void) | null>(null)
 
   const services = [
-    { icon: FileTextIcon, title: 'Sao y công chứng', description: 'Hướng dẫn trực quan các bước sao y công chứng giấy tờ quan trọng.', audio: '/assets/saoy.mp3', route: '/saoy' },
-    { icon: CreditCardIcon, title: 'Cấp lại CCCD', description: 'Quy trình đơn giản để làm lại Căn cước công dân khi bị mất hoặc hết hạn.', audio: '/assets/cccd.mp3', route: '/cccd' },
-    { icon: PiggyBankIcon, title: 'Lương hưu', description: 'Hướng dẫn thủ tục nhận lương hưu và các quyền lợi liên quan một cách rõ ràng.', audio: '/assets/luonghuu.mp3', route: '/luonghuu' },
-    { icon: UserCheckIcon, title: 'Xác nhận cư trú', description: 'Các bước xác nhận cư trú tại địa phương với thủ tục đơn giản.', audio: '/assets/xacnhancutru.mp3', route: '/cutru' },
-    { icon: HomeIcon, title: 'Giấy tờ nhà đất', description: 'Hướng dẫn làm các thủ tục liên quan đến sổ đỏ và giấy tờ nhà đất.', audio: '/assets/nhadat.mp3', route: '/nhadat' },
-    { icon: HeartHandshakeIcon, title: 'Di chúc và thừa kế', description: 'Thông tin về cách lập di chúc hợp pháp và thủ tục thừa kế.', audio: '/assets/dichuc.mp3', route: '/dichuc' },
+    { icon: FileTextIcon, title: 'Sao y công chứng', description: 'Hướng dẫn trực quan các bước sao y công chứng giấy tờ quan trọng.', audio: '/assets/saoy.mp3', route: '/saoy', link: '/quiz'},
+    { icon: CreditCardIcon, title: 'Cấp lại CCCD', description: 'Quy trình đơn giản để làm lại Căn cước công dân khi bị mất hoặc hết hạn.', audio: '/assets/cccd.mp3', route: '/cccd', link: '/quiz/cic'},
+    { icon: PiggyBankIcon, title: 'Lương hưu', description: 'Hướng dẫn thủ tục nhận lương hưu và các quyền lợi liên quan một cách rõ ràng.', audio: '/assets/luonghuu.mp3', route: '/luonghuu', link: '/quiz/pension'},
+    { icon: UserCheckIcon, title: 'Xác nhận cư trú', description: 'Các bước xác nhận cư trú tại địa phương với thủ tục đơn giản.', audio: '/assets/xacnhancutru.mp3', route: '/cutru', link: '/quiz'},
+    { icon: HomeIcon, title: 'Giấy tờ nhà đất', description: 'Hướng dẫn làm các thủ tục liên quan đến sổ đỏ và giấy tờ nhà đất.', audio: '/assets/nhadat.mp3', route: '/nhadat', link: '/quiz'},
+    { icon: HeartHandshakeIcon, title: 'Di chúc và thừa kế', description: 'Thông tin về cách lập di chúc hợp pháp và thủ tục thừa kế.', audio: '/assets/dichuc.mp3', route: '/dichuc', link: '/quiz'},
   ]
 
   // Build playlist: start with the intro/support audio, then services in displayed order
@@ -206,7 +206,7 @@ export function Services() {
                 onClick={playAllAudio}
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
-                className="inline-flex items-center px-6 py-3 rounded-full shadow-lg text-lg font-semibold transition-all bg-[#0074F8] hover:bg-[#005ecb] text-white"
+                className="cursor-pointer inline-flex items-center px-6 py-3 rounded-full shadow-lg text-lg font-semibold transition-all bg-[#0074F8] hover:bg-[#005ecb] text-white"
               >
                 <Volume2Icon className="mr-2" size={20} />
                 Đọc toàn bộ
@@ -242,9 +242,9 @@ export function Services() {
             return (
               <motion.div
                 key={index}
-                whileHover={{ translateY: -6 }}
-                className="bg-white rounded-2xl shadow-md overflow-hidden cursor-pointer transition-all border border-transparent hover:border-blue-50"
-                onClick={() => router.push(service.route)}
+                // whileHover={{ translateY: -6 }}
+                className="bg-white rounded-2xl hover:scale-102 shadow-md overflow-hidden cursor-pointer transition-all border border-transparent hover:border-blue-50"
+                onClick={() => router.push(service.link)}
               >
                 {/* Image */}
                 <div className="w-full h-48 bg-gray-100 flex items-center justify-center relative">
@@ -254,7 +254,7 @@ export function Services() {
                     className="w-full h-full object-cover rounded-t-2xl"
                   />
                   <button
-                    className="absolute bottom-3 right-3 bg-[#0074F8] p-3 rounded-full shadow-lg transform transition-transform hover:scale-105 focus:outline-none"
+                    className="cursor-pointer absolute bottom-3 right-3 bg-[#0074F8] p-3 rounded-full shadow-lg transform transition-transform hover:scale-105 focus:outline-none"
                     onClick={(e) => {
                       e.stopPropagation()
                       playAudio(service.audio)
@@ -282,9 +282,9 @@ export function Services() {
                         <button
                           onClick={(e) => {
                             e.stopPropagation()
-                            router.push(service.route)
+                            router.push(service.link)
                           }}
-                          className="text-sm text-[#0074F8] font-semibold"
+                          className="text-sm text-[#0074F8] font-semibold cursor-pointer"
                         >
                           Tìm Hiểu Thêm →
                         </button>
