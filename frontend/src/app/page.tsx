@@ -1,11 +1,11 @@
 
 "use client";
-import Banner from "../../components/Home/Banner";
-import CoreValues from "../../components/Home/CoreValues";
-import { Services } from "../../components/Home/Services";
-import { HowItWorks } from "../../components/Home/HowItWorks";
+import Banner from "../components/Home/Banner";
+import CoreValues from "../components/Home/CoreValues";
+import { Services } from "../components/Home/Services";
+import { HowItWorks } from "../components/Home/HowItWorks";
 import { useState } from "react";
-import { LangContext } from "../../components/LangContext";
+import { LangContext } from "../components/LangContext";
 
 export default function Home() {
   const [lang, setLang] = useState("vi");
