@@ -1,0 +1,162 @@
+{
+  "type": "pension",
+  "intro": {
+    "mascot": "Xin chào, con là Tâm Lạc – người bạn đồng hành cùng cô chú trong hành trình làm thủ tục nhận lương hưu. Để được hưởng lương hưu, trước hết cần chuẩn bị hồ sơ. Nhưng mỗi người sẽ thuộc một trường hợp khác nhau, vì vậy hồ sơ cũng sẽ khác nhau. Cô chú hãy chọn xem mình thuộc trường hợp nào nhé.",
+    "chooseScenario": "Cô chú muốn nộp hồ sơ trực tiếp hay trực tuyến?",
+    "options": [
+      {
+        "label": "1. Làm trực tiếp (Offline)",
+        "id": "offline"
+      },
+      {
+        "label": "2. Làm trực tuyến (Online)",
+        "id": "online"
+      }
+    ]
+  },
+  "questions": {
+    "offline": [
+      {
+        "id": 1,
+        "question": "Câu 1: Ông/bà khi làm thủ tục nhận lương hưu cần nộp những hồ sơ nào?",
+        "img": [],
+        "options": [
+          {
+            "label": "A. Hợp đồng lao động.",
+            "correct": false
+          },
+          {
+            "label": "B. Giấy kết hôn, hợp đồng đất đai.",
+            "correct": false
+          },
+          {
+            "label": "C. Sổ BHXH, CCCD/CMND, đơn đề nghị hưởng lương hưu.",
+            "correct": true
+          }
+        ],
+        "feedback": {
+          "correct": "Chuẩn rồi ông ơi 👏! Hồ sơ hưu trí mình nộp gồm: Sổ BHXH, CCCD/CMND, đơn đề nghị hưởng lương hưu. Vậy là yên tâm rồi nha 👍.",
+          "wrong": "Ui, hơi nhầm xíu rồi ông/bà ơi 😅. Hồ sơ chuẩn phải là Sổ BHXH, CCCD/CMND và đơn đề nghị hưởng lương hưu nha 💌."
+        }
+      },
+      {
+        "id": 2,
+        "question": "Câu 2: Ông/bà sẽ nộp hồ sơ ở đâu?",
+        "img": [],
+        "options": [
+          {
+            "label": "A. Trực tiếp tại cơ quan BHXH hoặc Trung tâm phục vụ Hành chính công (HCC) các cấp (nếu có).",
+            "correct": true
+          },
+          {
+            "label": "B. Bệnh viện",
+            "correct": false
+          },
+          {
+            "label": "C. Toà án",
+            "correct": false
+          }
+        ],
+        "feedback": {
+          "correct": "Chuẩn rồi ông bà ơi 👏! Hồ sơ hưu trí mình nộp tại cơ quan BHXH hoặc Trung tâm phục vụ hành chính công, vậy là yên tâm rồi nha 👍.",
+          "wrong": "Ui, hơi nhầm xíu rồi ông/bà ơi 😅 Hồ sơ nghỉ hưu hổng nộp ở bệnh viện hay tòa án đâu. Phải nộp cho cơ quan BHXH mới xử lý được nha 💌."
+        }
+      },
+      {
+        "id": 3,
+        "question": "Câu 3: Ông/bà nộp hồ sơ cho ai?",
+        "img": [],
+        "options": [
+          {
+            "label": "A. Bảo vệ",
+            "correct": false
+          },
+          {
+            "label": "B. Cán bộ BHXH tiếp nhận hồ sơ. ",
+            "correct": true
+          },
+          {
+            "label": "C. Bưu tá",
+            "correct": false
+          }
+        ],
+        "feedback": {
+          "correct": "Chuẩn ghê luôn 👏! Hồ sơ của ông/bà sẽ do cán bộ BHXH tiếp nhận và xử lý, yên tâm nha 💕.",
+          "wrong": "Huhu, hơi nhầm nhẹ rồi 😅 Hồ sơ hưu trí mình không đưa cho bảo vệ hay bưu tá đâu, mà phải nộp cho cán bộ BHXH tiếp nhận mới đúng nha 🌸."
+        }
+      },
+      {
+        "id": 4,
+        "question": "Câu 4: Sau khi hồ sơ được duyệt, ông/bà sẽ nhận được những giấy tờ gì nè?",
+        "img": [],
+        "options": [
+          {
+            "label": "A. Giấy xác nhận BHYT, phiếu thu phí bảo hiểm, hợp đồng lao động.",
+            "correct": false
+          },
+          {
+            "label": "B. Quyết định hưởng BHXH hàng tháng, Thẻ BHYT, Thông báo chi trả (nếu chuyển nơi khác), và tiền trợ cấp.",
+            "correct": true
+          },
+          {
+            "label": "C. Quyết định nghỉ việc, sổ BHXH chốt xong, giấy thôi trợ cấp thất nghiệp.",
+            "correct": false
+          }
+        ],
+        "feedback": {
+          "correct": "Úi đúng rùi 👏 Ông/bà nhận đủ bộ giấy tờ “xịn sò” luôn á!",
+          "wrong": "Sai nhẹ rồi , mấy cái này cũng nghe quen quen, nhưng không phải giấy mình nhận khi được duyệt hưu đâu ạ. 😊"
+        }
+      }
+    ],
+    "online": [
+      {
+        "id": 1,
+        "question": "Câu 1: Ông/bà sẽ nộp hồ sơ qua đâu?",
+        "img": [],
+        "options": [
+          {
+            "label": "A. Facebook.",
+            "correct": false
+          },
+          {
+            "label": "B. Email cho cháu.",
+            "correct": false
+          },
+          {
+            "label": "C. Cổng dịch vụ công hoặc app VssID.",
+            "correct": true
+          }
+        ],
+        "feedback": {
+          "correct": "Giỏi quá trời luôn 👏 đúng là phải nộp qua Cổng dịch vụ công mới chính xác đó ạ.",
+          "wrong": "Hihi, Hihi, lần này chọn nhầm mất rồi 😅 hồ sơ BHXH thì không gửi Facebook hay email, mà phải nộp trên Cổng dịch vụ công nha ông/bà."
+        }
+      },
+      {
+        "id": 2,
+        "question": "Câu 2: Bước đầu tiên để đăng ký nhận lương hưu qua ATM trên VssID là gì?",
+        "img": [],
+        "options": [
+          {
+            "label": "A. Tải ứng dụng VssID",
+            "correct": true
+          },
+          {
+            "label": "B. Nộp đơn tại UBND phường",
+            "correct": false
+          },
+          {
+            "label": "C. Mang sổ BHXH đến ngân hàng",
+            "correct": false
+          }
+        ],
+        "feedback": {
+          "correct": "Chuẩn không cần chỉnh 👏, tải app VssID là bước mở màn rồi đó!",
+          "wrong": "Ôi, nhầm nhẹ chút xíu thôi ạ  😅, mình phải bắt đầu bằng việc tải ứng dụng VssID nha."
+        }
+      }
+    ]
+  },
+  "ending": "Xin chúc mừng ạ! 💐 Ông/bà đã chơi rất giỏi và nắm vững kiến thức về lương hưu, trợ cấp BHXH. Chúc mình luôn an tâm, vui khỏe và nhận lương hưu thật thuận tiện mỗi tháng 💕."
+}

@@ -18,3 +18,5 @@ export const Header = ({ percentage }: props) => {
     </header>
   );
 };
+
+export default Header;

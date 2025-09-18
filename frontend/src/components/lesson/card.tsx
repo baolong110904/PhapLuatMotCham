@@ -22,11 +22,11 @@ export const Card = ({
       className={cn(
         "w-full uppercase text-lg font-bold flex items-center gap-3 p-4 rounded-xl border-2 text-left transition-all cursor-pointer disabled:opacity-90",
         status === "none" &&
-          "bg-white  border-slate-200 border-2 border-b-4 active:border-b-2 hover:bg-slate-100 text-slate-600 cursor-pointer",
+          "bg-white  border-slate-200 border-2 border-b-5 active:border-b-2 hover:bg-slate-100 text-slate-600 cursor-pointer",
         status === "correct" &&
-          "bg-green-500 text-white border-green-600 border-b-4 active:border-b-0 cursor-pointer",
+          "bg-green-500 text-white border-green-700 border-b-5 active:border-b-0 cursor-pointer",
         status === "wrong" &&
-          "bg-rose-500 text-primary-foreground border-rose-600 border-b-4 active:border-b-0 cursor-pointer"
+          "bg-rose-600 text-primary-foreground border-rose-800 border-b-5 active:border-b-0 cursor-pointer"
       )}
     >
       {/* Optional image
