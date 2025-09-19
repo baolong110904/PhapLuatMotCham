@@ -109,12 +109,11 @@ export default function CoreValues() {
                 <button
                   aria-label="Trò chơi"
                   title="Trò chơi"
-                  onClick={() => router.push('/lesson')}
-                  className="w-30 h-30 md:w-30 md:h-30 rounded-full bg-yellow-400 text-[#0b3b8a] flex items-center justify-center text-lg md:text-xl font-bold shadow-lg transform transition hover:scale-105 focus:outline-none focus:ring-4 focus:ring-yellow-300/60"
+                  onClick={() => router.push('/quiz/cccd')}
+                  className="drop-shape bg-yellow-400 text-[#0b3b8a] text-xl md:text-2xl font-extrabold focus:ring-4 focus:ring-yellow-300/60"
                 >
                   Trò chơi
                 </button>
-
                 <video
                   src="/mascot/8.mp4"
                   aria-label="Mascot video"
@@ -125,11 +124,10 @@ export default function CoreValues() {
                   autoPlay
                   style={{ backgroundColor: 'transparent' }}
                 />
-
                 <button
                   aria-label="Phòng họp online"
                   title="Phòng họp online"
-                  className="w-30 h-30 md:w-30 md:h-30 rounded-full bg-pink-500 text-white flex items-center justify-center text-xl md:text-2xl font-extrabold shadow-lg transform transition hover:scale-105 focus:outline-none focus:ring-4 focus:ring-pink-300/60"
+                  className="drop-shape bg-pink-500 text-white text-xl md:text-2xl font-extrabold focus:ring-4 focus:ring-pink-300/60"
                 >
                   Phòng họp
                 </button>

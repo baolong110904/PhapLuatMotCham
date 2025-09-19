@@ -133,3 +133,41 @@
     display: none; /* Safari and Chrome */
   }
 }
+
+@layer utilities {
+  .drop-shape {
+    @apply flex items-center justify-center shadow-lg transition transform hover:scale-105 focus:outline-none relative;
+    width: 120px;
+    height: 150px; /* cao hơn để tạo đầu nhọn */
+
+    /* Giọt nước nhọn ở trên, bụng phình ở dưới */
+    clip-path: path(
+      "M60 0 C80 30 120 60 120 100 C120 135 90 150 60 150 C30 150 0 135 0 100 C0 60 40 30 60 0 Z"
+    );
+
+    transition: transform 0.2s ease-in-out;
+  }
+  
+  .drop-shape::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    clip-path: inherit;
+    /* Hiệu ứng bóng sáng - trên sáng hơn, dưới mờ dần */
+    background: linear-gradient(
+      180deg,
+      rgba(255, 255, 255, 0.45) 0%,
+      rgba(255, 255, 255, 0.15) 50%,
+      rgba(255, 255, 255, 0.05) 100%
+    );
+    /* Bo tròn giữ nguyên theo giọt nước */
+    border-radius: inherit;
+    pointer-events: none;
+    /* Tạo cảm giác sáng mịn hơn */
+    mix-blend-mode: screen;
+    opacity: 0.9;
+  }
+
+}
+
+

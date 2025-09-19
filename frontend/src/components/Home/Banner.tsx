@@ -2,6 +2,7 @@
 import { motion, useAnimation, Variants } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
 import { useEffect, useRef } from 'react';
+import { useRouter } from 'next/navigation';
 import { AnimatedBackground } from '../ui/AnimatedBackground';
 import { MorphingBlob } from '../ui/MorphingBlob';
 
@@ -11,6 +12,7 @@ export default function Banner() {
   const desc = "Tâm Lạc Center là không gian chăm sóc tinh thần cho người cao tuổi với các hoạt động kết nối, sáng tạo và ý nghĩa. Chúng tôi tin rằng tuổi già cũng là thời gian để sống hạnh phúc.";
 
   const controls = useAnimation();
+  const router = useRouter();
   const [ref, inView] = useInView({
     triggerOnce: false,
     threshold: 0.2,
@@ -115,6 +117,7 @@ export default function Banner() {
             </motion.div>
             <motion.button
               variants={itemVariants}
+              onClick={() => router.push('/about')}
               className="bg-[#0074F8] text-white text-lg font-bold px-8 py-4 rounded-lg shadow-lg hover:bg-[#005ecb] transition-all"
             >
               Tìm hiểu thêm <span className="ml-2">→</span>

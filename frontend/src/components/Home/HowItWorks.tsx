@@ -2,14 +2,13 @@ import React, { useEffect, useRef, useState } from 'react'
 import { motion } from 'framer-motion'
 import { ImageIcon, VolumeIcon, MousePointerIcon, SmartphoneIcon } from 'lucide-react'
 import RoadTimeline from './RoadTimeline'
-import TestPage from './TestPage'
 
 export function HowItWorks() {
   const steps = [
     {
       icon: <ImageIcon size={36} className="text-primary-500" />,
       title: 'Hình ảnh minh họa',
-      image: '/assets/hinhanhminhhoa.png', 
+      image: '/assets/Mascot.png', 
     },
     {
       icon: <VolumeIcon size={36} className="text-primary-500" />,
@@ -144,7 +143,6 @@ export function HowItWorks() {
           </div>
         </div>
       </section>
-      <TestPage />
     </>
   )
 }

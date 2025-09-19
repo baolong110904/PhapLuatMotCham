@@ -95,7 +95,7 @@ export default function RoadTimeline({ steps, onSelect }: { steps: FeatureStep[]
             }}
           >
             <div className="flex flex-col items-center">
-              <img src={steps[i].image} alt={steps[i].title} className="w-46 h-46 md:w-46 md:h-46 object-cover rounded-full mb-3" />
+              <img src={steps[i].image} alt={steps[i].title} className="w-56 h-56 md:w-64 md:h-64 lg:w-72 lg:h-72 object-cover rounded-full mb-3" />
               <FeatureBox step={steps[i]} index={i} onHover={() => onSelect?.(i)} />
             </div>
           </motion.div>
@@ -122,7 +122,7 @@ export default function RoadTimeline({ steps, onSelect }: { steps: FeatureStep[]
             <motion.div className="w-9 h-9 bg-primary-500 rounded-full absolute left-1/2 transform -translate-x-1/2 -translate-y-1/2" initial={{ scale: 0 }} whileInView={{ scale: 1 }} viewport={{ once: true }} transition={{ stiffness: 260, damping: 22, delay: 0.15 + index * 0.05 }} />
             <motion.div className={`w-full`} initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: 0.25 + index * 0.05, duration: 0.5 }}>
               <div className="flex flex-col items-center bg-transparent px-2">
-                <img src={step.image} alt={step.title} className="w-44 h-44 object-cover rounded-full mb-4" />
+                <img src={step.image} alt={step.title} className="w-44 h-44 md:w-44 md:h-44 lg:w-44 lg:h-44 object-cover rounded-full mb-4" />
                 <div className="w-full px-4">
                   <FeatureBox step={step} index={index} onHover={() => onSelect?.(index)} />
                 </div>
