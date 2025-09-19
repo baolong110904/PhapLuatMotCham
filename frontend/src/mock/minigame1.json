@@ -1,5 +1,5 @@
 {
-  "title": "Hành trình công dân",
+  "type": "cic",
   "intro": {
     "mascot": "Xin chào ông bà, cháu là Tâm Lạc Nhí – hướng dẫn viên dễ thương của trò chơi hôm nay. Chào mừng ông bà đến với trò chơi Hành trình công dân cùng chúng cháu!",
     "chooseScenario": "Giờ mình cùng chọn tình huống cho hành trình hôm nay nha ^^",
@@ -28,6 +28,7 @@
     {
       "id": 1,
       "question": "Đi làm thẻ, cô/chú cần chuẩn bị gì nè?",
+      "img": [],
       "options": [
         {
           "label": "A. Mang thật nhiều giấy tờ: hộ khẩu, giấy khai sinh, giấy kết hôn…",
@@ -50,6 +51,7 @@
     {
       "id": 2,
       "question": "Vậy đi làm thẻ căn cước thì tới đâu?",
+      "img": [],
       "options": [
         {
           "label": "A. Tòa án nhân dân",
@@ -73,6 +75,7 @@
     {
       "id": 3,
       "question": "Đến công an rồi, cô chú sẽ làm gì?",
+      "img": [],
       "options": [
         {
           "label": "A. Khai thông tin, công an in phiếu, chụp ảnh, lăn tay, quét mống mắt, ký xác nhận",
@@ -95,6 +98,7 @@
     {
       "id": 4,
       "question": "Sau khi ký xác nhận xong, bước kế tiếp là gì?",
+      "img": [],
       "options": [
         {
           "label": "A. Nộp lại thẻ cũ (nếu có), đóng lệ phí, nhận giấy hẹn",
@@ -117,6 +121,7 @@
     {
       "id": 5,
       "question": "Ở thành phố, thị xã, nếu làm cấp mới hoặc đổi thẻ căn cước thì tối đa bao nhiêu ngày có kết quả?",
+      "img": [],
       "options": [
         {
           "label": "A. Không quá 07 ngày làm việc (cấp mới/đổi), 15 ngày (cấp lại)",
@@ -139,6 +144,7 @@
     {
       "id": 6,
       "question": "Đầu tiên, để khai báo đổi/cấp lại thẻ căn cước, cô chú cần truy cập trang web nào?",
+      "img": [],
       "options": [
         {
           "label": "A. Trang Cổng dịch vụ công Bộ Công an.",
@@ -161,6 +167,7 @@
     {
       "id": 7,
       "question": "Khi đăng nhập, ông bà cần dùng loại tài khoản nào?",
+      "img": [],
       "options": [
         {
           "label": "A. Tài khoản mạng xã hội",
@@ -183,6 +190,7 @@
     {
       "id": 8,
       "question": "Nếu thẻ căn cước cũ đã hết hạn khiến tài khoản VNeID bị khóa, cô chú có thể đăng nhập bằng tài khoản của ai?",
+      "img": [],
       "options": [
         {
           "label": "A. Vợ/chồng",
@@ -205,6 +213,7 @@
     {
       "id": 9,
       "question": "Khi chọn thủ tục trên hệ thống, cô chú cần bấm vào đâu?",
+      "img": [],
       "options": [
         {
           "label": "A. Cấp/đổi giấy phép lái xe",
@@ -227,6 +236,7 @@
     {
       "id": 10,
       "question": "Sau khi chọn thủ tục, cô chú cần làm gì tiếp theo?",
+      "img": [],
       "options": [
         {
           "label": "A. Điền thông tin cá nhân theo yêu cầu",
@@ -249,6 +259,7 @@
     {
       "id": 11,
       "question": "Sau khi đã nộp hồ sơ online, cô chú còn phải làm gì nữa?",
+      "img": [],
       "options": [
         {
           "label": "A. Đúng hẹn đến công an để chụp ảnh, lấy vân tay, nộp lệ phí",
@@ -271,6 +282,7 @@
     {
       "id": 12,
       "question": "Sau khi điền thông tin, cô chú phải chọn gì?",
+      "img": [],
       "options": [
         {
           "label": "A. Địa điểm và thời gian đến làm thủ tục",

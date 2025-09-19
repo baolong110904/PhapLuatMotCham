@@ -74,7 +74,7 @@ export function HowItWorks() {
 
   return (
     <>
-      <section id="how-it-works" className="w-full h-[1000px] bg-white overflow-hidden">
+      <section id="how-it-works" className="w-full min-h-[1200px] bg-white overflow-hidden">
         <div className="w-full px-4 relative">
           <motion.div
             className="text-center mb-16 relative z-10"

@@ -8,8 +8,8 @@ import { useSoundEffect } from "./soundEffect";
 // badges
 const badges = [
   { id: 1, threshold: 1, image: "/assets/badge_1.svg" },
-  { id: 2, threshold: 2, image: "/assets/badge_2.svg" },
-  { id: 3, threshold: 3, image: "/assets/badge_3.svg" },
+  { id: 2, threshold: 3, image: "/assets/badge_2.svg" },
+  { id: 3, threshold: 5, image: "/assets/badge_3.svg" },
 ];
 
 type Props = {
