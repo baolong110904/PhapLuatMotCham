@@ -1,3 +1,5 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
+
 import React, { useEffect, useRef, useState } from 'react'
 import { motion } from 'framer-motion'
 import FeatureBox, { FeatureStep } from './FeatureBox'
@@ -86,8 +88,8 @@ export default function RoadTimeline({ steps, onSelect }: { steps: FeatureStep[]
         const boxHeightPx = boxHeightUser * scale
         const centerXPx = offsetX + boxCx * scale
         const centerYPx = offsetY + boxCy * scale
-        let leftPx = centerXPx - boxWidthPx / 2
-        let topPx = centerYPx - boxHeightPx / 2
+        const leftPx = centerXPx - boxWidthPx / 2
+        const topPx = centerYPx - boxHeightPx / 2
 
         // clamp within svg container
         const margin = 12
