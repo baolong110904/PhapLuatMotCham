@@ -1,8 +1,7 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect, useRef } from "react";
 import { useRouter } from "next/navigation";
-// Image removed (not used in this component)
 import { motion, AnimatePresence } from "framer-motion";
 
 import { Header } from "@/components/lesson/Header";
@@ -11,6 +10,7 @@ import { Card } from "@/components/lesson/Card";
 import { useSoundEffect } from "@/components/lesson/SoundEffects";
 import Badge from "./Badge";
 import Firework from "@/components/lesson/Fireworks";
+import CicIntro from "./CicIntro";
 
 type GameIntro = {
   mascot: string;
@@ -37,6 +37,7 @@ type GameData = {
 type Props = { data: GameData };
 
 export default function Minigame({ data }: Props) {
+
   const [stage, setStage] = useState<
     "intro" | "situation" | "questions" | "ending"
   >("intro");
@@ -106,12 +107,27 @@ export default function Minigame({ data }: Props) {
 
   return (
     <div>
-      <Header percentage={percentage} />
-      <Badge score={score} />
-      <div className="flex-1 mt-20 flex items-center justify-center">
+      {/* Hide Header/Badge while CIC intro is active */}
+      {!(stage === "intro" && data.type === "cic") && <Header percentage={percentage} />}
+      {!(stage === "intro" && data.type === "cic") && <Badge score={score} />}
+      <div className={`flex-1 ${stage === "intro" && data.type === "cic" ? 'mt-12' : 'mt-20'} flex items-center justify-center`}>
         <div className="lg:min-h-[350px] lg:w-[750px] w-full px-6 lg:px-0 flex flex-col gap-y-12">
           <AnimatePresence mode="wait">
-            {stage === "intro" && (
+            {stage === "intro" && data.type === "cic" ? (
+              <motion.div
+                key="intro-cic"
+                variants={variants}
+                initial="hidden"
+                animate="enter"
+                exit="exit"
+                transition={{ duration: 0.3 }}
+                className="flex flex-col gap-y-6"
+              >
+                <CicIntro onStart={() => setStage("questions")} />
+              </motion.div>
+            ) : null}
+
+            {stage === "intro" && data.type !== "cic" && (
               <motion.div
                 key="intro"
                 variants={variants}
