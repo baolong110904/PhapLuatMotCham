@@ -8,22 +8,22 @@ export function HowItWorks() {
     {
       icon: <ImageIcon size={36} className="text-primary-500" />,
       title: 'Hình ảnh minh họa',
-      image: '/assets/Mascot.png', 
+      image: '/mascot/Mascot.png', 
     },
     {
       icon: <VolumeIcon size={36} className="text-primary-500" />,
       title: 'Giọng đọc tự động',
-      image: '/assets/hotroamthanh.png', 
+      image: '/mascot/Mascot2.png',
     },
     {
       icon: <MousePointerIcon size={36} className="text-primary-500" />,
       title: 'Thao tác đơn giản',
-      image: '/assets/thaotacdongian.png', 
+      image: '/mascot/Mascot3.png',
     },
     {
       icon: <SmartphoneIcon size={36} className="text-primary-500" />,
       title: 'Mọi thiết bị',
-      image: '/assets/hotrothietbi.png', 
+      image: '/mascot/Mascot4.png',
     },
   ]
 
