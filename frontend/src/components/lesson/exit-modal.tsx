@@ -32,7 +32,7 @@ export const ExitModal = () => {
         <DialogHeader>
           <div className="flex items-center w-full justify-center mb-5">
             <Image
-              src="/assets/angry-bored-disappointed-svgrepo-com.svg"
+              src="/assets/crying-emoji-emoticon-svgrepo-com.svg"
               alt="Sad face"
               height={80}
               width={80}

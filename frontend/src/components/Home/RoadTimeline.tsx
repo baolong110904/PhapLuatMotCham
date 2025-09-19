@@ -195,13 +195,13 @@ export default function RoadTimeline({ steps, onSelect }: { steps: FeatureStep[]
       const pad = 28 // larger pad to keep boxes away from edges
       // ensure the box is fully visible horizontally
       let boundedLeft = Math.max(pad, Math.min(rect.width - measuredW - pad, p.left))
-      let boundedTop = Math.max(pad, Math.min(rect.height - measuredH - pad, p.top))
+      const boundedTop = Math.max(pad, Math.min(rect.height - measuredH - pad, p.top))
 
       // milestone pixel y
       const milestone = points[i]
       const milestoneY = milestone ? milestone.y * scaleY : 0
       const minTopBelowMilestone = milestoneY + 24 // minimal gap under milestone
-      let topBelow = Math.max(boundedTop, minTopBelowMilestone)
+      const topBelow = Math.max(boundedTop, minTopBelowMilestone)
 
       // If left is too close to edge (first/last), nudge inward more
       const extraEdge = 18
