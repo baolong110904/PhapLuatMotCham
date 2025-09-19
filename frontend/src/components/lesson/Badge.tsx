@@ -3,13 +3,13 @@
 import { useEffect, useState, useRef } from "react";
 import { motion, AnimatePresence, easeInOut } from "framer-motion";
 import Image from "next/image";
-import { useSoundEffect } from "./soundEffect";
+import { useSoundEffect } from "./SoundEffects";
 
 // badges
 const badges = [
-  { id: 1, threshold: 1, image: "/assets/badge_1.svg" },
-  { id: 2, threshold: 3, image: "/assets/badge_2.svg" },
-  { id: 3, threshold: 5, image: "/assets/badge_3.svg" },
+  { id: 1, threshold: 2, image: "/assets/badge_1.svg" },
+  { id: 2, threshold: 4, image: "/assets/badge_2.svg" },
+  { id: 3, threshold: 6, image: "/assets/badge_3.svg" },
 ];
 
 type Props = {
@@ -25,7 +25,6 @@ export default function Badge({ score }: Props) {
 
   const badgeBarRef = useRef<HTMLDivElement | null>(null);
 
-  // Unlock badge based on score
   useEffect(() => {
     const unlocked = badges.find(
       (b) => score >= b.threshold && !earnedBadges.includes(b.id)

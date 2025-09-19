@@ -327,7 +327,7 @@
 
 "use client";
 
-import Minigame from "@/components/lesson/minigame";
+import Minigame from "@/components/lesson/Minigame";
 import GameData from "@/mock/minigame1.json";
 
 export default function CICPage() {

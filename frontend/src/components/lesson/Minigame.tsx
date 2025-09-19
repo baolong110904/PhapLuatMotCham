@@ -5,12 +5,12 @@ import { useRouter } from "next/navigation";
 import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
 
-import { Header } from "@/components/lesson/header";
+import { Header } from "@/components/lesson/Header";
 import { Button } from "@/components/ui/button";
-import { Card } from "@/components/lesson/card";
-import { useSoundEffect } from "@/components/lesson/soundEffect";
-import Badge from "./ badge";
-import Firework from "@/components/lesson/fireworks";
+import { Card } from "@/components/lesson/Card";
+import { useSoundEffect } from "@/components/lesson/SoundEffects";
+import Badge from "./Badge";
+import Firework from "@/components/lesson/Fireworks";
 
 type GameIntro = {
   mascot: string;
@@ -270,10 +270,10 @@ export default function Minigame({ data }: Props) {
                 transition={{ duration: 0.3 }}
                 className="text-center mt-20"
               >
-                <Firework active={stage === "ending"} duration={8000} />
+                <Firework active={stage === "ending"} duration={30000} />
                 <h1 className="text-3xl font-bold">🎉 Hoàn thành!</h1>
                 <p className="mt-10 text-2xl">{data.ending}</p>
-                <Button className="mt-10" onClick={() => router.push("/home")}>
+                <Button className="mt-10" onClick={() => router.push("/")}>
                   Quay về trang chủ
                 </Button>
               </motion.div>

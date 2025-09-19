@@ -63,7 +63,7 @@ export const ExitModal = () => {
               size="lg"
               onClick={() => {
                 close();
-                router.push("/home");
+                router.push("/");
               }}
               tabIndex={-1}
             >

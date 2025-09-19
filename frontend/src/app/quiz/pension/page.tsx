@@ -1,6 +1,6 @@
 "use client";
 
-import Minigame from "@/components/lesson/minigame";
+import Minigame from "@/components/lesson/Minigame";
 import GameData from "@/mock/minigame2.json";
 
 export default function PensionPage() {
