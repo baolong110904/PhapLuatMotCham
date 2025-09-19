@@ -1,4 +1,5 @@
 "use client";
+/* eslint-disable @typescript-eslint/no-explicit-any */
 
 import { motion, Variants } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
