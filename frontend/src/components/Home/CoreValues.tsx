@@ -128,6 +128,7 @@ export default function CoreValues() {
                 <button
                   aria-label="Phòng họp online"
                   title="Phòng họp online"
+                  onClick={() => router.push('/meeting')}
                   className="cursor-pointer w-30 h-30 md:w-30 md:h-30 rounded-full bg-pink-500 text-white flex items-center justify-center text-lg md:text-xl font-extrabold shadow-lg transform transition hover:scale-105 focus:outline-none focus:ring-4 focus:ring-pink-300/60"
                 >
                   Trò chuyện
