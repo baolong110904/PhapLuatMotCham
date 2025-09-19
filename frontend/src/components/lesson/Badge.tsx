@@ -34,7 +34,7 @@ export default function Badge({ score }: Props) {
       setFlyStart(false);
       playReward();
     }
-  }, [score, earnedBadges, playReward]);
+  }, [score, earnedBadges]);
 
   // Calculate target position for flying badge
   useEffect(() => {
