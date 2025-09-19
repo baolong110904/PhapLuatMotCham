@@ -57,7 +57,7 @@ export default function CoreValues() {
   });
   const audioRef = useRef<HTMLDivElement>(null);
   const [hasPlayed, setHasPlayed] = useState(false);
-  const [timeoutId, setTimeoutId] = useState<NodeJS.Timeout | null>(null);
+  const timeoutRef = useRef<NodeJS.Timeout | null>(null);
 
   useEffect(() => {
     if (inView && !hasPlayed) {
@@ -67,12 +67,13 @@ export default function CoreValues() {
         audio.play().catch(error => console.error("Audio play failed:", error));
         setHasPlayed(true);
       }, 3000);
-      setTimeoutId(id);
+      timeoutRef.current = id;
     }
 
     return () => {
-      if (timeoutId) {
-        clearTimeout(timeoutId);
+      if (timeoutRef.current) {
+        clearTimeout(timeoutRef.current);
+        timeoutRef.current = null;
       }
     };
   }, [controls, inView, hasPlayed]);

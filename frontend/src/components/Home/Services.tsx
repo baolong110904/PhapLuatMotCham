@@ -1,5 +1,6 @@
 'use client'
 import React, { useState, useRef } from 'react'
+import Image from 'next/image'
 import { motion } from 'framer-motion'
 import {
   FileTextIcon,
@@ -20,7 +21,6 @@ export function Services() {
   const router = useRouter()
   const [isPlayingAll, setIsPlayingAll] = useState(false)
   const [isPaused, setIsPaused] = useState(false)
-    const [currentPlaylistIndex, setCurrentPlaylistIndex] = useState<number | null>(null)
   const audioRef = useRef<HTMLAudioElement | null>(null)
   const playlistIndexRef = useRef(0)
   const endedHandlerRef = useRef<(() => void) | null>(null)
@@ -74,7 +74,6 @@ export function Services() {
     if (playlistIndexRef.current >= currentPlaylist.length) {
       setIsPlayingAll(false)
       playlistIndexRef.current = 0
-      setCurrentPlaylistIndex(null)
       return
     }
 
@@ -100,7 +99,8 @@ export function Services() {
 
     const audio = new Audio(file)
     audioRef.current = audio
-    setCurrentPlaylistIndex(playlistIndexRef.current)
+  // update current playing index (kept in ref)
+  // playlistIndexRef.current is the current index
 
     const onEnded = () => {
       // advance index then attempt to play next
@@ -120,8 +120,7 @@ export function Services() {
       }
     } catch (err) {
       // If playback fails (browser policy), stop playlist and cleanup
-      setIsPlayingAll(false)
-      setCurrentPlaylistIndex(null)
+  setIsPlayingAll(false)
       try {
         if (endedHandlerRef.current && audioRef.current) audioRef.current.removeEventListener('ended', endedHandlerRef.current)
         if (pauseHandlerRef.current && audioRef.current) audioRef.current.removeEventListener('pause', pauseHandlerRef.current)
@@ -237,7 +236,7 @@ export function Services() {
               '/nhadat': '/assets/nhadat.png',
               '/dichuc': '/assets/dichuc.png',
             }
-            const imgSrc = imgMap[service.route] || '/assets/saoy.png'
+              const imgSrc = imgMap[service.route] || '/assets/saoy.png'
 
             return (
               <motion.div
@@ -248,9 +247,11 @@ export function Services() {
               >
                 {/* Image */}
                 <div className="w-full h-48 bg-gray-100 flex items-center justify-center relative">
-                  <img
+                  <Image
                     src={imgSrc}
                     alt={service.title}
+                    fill
+                    sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
                     className="w-full h-full object-cover rounded-t-2xl"
                   />
                   <button
