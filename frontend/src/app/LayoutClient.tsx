@@ -2,7 +2,7 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 "use client";
 
-import React, { useEffect } from "react";
+import React, { useEffect, useMemo } from "react";
 import { usePathname } from "next/navigation";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
@@ -14,7 +14,7 @@ export default function LayoutClient({
   children: React.ReactNode;
 }) {
   const pathname = usePathname();
-  const noLayoutRoutes = ["/quiz/cic", "/quiz/pension"];
+  const noLayoutRoutes = useMemo(() => ["/quiz/cic", "/quiz/pension"], []);
 
   useEffect(() => {
     if (typeof window === "undefined") return;

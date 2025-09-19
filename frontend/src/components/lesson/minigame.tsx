@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { useRouter } from "next/navigation";
-import Image from "next/image";
+// Image removed (not used in this component)
 import { motion, AnimatePresence } from "framer-motion";
 
 import { Header } from "@/components/lesson/header";

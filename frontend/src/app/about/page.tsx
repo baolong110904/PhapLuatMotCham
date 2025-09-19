@@ -1,7 +1,6 @@
 "use client";
 
 import Image from 'next/image';
-import { motion } from 'framer-motion';
 
 export default function AboutPage() {
   return (
@@ -20,7 +19,7 @@ export default function AboutPage() {
 
           <div className="lg:w-1/2">
             <div className="rounded-xl overflow-hidden shadow-lg">
-              <Image src="/mascot/8.mp4" alt="Hero" width={900} height={600} className="object-cover w-full h-96" />
+              <video src="/mascot/8.mp4" className="object-cover w-full h-96" controls={false} autoPlay muted loop playsInline />
             </div>
           </div>
         </div>
@@ -40,7 +39,7 @@ export default function AboutPage() {
           </div>
           <div>
             <div className="rounded-xl overflow-hidden shadow-lg">
-              <img src="/assets/nhadat.png" alt="activities" className="w-full h-80 object-cover" />
+              <Image src="/assets/nhadat.png" alt="activities" width={800} height={480} className="w-full h-80 object-cover" />
             </div>
           </div>
         </div>
@@ -50,10 +49,10 @@ export default function AboutPage() {
       <section id="gallery" className="py-20">
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
           <h3 className="text-3xl font-bold text-[#3576e5] mb-8">Hoạt động thực tế ý nghĩa</h3>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            <img src="/assets/nhadat.png" alt="g1" className="w-full h-56 object-cover rounded-xl shadow" />
-            <img src="/assets/nhadat.png" alt="g2" className="w-full h-56 object-cover rounded-xl shadow" />
-            <img src="/assets/nhadat.png" alt="g3" className="w-full h-56 object-cover rounded-xl shadow" />
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <Image src="/assets/nhadat.png" alt="g1" width={600} height={360} className="w-full h-56 object-cover rounded-xl shadow" />
+            <Image src="/assets/nhadat.png" alt="g2" width={600} height={360} className="w-full h-56 object-cover rounded-xl shadow" />
+            <Image src="/assets/nhadat.png" alt="g3" width={600} height={360} className="w-full h-56 object-cover rounded-xl shadow" />
           </div>
         </div>
       </section>

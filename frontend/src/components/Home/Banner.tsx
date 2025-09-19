@@ -9,7 +9,6 @@ import { MorphingBlob } from '../ui/MorphingBlob';
 export default function Banner() {
   // Nội dung chữ bên trái
   const title = "Tâm an - Lạc sống - Vẹn tròn tuổi già";
-  const desc = "Tâm Lạc Center là không gian chăm sóc tinh thần cho người cao tuổi với các hoạt động kết nối, sáng tạo và ý nghĩa. Chúng tôi tin rằng tuổi già cũng là thời gian để sống hạnh phúc.";
 
   const controls = useAnimation();
   const router = useRouter();

@@ -1,4 +1,5 @@
 import React from 'react';
+import Image from 'next/image';
 
 export default function Footer() {
   return (
@@ -7,11 +8,7 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
           <div>
             <div className="flex items-center mb-6">
-              <img
-                src="/logo.png"
-                alt="Tâm Lạc Center Logo"
-                className="h-12 mr-3"
-              />
+              <Image src="/logo.png" alt="Tâm Lạc Center Logo" width={48} height={48} className="h-12 mr-3" />
               <span className="text-2xl font-bold">Tâm Lạc Center</span>
             </div>
             <p className="text-gray-300 mb-4">
