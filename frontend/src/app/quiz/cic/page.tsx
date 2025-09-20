@@ -327,9 +327,21 @@
 
 "use client";
 
+import { useState } from "react";
 import Minigame from "@/components/lesson/Minigame";
+import CicIntro from "@/components/lesson/CicIntro";
 import GameData from "@/mock/minigame1.json";
 
 export default function CICPage() {
-  return <Minigame data={GameData} />;
+  const [started, setStarted] = useState(false);
+
+  if (!started) {
+    return (
+      <div className="min-h-screen flex items-center justify-center bg-white">
+        <CicIntro onStart={() => setStarted(true)} />
+      </div>
+    );
+  }
+
+  return <Minigame data={GameData} triggerUiIntro={true} />;
 }

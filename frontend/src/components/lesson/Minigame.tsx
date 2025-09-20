@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useEffect, useRef } from "react";
-import { useRouter } from "next/navigation";
+import { useRouter, useSearchParams } from "next/navigation";
 import { motion, AnimatePresence } from "framer-motion";
 
 import { Header } from "@/components/lesson/Header";
@@ -34,13 +34,17 @@ type GameData = {
   ending: string;
 };
 
-type Props = { data: GameData };
+type Props = { data: GameData; hideHeader?: boolean; triggerUiIntro?: boolean };
 
-export default function Minigame({ data }: Props) {
+export default function Minigame({ data, hideHeader = false, triggerUiIntro }: Props) {
 
   const [stage, setStage] = useState<
-    "intro" | "situation" | "questions" | "ending"
+    "intro" | "introJson" | "situation" | "questions" | "ending"
   >("intro");
+  const [cicIntroPlayed, setCicIntroPlayed] = useState(false);
+  const [uiIntroPlayed, setUiIntroPlayed] = useState(false); // cic or pension UI intro (video + bubble)
+  const searchParams = useSearchParams();
+  const skipIntro = searchParams?.get('skipIntro') === '1';
   const [situation, setSituation] = useState<string | null>(null);
   const [currentQuestion, setCurrentQuestion] = useState<number>(0);
   const [score, setScore] = useState<number>(0);
@@ -50,6 +54,21 @@ export default function Minigame({ data }: Props) {
 
   const { playCorrect, playWrong, playEnding } = useSoundEffect();
   const router = useRouter();
+
+  // When parent signals that the UI intro finished, move to JSON intro stage
+  useEffect(() => {
+    if (triggerUiIntro) {
+      setUiIntroPlayed(true);
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [triggerUiIntro]);
+
+  useEffect(() => {
+    if (uiIntroPlayed) {
+      setStage('introJson');
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [uiIntroPlayed]);
 
   function getQuestions(): GameQuestion[] {
     if (data.type === "cic") {
@@ -69,6 +88,7 @@ export default function Minigame({ data }: Props) {
 
   const handleChooseSituation = (id: string) => {
     setSituation(id);
+    // after user selects an option from the JSON intro, go to situation page if available
     if (data.situations) {
       setStage("situation");
     } else {
@@ -107,13 +127,13 @@ export default function Minigame({ data }: Props) {
 
   return (
     <div>
-      {/* Hide Header/Badge while CIC intro is active */}
-      {!(stage === "intro" && data.type === "cic") && <Header percentage={percentage} />}
-      {!(stage === "intro" && data.type === "cic") && <Badge score={score} />}
+  {/* Hide Header/Badge while CIC intro is active, or when hideHeader is set by parent */}
+  {!hideHeader && !(stage === "intro" && data.type === "cic") && <Header percentage={percentage} />}
+  {!hideHeader && !(stage === "intro" && data.type === "cic") && <Badge score={score} />}
       <div className={`flex-1 ${stage === "intro" && data.type === "cic" ? 'mt-12' : 'mt-20'} flex items-center justify-center`}>
         <div className="lg:min-h-[350px] lg:w-[750px] w-full px-6 lg:px-0 flex flex-col gap-y-12">
           <AnimatePresence mode="wait">
-            {stage === "intro" && data.type === "cic" ? (
+            {stage === "intro" && data.type === "cic" && !cicIntroPlayed && !skipIntro ? (
               <motion.div
                 key="intro-cic"
                 variants={variants}
@@ -123,44 +143,16 @@ export default function Minigame({ data }: Props) {
                 transition={{ duration: 0.3 }}
                 className="flex flex-col gap-y-6"
               >
-                <CicIntro onStart={() => setStage("questions")} />
+                <CicIntro
+                  onStart={() => {
+                    setCicIntroPlayed(true);
+                    if (data.type === "cic") setStage("questions");
+                    // pension handled by parent page — do not show pension intro here
+                  }}
+                />
               </motion.div>
             ) : null}
-
-            {stage === "intro" && data.type !== "cic" && (
-              <motion.div
-                key="intro"
-                variants={variants}
-                initial="hidden"
-                animate="enter"
-                exit="exit"
-                transition={{ duration: 0.3 }}
-                className="flex flex-col gap-y-6"
-              >
-                <p className="text-lg sm:text-2xl">{data.intro.mascot}</p>
-                {data.intro.chooseScenario && (
-                  <h1 className="text-2xl font-bold">
-                    {data.intro.chooseScenario}
-                  </h1>
-                )}
-                {data.intro.options && (
-                  <div className="flex flex-col gap-3">
-                    {data.intro.options.map((opt) => (
-                      <Button
-                        key={opt.id}
-                        onClick={() => handleChooseSituation(opt.id)}
-                      >
-                        {opt.label}
-                      </Button>
-                    ))}
-                  </div>
-                )}
-                {!data.intro.options && (
-                  <Button onClick={() => setStage("questions")}>Bắt đầu</Button>
-                )}
-              </motion.div>
-            )}
-
+            {/* For pension: if coming into Minigame directly ensure we select the first scenario and show questions immediately */}
             {stage === "situation" && situation && data.situations && (
               <motion.div
                 key="situation"
@@ -189,6 +181,32 @@ export default function Minigame({ data }: Props) {
                   <Button onClick={() => setStage("questions")}>
                     Bắt đầu trả lời
                   </Button>
+                </div>
+              </motion.div>
+            )}
+
+            {stage === "introJson" && (data.intro) && (
+              <motion.div
+                key="intro-json"
+                variants={variants}
+                initial="hidden"
+                animate="enter"
+                exit="exit"
+                transition={{ duration: 0.3 }}
+                className="flex flex-col gap-y-6"
+              >
+                <p className="text-lg sm:text-2xl">{data.intro.mascot}</p>
+                <h1 className="text-2xl font-bold">{data.intro.chooseScenario}</h1>
+                <div className="flex flex-col gap-3">
+                  {data.intro.options.map((opt) => (
+                    <button
+                      key={opt.id}
+                      onClick={() => handleChooseSituation(opt.id)}
+                      className="bg-[#f3f4f6] px-4 py-3 rounded-md text-left"
+                    >
+                      {opt.label}
+                    </button>
+                  ))}
                 </div>
               </motion.div>
             )}
