@@ -199,13 +199,12 @@ export default function Minigame({ data, hideHeader = false, triggerUiIntro }: P
                 <h1 className="text-2xl font-bold">{data.intro.chooseScenario}</h1>
                 <div className="flex flex-col gap-3">
                   {data.intro.options.map((opt) => (
-                    <button
+                    <Button
                       key={opt.id}
                       onClick={() => handleChooseSituation(opt.id)}
-                      className="bg-[#f3f4f6] px-4 py-3 rounded-md text-left"
                     >
                       {opt.label}
-                    </button>
+                    </Button>
                   ))}
                 </div>
               </motion.div>
