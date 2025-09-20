@@ -14,7 +14,7 @@ export default function LayoutClient({
   children: React.ReactNode;
 }) {
   const pathname = usePathname();
-  const noLayoutRoutes = useMemo(() => ["/quiz/cic", "/quiz/pension", "/meeting"], []);
+  const noLayoutRoutes = useMemo(() => ["/quiz/cic", "/quiz/pension", "/meeting", "/meeting/agent", "/meeting/people"], []);
 
   useEffect(() => {
     if (typeof window === "undefined") return;
