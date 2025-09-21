@@ -1,5 +1,5 @@
 'use client'
-import React, { useState, useRef } from 'react'
+import React, { useState, useRef, useEffect } from 'react'
 import Image from 'next/image'
 import { motion } from 'framer-motion'
 import {
@@ -21,10 +21,12 @@ export function Services() {
   const router = useRouter()
   const [isPlayingAll, setIsPlayingAll] = useState(false)
   const [isPaused, setIsPaused] = useState(false)
+  const [currentIndex, setCurrentIndex] = useState<number | undefined>(undefined)
   const audioRef = useRef<HTMLAudioElement | null>(null)
   const playlistIndexRef = useRef(0)
   const endedHandlerRef = useRef<(() => void) | null>(null)
   const pauseHandlerRef = useRef<(() => void) | null>(null)
+  const globalAudio = require('../../lib/globalAudio').default as typeof import('../../lib/globalAudio').default
 
   const services = [
     { icon: FileTextIcon, title: 'Sao y công chứng', description: 'Hướng dẫn trực quan các bước sao y công chứng giấy tờ quan trọng.', audio: '/assets/saoy.mp3', route: '/saoy', link: '/quiz'},
@@ -135,13 +137,18 @@ export function Services() {
   }
 
   const playAllAudio = () => {
-    playlistIndexRef.current = 0
+    const list = getPlaylist()
     setIsPlayingAll(true)
     setIsPaused(false)
-    playNextInPlaylist()
+    globalAudio.playAll(list).catch?.(() => {})
   }
 
   const togglePause = () => {
+    // delegate to globalAudio if running
+    if (isPlayingAll) {
+      globalAudio.togglePause()
+      return
+    }
     if (audioRef.current) {
       if (isPaused) {
         audioRef.current.play()
@@ -155,6 +162,17 @@ export function Services() {
 
   // cleanup on unmount
   React.useEffect(() => {
+    // subscribe to globalAudio updates
+    let unsub: (() => void) | null = null
+    try {
+      unsub = globalAudio.subscribe((s) => {
+        setIsPlayingAll(s.playing || (s.index !== undefined && (s.index as number) >= 0 && s.index < getPlaylist().length && !!getPlaylist().length && !!s.currentSrc && getPlaylist().includes(new URL(s.currentSrc!).pathname, 0)) )
+        setIsPaused(s.paused)
+        setCurrentIndex(s.index)
+      })
+    } catch (e) {
+      // ignore - fallback
+    }
     return () => {
       if (audioRef.current) {
         try {
@@ -172,6 +190,7 @@ export function Services() {
       }
       endedHandlerRef.current = null
       pauseHandlerRef.current = null
+      if (unsub) unsub()
     }
   }, [])
 
@@ -199,29 +218,6 @@ export function Services() {
           >
             Với những hướng dẫn trực quan và dễ hiểu, Tâm Lạc giúp các thủ tục pháp lý trở nên đơn giản hơn.
           </motion.p>
-          <div className="mt-6 flex justify-center">
-            {!isPlayingAll ? (
-              <motion.button
-                onClick={playAllAudio}
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-                className="cursor-pointer inline-flex items-center px-6 py-3 rounded-full shadow-lg text-lg font-semibold transition-all bg-[#0074F8] hover:bg-[#005ecb] text-white"
-              >
-                <Volume2Icon className="mr-2" size={20} />
-                Đọc toàn bộ
-              </motion.button>
-            ) : (
-              <motion.button
-                onClick={togglePause}
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-                className="inline-flex items-center px-6 py-3 rounded-full shadow-lg text-lg font-semibold transition-all bg-[#0074F8] hover:bg-[#005ecb] text-white"
-              >
-                {isPaused ? <PlayIcon className="mr-2" size={18} /> : <PauseIcon className="mr-2" size={18} />}
-                {isPaused ? 'Tiếp tục' : 'Tạm dừng'}
-              </motion.button>
-            )}
-          </div>
         </div>
 
         {/* Grid dịch vụ: image-on-top, centered caption under description */}

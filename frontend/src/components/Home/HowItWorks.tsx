@@ -1,4 +1,5 @@
 import React, { useEffect, useRef, useState } from 'react'
+import globalAudio from '../../lib/globalAudio'
 import { motion } from 'framer-motion'
 import { ImageIcon, VolumeIcon, MousePointerIcon, SmartphoneIcon } from 'lucide-react'
 import RoadTimeline from './RoadTimeline'
@@ -26,51 +27,6 @@ export function HowItWorks() {
       image: '/mascot/Mascot4.png',
     },
   ]
-
-  // images are now shown inside each FeatureBox
-
-  const audioRef = useRef<HTMLAudioElement | null>(null)
-  const [timeoutId, setTimeoutId] = useState<NodeJS.Timeout | null>(null)
-
-  useEffect(() => {
-    if (typeof window !== 'undefined') {
-      const audio = new Audio('/assets/cachthuchoatdong.mp3')
-      audioRef.current = audio
-
-      const handleScroll = () => {
-        const section = document.getElementById('how-it-works')
-        const rect = section?.getBoundingClientRect()
-        const isVisible = rect && rect.top < window.innerHeight && rect.bottom > 0
-
-        if (isVisible) {
-          if (!timeoutId) {
-            const id = setTimeout(() => {
-              audioRef.current?.play().catch((error) => console.error('Audio play failed:', error))
-            }, 5000)
-            setTimeoutId(id)
-          }
-        } else {
-          if (audioRef.current) {
-            audioRef.current.pause()
-            audioRef.current.currentTime = 0
-          }
-          if (timeoutId) {
-            clearTimeout(timeoutId)
-            setTimeoutId(null)
-          }
-        }
-      }
-
-      window.addEventListener('scroll', handleScroll)
-
-      return () => {
-        window.removeEventListener('scroll', handleScroll)
-        if (timeoutId) {
-          clearTimeout(timeoutId)
-        }
-      }
-    }
-  }, [timeoutId])
 
   return (
     <>
