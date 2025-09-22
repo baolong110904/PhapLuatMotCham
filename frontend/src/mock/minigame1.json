@@ -2,15 +2,17 @@
   "type": "cic",
   "intro": {
     "mascot": "Xin chào ông bà, cháu là Tâm Lạc Nhí – hướng dẫn viên dễ thương của trò chơi hôm nay. Chào mừng ông bà đến với trò chơi Hành trình công dân cùng chúng cháu!",
-    "chooseScenario": "Giờ mình cùng chọn tình huống cho hành trình hôm nay nha ^^",
+    "chooseScenario": "Giờ mình cùng cháu tình huống cho hành trình hôm nay nha",
     "options": [
       {
         "label": "A. Thẻ cũ đã hết hạn",
-        "id": "expired"
+        "id": "expired",
+        "video": "/mascot/3.mp4"
       },
       {
         "label": "B. Thẻ chẳng may thất lạc mất rồi",
-        "id": "lost"
+        "id": "lost",
+        "video": "/mascot/2.mp4"
       }
     ]
   },

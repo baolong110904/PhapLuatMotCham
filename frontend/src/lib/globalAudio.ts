@@ -90,10 +90,12 @@ class GlobalAudio {
 
   togglePause() {
     if (!this.audio) return
-    if (this.audio.paused) {
-      this.audio.play().catch(e => console.error(e)); this.paused = false
+    if (this.paused) {
+      this.audio.play().catch(e => console.error(e))
+      this.paused = false
     } else {
-      this.audio.pause(); this.paused = true
+      this.audio.pause()
+      this.paused = true
     }
     this.emit()
   }

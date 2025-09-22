@@ -1,6 +1,7 @@
 import React, { useEffect, useRef, useState, useLayoutEffect } from 'react'
 import { motion } from 'framer-motion'
 import FeatureBox, { FeatureStep } from './FeatureBox'
+import Image from 'next/image'
 
 export default function RoadTimeline({ steps, onSelect }: { steps: FeatureStep[]; onSelect?: (i: number) => void }) {
   const roadVariants = {
@@ -33,7 +34,7 @@ export default function RoadTimeline({ steps, onSelect }: { steps: FeatureStep[]
         })
 
         setPoints(pts)
-      } catch (e) {
+      } catch {
         // fallback: keep original hard-coded approximate points
         setPoints([{ x: 250, y: 155 }, { x: 330, y: 580 }, { x: 850, y: 600 }, { x: 920, y: 170 }])
       }
@@ -114,7 +115,7 @@ export default function RoadTimeline({ steps, onSelect }: { steps: FeatureStep[]
         const pt = path.getPointAtLength((i / sampleCount) * total)
         samples.push({ x: pt.x * scaleX, y: pt.y * scaleY })
       }
-    } catch (e) {
+    } catch {
       // fallback empty
     }
 
@@ -298,7 +299,14 @@ export default function RoadTimeline({ steps, onSelect }: { steps: FeatureStep[]
               transition={{ delay: 0.4 + i * 0.15, duration: 0.6 }}
             >
               <div className="flex flex-col items-center">
-                <img src={steps[i].image} alt={steps[i].title} className="object-cover rounded-full" style={{ width: Math.round((boxWState ?? 300) * 0.8), height: Math.round((boxWState ?? 300) * 0.8) }} />
+                <div className="relative rounded-full overflow-hidden" style={{ width: Math.round((boxWState ?? 300) * 0.8), height: Math.round((boxWState ?? 300) * 0.8) }}>
+                  <Image 
+                    src={steps[i].image} 
+                    alt={steps[i].title} 
+                    fill
+                    className="object-cover" 
+                  />
+                </div>
                 <FeatureBox step={steps[i]} index={i} onHover={() => onSelect?.(i)} />
               </div>
             </motion.div>
@@ -326,7 +334,14 @@ export default function RoadTimeline({ steps, onSelect }: { steps: FeatureStep[]
             <motion.div className="w-9 h-9 bg-primary-500 rounded-full absolute left-1/2 transform -translate-x-1/2 -translate-y-1/2" initial={{ scale: 0 }} whileInView={{ scale: 1 }} viewport={{ once: true }} transition={{ stiffness: 260, damping: 22, delay: 0.15 + index * 0.05 }} />
             <motion.div className={`w-full`} initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: 0.25 + index * 0.05, duration: 0.5 }}>
               <div className="flex flex-col items-center bg-transparent px-2">
-                <img src={step.image} alt={step.title} className="w-56 h-56 md:w-44 md:h-44 lg:w-44 lg:h-44 object-cover rounded-full mb-2" />
+                <div className="relative w-56 h-56 md:w-44 md:h-44 lg:w-44 lg:h-44 mb-2 rounded-full overflow-hidden">
+                  <Image 
+                    src={step.image} 
+                    alt={step.title} 
+                    fill
+                    className="object-cover" 
+                  />
+                </div>
                 <div className="w-full px-4">
                   <FeatureBox step={step} index={index} onHover={() => onSelect?.(index)} />
                 </div>

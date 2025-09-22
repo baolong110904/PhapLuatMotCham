@@ -1,5 +1,4 @@
-import React, { useEffect, useRef, useState } from 'react'
-import globalAudio from '../../lib/globalAudio'
+import React from 'react'
 import { motion } from 'framer-motion'
 import { ImageIcon, VolumeIcon, MousePointerIcon, SmartphoneIcon } from 'lucide-react'
 import RoadTimeline from './RoadTimeline'

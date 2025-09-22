@@ -15,7 +15,7 @@ import CicIntro from "./CicIntro";
 type GameIntro = {
   mascot: string;
   chooseScenario: string;
-  options: { label: string; id: string }[];
+  options: { label: string; id: string; video?: string }[];
 };
 
 type GameQuestion = {

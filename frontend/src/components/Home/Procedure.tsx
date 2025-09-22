@@ -156,13 +156,13 @@ export default function Procedure() {
 								title: titleData.translatedText || item.title,
 								description: descData.translatedText || item.description,
 							};
-						} catch (e) {
+						} catch {
 							return item;
 						}
 					})
 				);
 				if (!cancelled) setItems(results as ProcedureType[]);
-			} catch (e) {
+			} catch {
 				if (!cancelled) setItems(procedures);
 			}
 		})();

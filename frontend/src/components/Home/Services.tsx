@@ -1,5 +1,5 @@
 'use client'
-import React, { useState, useRef, useEffect } from 'react'
+import React, { useState, useRef } from 'react'
 import Image from 'next/image'
 import { motion } from 'framer-motion'
 import {
@@ -10,9 +10,8 @@ import {
   HomeIcon,
   HeartHandshakeIcon,
   Volume2Icon,
-  PauseIcon,
-  PlayIcon,
 } from 'lucide-react'
+import globalAudio from '../../lib/globalAudio'
 import { useRouter } from 'next/navigation'
 import { AnimatedBackground } from '../ui/AnimatedBackground'
 import { MorphingBlob } from '../ui/MorphingBlob'
@@ -20,13 +19,11 @@ import { MorphingBlob } from '../ui/MorphingBlob'
 export function Services() {
   const router = useRouter()
   const [isPlayingAll, setIsPlayingAll] = useState(false)
-  const [isPaused, setIsPaused] = useState(false)
-  const [currentIndex, setCurrentIndex] = useState<number | undefined>(undefined)
+  const [, setIsPaused] = useState(false)
   const audioRef = useRef<HTMLAudioElement | null>(null)
   const playlistIndexRef = useRef(0)
   const endedHandlerRef = useRef<(() => void) | null>(null)
   const pauseHandlerRef = useRef<(() => void) | null>(null)
-  const globalAudio = require('../../lib/globalAudio').default as typeof import('../../lib/globalAudio').default
 
   const services = [
     { icon: FileTextIcon, title: 'Sao y công chứng', description: 'Hướng dẫn trực quan các bước sao y công chứng giấy tờ quan trọng.', audio: '/assets/saoy.mp3', route: '/saoy', link: '/quiz'},
@@ -60,8 +57,8 @@ export function Services() {
         }
         audioRef.current.pause()
         audioRef.current.currentTime = 0
-      } catch (err) {
-        // ignore
+      } catch {
+        // ignore - audio cleanup errors are not critical
       }
     }
 
@@ -71,7 +68,7 @@ export function Services() {
     audio.play()
   }
 
-  const playNextInPlaylist = async () => {
+  async function playNextInPlaylist() {
     const currentPlaylist = getPlaylist()
     if (playlistIndexRef.current >= currentPlaylist.length) {
       setIsPlayingAll(false)
@@ -92,8 +89,8 @@ export function Services() {
         }
         audioRef.current.pause()
         audioRef.current.currentTime = 0
-      } catch (err) {
-        // ignore
+      } catch {
+        // ignore - audio cleanup errors are not critical
       }
       endedHandlerRef.current = null
       pauseHandlerRef.current = null
@@ -120,7 +117,7 @@ export function Services() {
       if (playResult && typeof playResult.then === 'function') {
         await playResult
       }
-    } catch (err) {
+    } catch {
       // If playback fails (browser policy), stop playlist and cleanup
   setIsPlayingAll(false)
       try {
@@ -130,35 +127,13 @@ export function Services() {
           audioRef.current.pause()
           audioRef.current.currentTime = 0
         }
-      } catch (e) {
+      } catch {
         // ignore
       }
     }
   }
 
-  const playAllAudio = () => {
-    const list = getPlaylist()
-    setIsPlayingAll(true)
-    setIsPaused(false)
-    globalAudio.playAll(list).catch?.(() => {})
-  }
-
-  const togglePause = () => {
-    // delegate to globalAudio if running
-    if (isPlayingAll) {
-      globalAudio.togglePause()
-      return
-    }
-    if (audioRef.current) {
-      if (isPaused) {
-        audioRef.current.play()
-        setIsPaused(false)
-      } else {
-        audioRef.current.pause()
-        setIsPaused(true)
-      }
-    }
-  }
+  // Removed unused functions playAllAudio and togglePause
 
   // cleanup on unmount
   React.useEffect(() => {
@@ -168,9 +143,11 @@ export function Services() {
       unsub = globalAudio.subscribe((s) => {
         setIsPlayingAll(s.playing || (s.index !== undefined && (s.index as number) >= 0 && s.index < getPlaylist().length && !!getPlaylist().length && !!s.currentSrc && getPlaylist().includes(new URL(s.currentSrc!).pathname, 0)) )
         setIsPaused(s.paused)
-        setCurrentIndex(s.index)
+        if (typeof s.index === 'number') {
+            playlistIndexRef.current = s.index
+        }
       })
-    } catch (e) {
+    } catch {
       // ignore - fallback
     }
     return () => {
@@ -184,7 +161,7 @@ export function Services() {
           }
           audioRef.current.pause()
           audioRef.current.currentTime = 0
-        } catch (err) {
+        } catch {
           // ignore
         }
       }
@@ -192,6 +169,8 @@ export function Services() {
       pauseHandlerRef.current = null
       if (unsub) unsub()
     }
+  // This is a singleton service, no need to include in deps
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
   return (

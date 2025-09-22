@@ -47,7 +47,7 @@ s0.parentNode.insertBefore(s1,s0);
       <>
         {children}
         <ExitModal />
-        {/* <AudioWidget /> */}
+        <AudioWidget />
       </>
     );
   }
