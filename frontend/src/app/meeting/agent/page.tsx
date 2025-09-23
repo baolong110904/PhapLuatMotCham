@@ -1,19 +1,25 @@
 "use client";
 
 import React, { useState, useEffect } from "react";
-import { motion } from "framer-motion";
 import { Mic, MicOff } from "lucide-react";
+
+declare global {
+  interface Window {
+    webkitSpeechRecognition: any;
+  }
+}
+
+type SpeechRecognition = any;
 
 export default function MascotPage() {
   const [isListening, setIsListening] = useState(false);
   const [isTalking, setIsTalking] = useState(false);
   const [recognition, setRecognition] = useState<SpeechRecognition | null>(null);
 
-  // Setup speech recognition
   useEffect(() => {
     if ("webkitSpeechRecognition" in window) {
       const recog = new (window as any).webkitSpeechRecognition();
-      recog.lang = "vi-VN"; // Vietnamese, change if needed
+      recog.lang = "vi-VN";
       recog.continuous = false;
       recog.interimResults = false;
 
@@ -31,7 +37,7 @@ export default function MascotPage() {
 
         console.log("Agent reply:", reply.answer);
 
-        // Play TTS
+        // TTS
         const utterance = new SpeechSynthesisUtterance(reply.answer);
         utterance.lang = "vi-VN";
         utterance.onstart = () => setIsTalking(true);
@@ -57,24 +63,23 @@ export default function MascotPage() {
 
   return (
     <div className="flex flex-col items-center justify-center min-h-screen bg-gradient-to-br from-[#3576e5] via-blue-300 to-blue-50 p-6">
-      {/* Mascot */}
-      <motion.div
-        animate={
-          isTalking
-            ? { scale: [1, 1.1, 1], y: [0, -10, 0] } // talking
-            : { y: [0, -5, 0] } // idle
-        }
-        transition={{ repeat: Infinity, duration: isTalking ? 0.6 : 2 }}
-        className="w-48 h-48 rounded-full bg-yellow-300 shadow-lg flex items-center justify-center"
-      >
-        🐻 {/* placeholder mascot (teddy bear emoji). Replace with image/gif */}
-      </motion.div>
+      {/* Mascot GIF */}
+      <div className="w-128 h-128 flex items-center justify-center rounded-full bg-yellow-200 shadow-lg overflow-hidden">
+        <img
+          src={isTalking ? "/assets/mascot_speaking.gif" : "/assets/mascot_idle.gif"}
+          alt="Mascot"
+          className="max-w-full max-h-full object-contain"
+          draggable={false}
+        />
+      </div>
 
       {/* Button */}
       <button
         onClick={toggleMic}
-        className={`mt-10 flex items-center gap-3 px-6 py-3 rounded-full text-lg font-bold text-white shadow-md transition ${
-          isListening ? "bg-red-500 hover:bg-red-600" : "bg-indigo-500 hover:bg-indigo-600"
+        className={`mt-10 flex items-center gap-3 px-6 py-3 rounded-full text-lg font-bold text-white shadow-md transition-all cursor-pointer ${
+          isListening
+            ? "bg-red-500 hover:bg-red-600"
+            : "bg-indigo-500 hover:bg-indigo-600"
         }`}
       >
         {isListening ? <MicOff /> : <Mic />}
