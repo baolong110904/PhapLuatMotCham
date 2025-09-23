@@ -1,0 +1,28 @@
+{
+  "compilerOptions": {
+    "outDir": "./dist",
+    "rootDir": "./src",
+
+    // Module settings
+    "module": "commonjs",
+    "target": "es2020",
+    "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true,
+
+    // Types
+    "types": ["node"],
+
+    // Output
+    "sourceMap": true,
+    "declaration": true,
+    "declarationMap": true,
+
+    // Strictness
+    "strict": true,
+    "skipLibCheck": true,
+    "noUncheckedIndexedAccess": true,
+    "exactOptionalPropertyTypes": true
+  },
+  "include": ["src"],
+  "exclude": ["node_modules", "dist"]
+}
