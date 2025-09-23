@@ -17,7 +17,7 @@ export default function CicIntro({ onStart }: Props) {
       const audio = new Audio('/minigame/xinchao.mp3');
       audioRef.current = audio;
       audio.play().catch(() => {});
-    } catch (err) {
+    } catch {
       // ignore
     }
 
@@ -28,7 +28,7 @@ export default function CicIntro({ onStart }: Props) {
     // lower video volume when available
     try {
       if (videoRef.current) videoRef.current.volume = 0.15;
-    } catch (e) {}
+  } catch {}
 
     return () => {
       timersRef.current.forEach((id) => clearTimeout(id));
@@ -37,7 +37,7 @@ export default function CicIntro({ onStart }: Props) {
         try {
           audioRef.current.pause();
           audioRef.current.currentTime = 0;
-        } catch (e) {}
+  } catch {}
         audioRef.current = null;
       }
     };

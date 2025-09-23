@@ -3,13 +3,31 @@
 import React, { useState, useEffect } from "react";
 import { Mic, MicOff } from "lucide-react";
 
-declare global {
-  interface Window {
-    webkitSpeechRecognition: any;
-  }
+// Add type declarations for Web Speech API
+interface SpeechRecognitionEvent extends Event {
+  results: SpeechRecognitionResultList;
+  resultIndex: number;
 }
 
-type SpeechRecognition = any;
+interface SpeechRecognition extends EventTarget {
+  continuous: boolean;
+  interimResults: boolean;
+  lang: string;
+  start: () => void;
+  stop: () => void;
+  abort: () => void;
+  onerror: (event: Event) => void;
+  onend: (event: Event) => void;
+  onresult: (event: SpeechRecognitionEvent) => void;
+  onstart: (event: Event) => void;
+}
+
+declare global {
+  interface Window {
+    SpeechRecognition: new () => SpeechRecognition;
+    webkitSpeechRecognition: new () => SpeechRecognition;
+  }
+}
 
 export default function MascotPage() {
   const [isListening, setIsListening] = useState(false);

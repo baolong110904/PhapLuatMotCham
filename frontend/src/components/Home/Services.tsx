@@ -10,9 +10,8 @@ import {
   HomeIcon,
   HeartHandshakeIcon,
   Volume2Icon,
-  PauseIcon,
-  PlayIcon,
 } from 'lucide-react'
+import globalAudio from '../../lib/globalAudio'
 import { useRouter } from 'next/navigation'
 import { AnimatedBackground } from '../ui/AnimatedBackground'
 import { MorphingBlob } from '../ui/MorphingBlob'
@@ -20,7 +19,7 @@ import { MorphingBlob } from '../ui/MorphingBlob'
 export function Services() {
   const router = useRouter()
   const [isPlayingAll, setIsPlayingAll] = useState(false)
-  const [isPaused, setIsPaused] = useState(false)
+  const [, setIsPaused] = useState(false)
   const audioRef = useRef<HTMLAudioElement | null>(null)
   const playlistIndexRef = useRef(0)
   const endedHandlerRef = useRef<(() => void) | null>(null)
@@ -58,8 +57,8 @@ export function Services() {
         }
         audioRef.current.pause()
         audioRef.current.currentTime = 0
-      } catch (err) {
-        // ignore
+      } catch {
+        // ignore - audio cleanup errors are not critical
       }
     }
 
@@ -69,7 +68,7 @@ export function Services() {
     audio.play()
   }
 
-  const playNextInPlaylist = async () => {
+  async function playNextInPlaylist() {
     const currentPlaylist = getPlaylist()
     if (playlistIndexRef.current >= currentPlaylist.length) {
       setIsPlayingAll(false)
@@ -90,8 +89,8 @@ export function Services() {
         }
         audioRef.current.pause()
         audioRef.current.currentTime = 0
-      } catch (err) {
-        // ignore
+      } catch {
+        // ignore - audio cleanup errors are not critical
       }
       endedHandlerRef.current = null
       pauseHandlerRef.current = null
@@ -118,7 +117,7 @@ export function Services() {
       if (playResult && typeof playResult.then === 'function') {
         await playResult
       }
-    } catch (err) {
+    } catch {
       // If playback fails (browser policy), stop playlist and cleanup
   setIsPlayingAll(false)
       try {
@@ -128,33 +127,29 @@ export function Services() {
           audioRef.current.pause()
           audioRef.current.currentTime = 0
         }
-      } catch (e) {
+      } catch {
         // ignore
       }
     }
   }
 
-  const playAllAudio = () => {
-    playlistIndexRef.current = 0
-    setIsPlayingAll(true)
-    setIsPaused(false)
-    playNextInPlaylist()
-  }
-
-  const togglePause = () => {
-    if (audioRef.current) {
-      if (isPaused) {
-        audioRef.current.play()
-        setIsPaused(false)
-      } else {
-        audioRef.current.pause()
-        setIsPaused(true)
-      }
-    }
-  }
+  // Removed unused functions playAllAudio and togglePause
 
   // cleanup on unmount
   React.useEffect(() => {
+    // subscribe to globalAudio updates
+    let unsub: (() => void) | null = null
+    try {
+      unsub = globalAudio.subscribe((s) => {
+        setIsPlayingAll(s.playing || (s.index !== undefined && (s.index as number) >= 0 && s.index < getPlaylist().length && !!getPlaylist().length && !!s.currentSrc && getPlaylist().includes(new URL(s.currentSrc!).pathname, 0)) )
+        setIsPaused(s.paused)
+        if (typeof s.index === 'number') {
+            playlistIndexRef.current = s.index
+        }
+      })
+    } catch {
+      // ignore - fallback
+    }
     return () => {
       if (audioRef.current) {
         try {
@@ -166,13 +161,16 @@ export function Services() {
           }
           audioRef.current.pause()
           audioRef.current.currentTime = 0
-        } catch (err) {
+        } catch {
           // ignore
         }
       }
       endedHandlerRef.current = null
       pauseHandlerRef.current = null
+      if (unsub) unsub()
     }
+  // This is a singleton service, no need to include in deps
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
   return (
@@ -199,29 +197,6 @@ export function Services() {
           >
             Với những hướng dẫn trực quan và dễ hiểu, Tâm Lạc giúp các thủ tục pháp lý trở nên đơn giản hơn.
           </motion.p>
-          <div className="mt-6 flex justify-center">
-            {!isPlayingAll ? (
-              <motion.button
-                onClick={playAllAudio}
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-                className="cursor-pointer inline-flex items-center px-6 py-3 rounded-full shadow-lg text-lg font-semibold transition-all bg-[#0074F8] hover:bg-[#005ecb] text-white"
-              >
-                <Volume2Icon className="mr-2" size={20} />
-                Đọc toàn bộ
-              </motion.button>
-            ) : (
-              <motion.button
-                onClick={togglePause}
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-                className="inline-flex items-center px-6 py-3 rounded-full shadow-lg text-lg font-semibold transition-all bg-[#0074F8] hover:bg-[#005ecb] text-white"
-              >
-                {isPaused ? <PlayIcon className="mr-2" size={18} /> : <PauseIcon className="mr-2" size={18} />}
-                {isPaused ? 'Tiếp tục' : 'Tạm dừng'}
-              </motion.button>
-            )}
-          </div>
         </div>
 
         {/* Grid dịch vụ: image-on-top, centered caption under description */}

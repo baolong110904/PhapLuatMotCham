@@ -101,18 +101,18 @@ export default function Banner() {
         >
           <motion.div variants={itemVariants} className="w-full md:w-1/2 p-6">
             <motion.h1
-              className="text-4xl md:text-5xl font-extrabold text-[#3576e5] mb-4 drop-shadow"
+              className="text-4xl md:text-5xl font-extrabold text-[#3576e5] mb-8 drop-shadow"
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6 }}
             >
               {title}
             </motion.h1>
-            <motion.div variants={itemVariants} className="text-[#222] text-lg sm:text-2xl font-medium mb-8 max-w-xl drop-shadow-lg">
+            <motion.div variants={itemVariants} className="text-[#222] text-base sm:text-xl font-medium mb-10 max-w-xl drop-shadow-lg" style={{ wordSpacing: '0.25rem', lineHeight: 1.7 }}>
               <p>
-                Tâm Lạc Center là không gian chăm sóc tinh thần cho người cao tuổi với các hoạt động kết nối, sáng tạo và ý nghĩa.
+                Tâm Lạc Center là không gian <span className="whitespace-nowrap">chăm sóc tinh thần</span> cho người cao tuổi với các hoạt động <span className="whitespace-nowrap">kết nối</span>, sáng tạo và ý nghĩa.
               </p>
-              <p className="mt-2">Chúng tôi tin rằng tuổi già cũng là thời gian để sống hạnh phúc.</p>
+              <p className="mt-4">Chúng tôi tin rằng tuổi già cũng là thời gian để sống hạnh phúc!</p>
             </motion.div>
             <motion.button
               variants={itemVariants}

@@ -4,26 +4,27 @@ import { useEffect, useRef, useState } from 'react';
 import { useRouter } from 'next/navigation';
 import { FaBrain, FaHeartbeat, FaUsers } from 'react-icons/fa';
 import { motion, useAnimation, easeOut } from 'framer-motion';
+import globalAudio from '../../lib/globalAudio'
 import { useInView } from 'react-intersection-observer';
 
 const coreValueTitle = "// GIÁ TRỊ CỐT LÕI";
 const coreValueDesc = "Tại Tâm Lạc, chúng tôi không chỉ đồng hành chăm sóc, mà còn sẻ chia niềm vui và tạo nên những khoảnh khắc ý nghĩa mỗi ngày.";
 const valueItems = [
-    {
-        icon: <FaBrain size={40} className="text-white mb-4" />,
-        title: "Dưỡng Tâm Trí",
-        desc: "Trị liệu nghệ thuật, ghi nhật ký cảm xúc, trò chuyện nhóm nhỏ để giảm stress, tăng lạc quan.",
-    },
-    {
-        icon: <FaHeartbeat size={40} className="text-white mb-4" />,
-        title: "Chăm Sóc Thân Thể",
-        desc: "Vận động phù hợp, giãn cơ - dưỡng sinh, thiền thả lỏng để ngủ sâu và ăn ngon hơn.",
-    },
-    {
-        icon: <FaUsers size={40} className="text-white mb-4" />,
-        title: "Kết Nối Cộng Đồng",
-        desc: "Gặp gỡ những người đồng trang lứa, giao lưu đa thế hệ, cùng làm - cùng chia sẻ - cùng cho đi.",
-    },
+  {
+    icon: <FaBrain size={40} className="text-white mb-4" />,
+    title: "Dưỡng Tâm Trí",
+  desc: "Trị liệu nghệ thuật, ghi nhật ký cảm\u00A0xúc, trò chuyện nhóm nhỏ để giảm\u00A0stress, tăng lạc quan.",
+  },
+  {
+    icon: <FaHeartbeat size={40} className="text-white mb-4" />,
+    title: "Chăm Sóc Thân Thể",
+  desc: "Vận động phù hợp, giãn cơ - dưỡng\u00A0sinh, thiền thả lỏng để ngủ sâu và ăn ngon hơn.",
+  },
+  {
+    icon: <FaUsers size={40} className="text-white mb-4" />,
+    title: "Kết Nối Cộng Đồng",
+  desc: "Gặp gỡ những người đồng trang lứa, giao lưu đa thế hệ, cùng làm - cùng\u00A0chia\u00A0sẻ - cùng cho đi.",
+  },
 ];
 
 const containerVariants = {
@@ -56,27 +57,33 @@ export default function CoreValues() {
     threshold: 0.2,
   });
   const audioRef = useRef<HTMLDivElement>(null);
-  const [hasPlayed, setHasPlayed] = useState(false);
-  const timeoutRef = useRef<NodeJS.Timeout | null>(null);
+  const [isPlayingAll, setIsPlayingAll] = useState(false)
+  const [isPausedAll, setIsPausedAll] = useState(false)
 
   useEffect(() => {
-    if (inView && !hasPlayed) {
-      controls.start("visible");
-      const id = setTimeout(() => {
-        const audio = new Audio('/audio1.mp3');
-        audio.play().catch(error => console.error("Audio play failed:", error));
-        setHasPlayed(true);
-      }, 3000);
-      timeoutRef.current = id;
-    }
+    const unsub = globalAudio.subscribe((s) => {
+      setIsPlayingAll(!!s.playing)
+      setIsPausedAll(!!s.paused)
+    })
+    return () => unsub()
+  }, [])
 
-    return () => {
-      if (timeoutRef.current) {
-        clearTimeout(timeoutRef.current);
-        timeoutRef.current = null;
-      }
-    };
-  }, [controls, inView, hasPlayed]);
+  useEffect(() => {
+    if (inView) {
+      controls.start("visible");
+    }
+  }, [controls, inView]);
+
+  const readAll = () => {
+    // Combined playlist: CoreValues audio1, Services playlist, HowItWorks audio
+    const servicesList = ['/assets/dichvuhotro.mp3', '/assets/saoy.mp3', '/assets/cccd.mp3', '/assets/luonghuu.mp3', '/assets/xacnhancutru.mp3', '/assets/nhadat.mp3', '/assets/dichuc.mp3']
+    const list = ['/audio1.mp3', ...servicesList, '/assets/cachthuchoatdong.mp3']
+    globalAudio.playAll(list).catch?.(() => {})
+  }
+
+  const togglePauseAll = () => {
+    globalAudio.togglePause()
+  }
 
   return (
     <div ref={audioRef} className="relative z-20 w-full">
@@ -92,7 +99,8 @@ export default function CoreValues() {
             className="max-w-6xl mx-auto"
           >
             <motion.div variants={itemVariants} className="text-white text-lg font-semibold mb-4 tracking-wider">{coreValueTitle}</motion.div>
-            <motion.div variants={itemVariants} className="text-white text-4xl font-extrabold mb-12 max-w-4xl mx-auto" style={{ textShadow: '0 2px 8px rgba(0,0,0,0.15)' }}>{coreValueDesc}</motion.div>
+            <motion.div variants={itemVariants} className="text-white text-4xl font-extrabold mb-6 max-w-4xl mx-auto" style={{ textShadow: '0 2px 8px rgba(0,0,0,0.15)', wordSpacing: '0.15rem', lineHeight: 1.4 }}>{coreValueDesc}</motion.div>
+            {/* Read-all is handled by the persistent AudioWidget */}
             <div
               className="flex flex-col md:flex-row justify-center items-start gap-12 md:gap-16 w-full"
             >

@@ -1,16 +1,18 @@
 {
   "type": "cic",
   "intro": {
-    "mascot": "Xin chào ông bà, cháu là Tâm Lạc Nhí – hướng dẫn viên dễ thương của trò chơi hôm nay. Chào mừng ông bà đến với trò chơi Hành trình công dân cùng chúng cháu!",
-    "chooseScenario": "Giờ mình cùng chọn tình huống cho hành trình hôm nay nha ^^",
+    "mascot": "Xin chào Cô/Chú, cháu là Tâm Lạc Nhí – hướng dẫn viên dễ thương của trò chơi hôm nay. Chào mừng ông bà đến với trò chơi Hành trình công dân cùng chúng cháu!",
+    "chooseScenario": "Giờ Cô/Chú cùng cháu tình huống cho hành trình hôm nay nha!",
     "options": [
       {
         "label": "A. Thẻ cũ đã hết hạn",
-        "id": "expired"
+        "id": "expired",
+        "video": "/mascot/3.mp4"
       },
       {
         "label": "B. Thẻ chẳng may thất lạc mất rồi",
-        "id": "lost"
+        "id": "lost",
+        "video": "/mascot/2.mp4"
       }
     ]
   },
@@ -29,6 +31,7 @@
       "id": 1,
       "question": "Đi làm thẻ, cô/chú cần chuẩn bị gì nè?",
       "img": [],
+      "video": "/mascot/5.mp4",
       "options": [
         {
           "label": "A. Mang thật nhiều giấy tờ: hộ khẩu, giấy khai sinh, giấy kết hôn…",
@@ -52,6 +55,7 @@
       "id": 2,
       "question": "Vậy đi làm thẻ căn cước thì tới đâu?",
       "img": [],
+      "video": "/mascot/5.png",
       "options": [
         {
           "label": "A. Tòa án nhân dân",
@@ -76,6 +80,7 @@
       "id": 3,
       "question": "Đến công an rồi, cô chú sẽ làm gì?",
       "img": [],
+      "video": "/mascot/6.png",
       "options": [
         {
           "label": "A. Khai thông tin, công an in phiếu, chụp ảnh, lăn tay, quét mống mắt, ký xác nhận",
@@ -99,6 +104,7 @@
       "id": 4,
       "question": "Sau khi ký xác nhận xong, bước kế tiếp là gì?",
       "img": [],
+      "video": "/mascot/7.png",
       "options": [
         {
           "label": "A. Nộp lại thẻ cũ (nếu có), đóng lệ phí, nhận giấy hẹn",
@@ -122,6 +128,7 @@
       "id": 5,
       "question": "Ở thành phố, thị xã, nếu làm cấp mới hoặc đổi thẻ căn cước thì tối đa bao nhiêu ngày có kết quả?",
       "img": [],
+      "video": "/mascot/8.png",
       "options": [
         {
           "label": "A. Không quá 07 ngày làm việc (cấp mới/đổi), 15 ngày (cấp lại)",
@@ -145,14 +152,15 @@
       "id": 6,
       "question": "Đầu tiên, để khai báo đổi/cấp lại thẻ căn cước, cô chú cần truy cập trang web nào?",
       "img": [],
+      "video": "/mascot/9.png",
       "options": [
         {
           "label": "A. Trang Cổng dịch vụ công Bộ Công an.",
-          "correct": false
+          "correct": true
         },
         {
           "label": "B. Trang web Bảo hiểm xã hội Việt Nam.",
-          "correct": true
+          "correct": false
         },
         {
           "label": "C. Trang web Cục Thuế.",
@@ -168,6 +176,7 @@
       "id": 7,
       "question": "Khi đăng nhập, ông bà cần dùng loại tài khoản nào?",
       "img": [],
+      "video": "/mascot/10.png",
       "options": [
         {
           "label": "A. Tài khoản mạng xã hội",

@@ -7,6 +7,7 @@ import { usePathname } from "next/navigation";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { ExitModal } from "@/components/lesson/exit-modal";
+import AudioWidget from '@/components/AudioWidget'
 
 export default function LayoutClient({
   children,
@@ -46,6 +47,7 @@ s0.parentNode.insertBefore(s1,s0);
       <>
         {children}
         <ExitModal />
+        <AudioWidget />
       </>
     );
   }
@@ -55,6 +57,7 @@ s0.parentNode.insertBefore(s1,s0);
       <Header />
       {children}
       <Footer />
+      <AudioWidget />
     </>
   );
 }

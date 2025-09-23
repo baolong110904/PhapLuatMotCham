@@ -1,5 +1,4 @@
 "use client";
-/* eslint-disable @typescript-eslint/no-explicit-any */
 
 import { motion, Variants } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
@@ -14,7 +13,7 @@ export function SectionTransition({ children, className }: { children: React.Rea
   const [ref, inView] = useInView({ triggerOnce: true, threshold: 0.15 });
 
   return (
-    <motion.section ref={ref as any} variants={variants} initial="hidden" animate={inView ? 'visible' : 'hidden'} className={className}>
+    <motion.section ref={ref as unknown as React.RefObject<HTMLElement>} variants={variants} initial="hidden" animate={inView ? 'visible' : 'hidden'} className={className}>
       {children}
     </motion.section>
   );
