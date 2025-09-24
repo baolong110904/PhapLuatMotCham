@@ -213,7 +213,7 @@
         "id": 4,
         "question": "Câu 4: Trong VssID, ông/bà vào mục nào để đổi hình thức nhận lương hưu?",
         "img": [],
-        "video": "/mascot/23.png",
+        "video": "/mascot/23.jpg",
         "options": [
           { "label": "A. Dịch vụ công", "correct": true },
           { "label": "B. Tra cứu quá trình tham gia", "correct": false },
