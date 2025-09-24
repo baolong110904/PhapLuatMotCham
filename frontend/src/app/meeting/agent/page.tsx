@@ -7,22 +7,23 @@ export default function MascotPage() {
   const [isActive, setIsActive] = useState(false);
   const [isTalking, setIsTalking] = useState(false);
 
-  // Your 3 audio files
   const audios = [
     "/assets/greet.mp3",
-    "/assets/sing.mp3",
     "/assets/pension_cic.mp3",
+    "/assets/pension_cic_2.mp3",
+    "/assets/pension_cic_3.mp3",
+
   ];
   const speakingMascots = [
     "/assets/mascot_speakings.gif",
-    "/assets/mascot_speakings_2.gif"
-  ]
+    "/assets/mascot_speakings_2.gif",
+    "/assets/mascot_speakings_3.gif",
+  ];
 
   const handleClick = () => {
     if (isTalking) return;
 
     if (!isActive) {
-      // When user clicks button → activate (change appearance)
       setIsActive(true);
     } else {
       setIsActive(false);
@@ -38,26 +39,38 @@ export default function MascotPage() {
   };
 
   return (
-    <div className="flex flex-col items-center justify-center min-h-screen bg-gradient-to-br from-[#3576e5] via-blue-300 to-blue-50 p-6">
-      {/* Mascot GIF */}
-      <div className="w-128 h-128 flex items-center justify-center rounded-full bg-yellow-200 shadow-lg overflow-hidden">
+    <div
+      className="flex flex-col items-center justify-center min-h-screen p-6 bg-cover bg-center bg-no-repeat"
+      style={{
+        backgroundImage: "url('/assets/bg_mascot.svg')", // ← your background image
+      }}
+    >
+      {/* Liquid Glass Circle */}
+      <div className="lg:w-128 lg:h-128 md:h-100 md:w-100 sm:h-80 sm:w-80 h-64 w-64 flex items-center justify-center rounded-full shadow-2xl relative backdrop-blur-xs bg-white/20 border border-white/30">
         <img
           src={
             isTalking
-              ? speakingMascots[Math.floor(Math.random() * speakingMascots.length)]
+              ? speakingMascots[
+                  Math.floor(Math.random() * speakingMascots.length)
+                ]
               : "/assets/mascot_idle.gif"
           }
           alt="Mascot"
-          className="max-w-full max-h-full object-contain"
+          className="max-w-full max-h-full object-contain select-none"
           draggable={false}
         />
+
+        {/* Extra glass shine effect */}
+        <div className="absolute inset-0 rounded-full bg-gradient-to-br from-white/30 to-transparent pointer-events-none" />
       </div>
 
       {/* Button */}
       <button
         onClick={handleClick}
-        className={`mt-10 flex items-center gap-3 px-6 py-3 rounded-full text-lg font-bold text-white shadow-md transition-all cursor-pointer ${
-          isActive ? "bg-red-500 hover:bg-red-600" : "bg-indigo-500 hover:bg-indigo-600"
+        className={`mt-10 flex items-center gap-3 px-6 py-3 rounded-full text-lg font-bold text-white shadow-lg transition-all cursor-pointer ${
+          isActive
+            ? "bg-red-500 hover:bg-red-600"
+            : "bg-indigo-500 hover:bg-indigo-600"
         }`}
       >
         {isActive ? <MicOff /> : <Mic />}
