@@ -10,14 +10,16 @@ export function createSignalingServer(server: http.Server) {
 
   wss.on("connection", (ws: Socket) => {
     ws.id = Math.random().toString(36).slice(2, 9);
+    console.log("WS connected", ws.id);
     // send assigned id to the client
     try {
       ws.send(JSON.stringify({ type: "id", id: ws.id }));
     } catch (e) {}
 
-  ws.on("message", (data: any) => {
+    ws.on("message", (data: any) => {
       try {
         const msg = JSON.parse(data.toString());
+        console.log('WS message from', ws.id, msg.type, msg.room || msg.to || '');
         const { type, room, payload, to } = msg;
 
         if (type === "join" && room) {
@@ -75,6 +77,7 @@ export function createSignalingServer(server: http.Server) {
         broadcast(ws.room, { type: "peer-left", id: ws.id }, ws);
         delete ws.room;
       }
+      console.log("WS disconnected", ws.id);
     });
   });
 

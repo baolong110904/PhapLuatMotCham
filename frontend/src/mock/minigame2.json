@@ -230,7 +230,7 @@
         "img": [],
         "video": "/mascot/24.png",
         "options": [
-          { "label": "A. Thay đổi hình thức lĩnh", "correct": true },
+          { "label": "A. Thay đổi hình thức lĩnh hoặc thông tin người hưởng chế độ BHXH", "correct": true },
           { "label": "B. Khám chữa bệnh BHYT", "correct": false },
           { "label": "C. Tra cứu đơn đã nộp", "correct": false }
         ],

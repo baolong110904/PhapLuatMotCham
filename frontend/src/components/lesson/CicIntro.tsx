@@ -25,10 +25,15 @@ export default function CicIntro({ onStart }: Props) {
     const t2 = setTimeout(() => setShowSecondText(true), 7000);
     timersRef.current.push(t1, t2);
 
-    // lower video volume when available
+    // allow muted autoplay on mobile by ensuring the element is muted; still lower volume if unmuted later
     try {
-      if (videoRef.current) videoRef.current.volume = 0.15;
-  } catch {}
+      if (videoRef.current) {
+        // ensure the element is muted so browsers permit autoplay on mobile
+        videoRef.current.muted = true;
+        // keep a low volume in case it's unmuted later
+        try { videoRef.current.volume = 0.15; } catch {}
+      }
+    } catch {}
 
     return () => {
       timersRef.current.forEach((id) => clearTimeout(id));
@@ -53,6 +58,8 @@ export default function CicIntro({ onStart }: Props) {
             className="w-full h-auto object-contain"
             playsInline
             autoPlay
+            muted
+            preload="auto"
             loop
           />
 
