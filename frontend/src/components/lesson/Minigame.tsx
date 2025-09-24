@@ -53,7 +53,7 @@ export default function Minigame({ data, hideHeader = false, triggerUiIntro }: P
   const [selectedOption, setSelectedOption] = useState<number | null>(null);
   const [percentage, setPercentage] = useState(0);
 
-  const { playCorrect, playWrong, playEnding } = useSoundEffect();
+  const { playCorrect, playWrong, playEnding, stopAll } = useSoundEffect();
   const router = useRouter();
 
   // When parent signals that the UI intro finished, move to JSON intro stage
@@ -70,6 +70,39 @@ export default function Minigame({ data, hideHeader = false, triggerUiIntro }: P
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [uiIntroPlayed]);
+
+  // Ensure any playing sound from the sound hook stops when component unmounts or navigation occurs
+  useEffect(() => {
+    const onVisibility = () => {
+      try {
+        stopAll();
+      } catch (e) {
+        // ignore
+      }
+    };
+
+    const onPop = () => {
+      try {
+        stopAll();
+      } catch (e) {
+        // ignore
+      }
+    };
+
+    document.addEventListener('visibilitychange', onVisibility);
+    window.addEventListener('popstate', onPop);
+
+    return () => {
+      document.removeEventListener('visibilitychange', onVisibility);
+      window.removeEventListener('popstate', onPop);
+      try {
+        stopAll();
+      } catch (e) {
+        // ignore
+      }
+    };
+    // stopAll is stable from the hook (useCallback)
+  }, [stopAll]);
 
   function getQuestions(): GameQuestion[] {
     if (data.type === "cic") {
@@ -445,7 +478,17 @@ export default function Minigame({ data, hideHeader = false, triggerUiIntro }: P
                 <Firework active={stage === "ending"} duration={30000} />
                 <h1 className="text-3xl font-bold">🎉 Hoàn thành!</h1>
                 <p className="mt-10 text-2xl">{data.ending}</p>
-                <Button className="mt-10" onClick={() => router.push("/")}>
+                <Button
+                  className="mt-10"
+                  onClick={() => {
+                    try {
+                      stopAll();
+                    } catch (e) {
+                      // ignore
+                    }
+                    router.push("/");
+                  }}
+                >
                   Quay về trang chủ
                 </Button>
               </motion.div>

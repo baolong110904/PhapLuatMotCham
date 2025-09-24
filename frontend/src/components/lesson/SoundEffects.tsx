@@ -21,10 +21,23 @@ export function useSoundEffect() {
     }
   }, []);
 
+  const stopAll = useCallback(() => {
+    if (audioRef.current) {
+      try {
+        audioRef.current.pause();
+        audioRef.current.currentTime = 0;
+      } catch (e) {
+        // ignore
+      }
+      audioRef.current = null;
+    }
+  }, []);
+
   return {
     playCorrect: () => playSound("/minigame/correct.wav"),
     playWrong: () => playSound("/minigame/wrong.wav"),
     playReward: () => playSound("/minigame/correct-reward.wav"),
     playEnding: () => playSound("/minigame/ending.wav"),
+    stopAll,
   };
 }
