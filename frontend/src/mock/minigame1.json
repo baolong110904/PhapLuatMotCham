@@ -12,7 +12,7 @@
       {
         "label": "B. Thẻ chẳng may thất lạc mất rồi",
         "id": "lost",
-        "video": "/mascot/2.mp4"
+        "video": "/mascot/7.mp4"
       }
     ]
   },
@@ -200,6 +200,7 @@
       "id": 8,
       "question": "Nếu thẻ căn cước cũ đã hết hạn khiến tài khoản VNeID bị khóa, cô chú có thể đăng nhập bằng tài khoản của ai?",
       "img": [],
+      "video": "/mascot/11.png",
       "options": [
         {
           "label": "A. Vợ/chồng",
@@ -246,6 +247,7 @@
       "id": 10,
       "question": "Sau khi chọn thủ tục, cô chú cần làm gì tiếp theo?",
       "img": [],
+      "video": "/mascot/12.png",
       "options": [
         {
           "label": "A. Điền thông tin cá nhân theo yêu cầu",
@@ -269,6 +271,7 @@
       "id": 11,
       "question": "Sau khi đã nộp hồ sơ online, cô chú còn phải làm gì nữa?",
       "img": [],
+      "video": "/mascot/13.png",
       "options": [
         {
           "label": "A. Đúng hẹn đến công an để chụp ảnh, lấy vân tay, nộp lệ phí",
@@ -292,6 +295,7 @@
       "id": 12,
       "question": "Sau khi điền thông tin, cô chú phải chọn gì?",
       "img": [],
+      "video": "/mascot/14.png",
       "options": [
         {
           "label": "A. Địa điểm và thời gian đến làm thủ tục",

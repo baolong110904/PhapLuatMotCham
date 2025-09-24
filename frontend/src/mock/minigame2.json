@@ -6,11 +6,13 @@
     "options": [
       {
         "label": "1. Làm trực tiếp (Offline)",
-        "id": "offline"
+        "id": "offline",
+        "video": "/mascot/9.mp4"
       },
       {
         "label": "2. Làm trực tuyến (Online)",
-        "id": "online"
+        "id": "online",
+        "video": "/mascot/10.mp4"
       }
     ]
   },
@@ -20,6 +22,7 @@
         "id": 1,
         "question": "Câu 1: Ông/bà khi làm thủ tục nhận lương hưu cần nộp những hồ sơ nào?",
         "img": [],
+        "video": "/mascot/16.png",
         "options": [
           {
             "label": "A. Hợp đồng lao động.",
@@ -43,6 +46,7 @@
         "id": 2,
         "question": "Câu 2: Ông/bà sẽ nộp hồ sơ ở đâu?",
         "img": [],
+        "video": "/mascot/15.png",
         "options": [
           {
             "label": "A. Trực tiếp tại cơ quan BHXH hoặc Trung tâm phục vụ Hành chính công (HCC) các cấp (nếu có).",
@@ -66,6 +70,7 @@
         "id": 3,
         "question": "Câu 3: Ông/bà nộp hồ sơ cho ai?",
         "img": [],
+        "video": "/mascot/15.png",
         "options": [
           {
             "label": "A. Bảo vệ",
@@ -89,6 +94,7 @@
         "id": 4,
         "question": "Câu 4: Sau khi hồ sơ được duyệt, ông/bà sẽ nhận được những giấy tờ gì nè?",
         "img": [],
+        "video": "/mascot/17.png",
         "options": [
           {
             "label": "A. Giấy xác nhận BHYT, phiếu thu phí bảo hiểm, hợp đồng lao động.",
@@ -107,6 +113,36 @@
           "correct": "Úi đúng rùi 👏 Ông/bà nhận đủ bộ giấy tờ “xịn sò” luôn á!",
           "wrong": "Sai nhẹ rồi , mấy cái này cũng nghe quen quen, nhưng không phải giấy mình nhận khi được duyệt hưu đâu ạ. 😊"
         }
+      },
+      {
+        "id": 5,
+        "question": "Câu 5: Ông/bà sẽ nhận lương hưu, trợ cấp BHXH bằng cách nào?",
+        "img": [],
+        "video": "/mascot/20.png",
+        "options": [
+          { "label": "A. Nhận trực tiếp tại bệnh viện.", "correct": false },
+          { "label": "B. Nhận ở Ủy ban phường/xã.", "correct": false },
+          { "label": "C. Qua tài khoản ngân hàng cá nhân, hoặc nhận tiền mặt qua tổ chức dịch vụ chi trả.", "correct": true }
+        ],
+        "feedback": {
+          "correct": "Chuẩn quá ông/bà ơi 👏! Mình có thể nhận qua tài khoản ngân hàng cho tiện, hoặc nhận tiền mặt từ tổ chức chi trả. Thoải mái lựa chọn luôn nha 💕.",
+          "wrong": "Huhu, nhầm xíu rồi 😅 Lương hưu không phát ở bệnh viện hay Ủy ban đâu. Chỉ nhận qua tài khoản ngân hàng hoặc tiền mặt từ đơn vị chi trả thôi nha ông/bà🌸."
+        }
+      },
+      {
+        "id": 6,
+        "question": "Câu 6: Khi nộp hồ sơ hưu trí, ông/bà có phải đóng lệ phí gì không?",
+        "img": [],
+        "video": "/mascot/21.png",
+        "options": [
+          { "label": "A. Có, phải đóng vài chục ngàn.", "correct": false },
+          { "label": "B. Có, giống như đóng viện phí vậy.", "correct": false },
+          { "label": "C. Không, miễn phí hoàn toàn.", "correct": true }
+        ],
+        "feedback": {
+          "correct": "Chuẩn không cần chỉnh 👏 làm thủ tục hưu trí là miễn phí đó nghen.",
+          "wrong": "Hihi, lần này mình hơi nhầm xíu thôi 😅 thật ra là không tốn đồng nào đâu ạ."
+        }
       }
     ],
     "online": [
@@ -114,6 +150,7 @@
         "id": 1,
         "question": "Câu 1: Ông/bà sẽ nộp hồ sơ qua đâu?",
         "img": [],
+        "video": "/mascot/18.png",
         "options": [
           {
             "label": "A. Facebook.",
@@ -137,6 +174,7 @@
         "id": 2,
         "question": "Câu 2: Bước đầu tiên để đăng ký nhận lương hưu qua ATM trên VssID là gì?",
         "img": [],
+        "video": "/mascot/19.png",
         "options": [
           {
             "label": "A. Tải ứng dụng VssID",
@@ -154,6 +192,141 @@
         "feedback": {
           "correct": "Chuẩn không cần chỉnh 👏, tải app VssID là bước mở màn rồi đó!",
           "wrong": "Ôi, nhầm nhẹ chút xíu thôi ạ  😅, mình phải bắt đầu bằng việc tải ứng dụng VssID nha."
+        }
+      },
+      {
+        "id": 3,
+        "question": "Câu 3: Sau khi tải ứng dụng VssID, ông/bà cần làm gì tiếp theo?",
+        "img": [],
+        "video": "/mascot/22.png",
+        "options": [
+          { "label": "A. Đăng nhập vào ứng dụng VssID", "correct": true },
+          { "label": "B. Đến bưu điện đăng ký", "correct": false },
+          { "label": "C. Điền tờ khai giấy", "correct": false }
+        ],
+        "feedback": {
+          "correct": "Chuẩn xịn 👏, tải xong thì nhớ đăng nhập để tiếp tục thao tác nha.",
+          "wrong": "Ui,lần này chọn nhầm mất rồi 😊, phải đăng nhập vào VssID chứ không cần đi bưu điện đâu ạ."
+        }
+      },
+      {
+        "id": 4,
+        "question": "Câu 4: Trong VssID, ông/bà vào mục nào để đổi hình thức nhận lương hưu?",
+        "img": [],
+        "video": "/mascot/23.png",
+        "options": [
+          { "label": "A. Dịch vụ công", "correct": true },
+          { "label": "B. Tra cứu quá trình tham gia", "correct": false },
+          { "label": "C. Hỏi đáp – hỗ trợ", "correct": false }
+        ],
+        "feedback": {
+          "correct": "Xịn sò ghê 👏, vào đúng chỗ Dịch vụ công rồi đó!",
+          "wrong": "Ui hỏng rồi 😅, muốn đổi hình thức nhận thì phải chọn mục Dịch vụ công nha."
+        }
+      },
+      {
+        "id": 5,
+        "question": "Câu 5: Sau khi vào Dịch vụ công, ông/bà cần chọn gì?",
+        "img": [],
+        "video": "/mascot/24.png",
+        "options": [
+          { "label": "A. Thay đổi hình thức lĩnh", "correct": true },
+          { "label": "B. Khám chữa bệnh BHYT", "correct": false },
+          { "label": "C. Tra cứu đơn đã nộp", "correct": false }
+        ],
+        "feedback": {
+          "correct": "Xịn sò ghê 👏, vào đúng chỗ Dịch vụ công rồi đó!",
+          "wrong": "Ui hỏng rồi 😅, muốn đổi hình thức nhận thì phải chọn mục Dịch vụ công nha."
+        }
+      },
+      {
+        "id": 6,
+        "question": "Câu 6: Sau khi chọn “Thay đổi hình thức lĩnh”, ông/bà cần làm gì?",
+        "img": [],
+        "video": "/mascot/14.png",
+        "options": [
+          { "label": "A. Kiểm tra thông tin và chọn hình thức nhận", "correct": true },
+          { "label": "B. Đăng xuất ứng dụng", "correct": false },
+          { "label": "C. Chụp ảnh màn hình để lưu", "correct": false }
+        ],
+        "feedback": {
+          "correct": "Quá chuẩn luôn 👏, nhớ kiểm tra thông tin và chọn cách nhận nha.",
+          "wrong": "Nhầm một chút thôi 😊, bước này mình cần kiểm tra thông tin và chọn hình thức nhận."
+        }
+      },
+      {
+        "id": 7,
+        "question": "Câu 7: Bước cuối cùng để hoàn tất việc đăng ký nhận lương hưu qua ATM là gì?",
+        "img": [],
+        "video": "/mascot/15.png",
+        "options": [
+          { "label": "A. Xác nhận bằng mã OTP", "correct": true },
+          { "label": "B. Gửi giấy về cơ quan BHXH", "correct": false },
+          { "label": "C. Chờ cán bộ đến tận nhà xác minh", "correct": false }
+        ],
+        "feedback": {
+          "correct": "Tuyệt vời ông mặt trời 👏, nhập OTP là xong hết luôn đó.",
+          "wrong": "Ui, chưa đúng đâu 😅, phải xác nhận bằng mã OTP mới hoàn tất nha."
+        }
+      },
+      {
+        "id": 8,
+        "question": "Câu 8: Sau khi hồ sơ được duyệt, ông/bà sẽ nhận được những giấy tờ gì nè?",
+        "img": [],
+        "video": "/mascot/17.png",
+        "options": [
+          { "label": "A. Giấy xác nhận BHYT, phiếu thu phí bảo hiểm, hợp đồng lao động.", "correct": false },
+          { "label": "B. Quyết định hưởng BHXH hàng tháng, Thẻ BHYT, Thông báo chi trả (nếu chuyển nơi khác), và tiền trợ cấp.", "correct": true },
+          { "label": "C. Quyết định nghỉ việc, sổ BHXH chốt xong, giấy thôi trợ cấp thất nghiệp.", "correct": false }
+        ],
+        "feedback": {
+          "correct": "Úi đúng rùi 👏 Ông/bà nhận đủ bộ giấy tờ “xịn sò” luôn á!",
+          "wrong": "Sai nhẹ thôi, mấy cái này cũng nghe quen quen, nhưng không phải giấy mình nhận khi được duyệt hưu đâu ạ. 😊"
+        }
+      },
+      {
+        "id": 9,
+        "question": "Câu 9: Sau khi hồ sơ được giải quyết, ông/bà sẽ nhận kết quả bằng cách nào?",
+        "img": [],
+        "video": "/mascot/16.png",
+        "options": [
+          { "label": "A. Nhận qua tin nhắn SMS.", "correct": true },
+          { "label": "B. Nhận trực tiếp tại cơ quan BHXH/Trung tâm hành chính công (HCC).", "correct": false },
+          { "label": "C. Nhận qua bưu điện mang tới tận nhà.", "correct": false }
+        ],
+        "feedback": {
+          "correct": "Úi đúng rồi 👏 Ông/bà sẽ nhận kết quả ngay qua giao dịch điện tử online, tiện lợi xịn sò luôn á!",
+          "wrong": "Sai rồi ạ 😅 Người hưởng lương hưu có thể nhận trực tiếp hoặc qua bưu điện, còn nếu chọn online thì chỉ cần đăng nhập là xong, chẳng cần mang giấy tờ đi đâu cả 📄✨."
+        }
+      },
+      {
+        "id": 10,
+        "question": "Câu 10: Ông/bà sẽ nhận lương hưu, trợ cấp BHXH bằng cách nào?",
+        "img": [],
+        "video": "/mascot/20.png",
+        "options": [
+          { "label": "A. Nhận trực tiếp tại bệnh viện.", "correct": false },
+          { "label": "B. Nhận ở Ủy ban phường/xã.", "correct": false },
+          { "label": "C. Qua tài khoản ngân hàng cá nhân, hoặc nhận tiền mặt qua tổ chức dịch vụ chi trả.", "correct": true }
+        ],
+        "feedback": {
+          "correct": "Chuẩn quá ông/bà ơi 👏! Mình có thể nhận qua tài khoản ngân hàng cho tiện, hoặc nhận tiền mặt từ tổ chức chi trả. Thoải mái lựa chọn luôn nha �.",
+          "wrong": "Huhu, nhầm xíu rồi ạ 😅 Lương hưu không phát ở bệnh viện hay Ủy ban mà ông/bà chỉ nhận qua tài khoản hoặc tổ chức chi trả thôi nhé!"
+        }
+      },
+      {
+        "id": 11,
+        "question": "Câu 11: Khi nộp hồ sơ hưu trí, ông/bà có phải đóng lệ phí gì không?",
+        "img": [],
+        "video": "/mascot/21.png",
+        "options": [
+          { "label": "A. Có, phải đóng vài chục ngàn.", "correct": false },
+          { "label": "B. Có, giống như đóng viện phí vậy.", "correct": false },
+          { "label": "C. Không, miễn phí hoàn toàn.", "correct": true }
+        ],
+        "feedback": {
+          "correct": "Chuẩn không cần chỉnh 👏 làm thủ tục hưu trí là miễn phí đó nghen.",
+          "wrong": "Hihi, lần này mình hơi nhầm xíu thôi 😅 thật ra là không tốn đồng nào đâu ạ."
         }
       }
     ]
