@@ -12,7 +12,7 @@ export default function AboutPage() {
     { id: 'r4', userName: 'Ông Nam', rating: 5, date: '2025-04-02', comment: 'Chương trình rất ý nghĩa và nhân viên thân thiện, phù hợp cho người cao tuổi.', avatar: '/assets/ava1.png' },
     { id: 'r5', userName: 'Cô Mai', rating: 5, date: '2025-03-18', comment: 'Hoạt động hay, nhiều trò để tham gia và kết nối với mọi người.', avatar: '/assets/ava2.png' }
   ];
-
+  
   return (
     <main className="w-full text-lg">
       {/* Hero */}

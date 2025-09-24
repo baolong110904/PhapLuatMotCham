@@ -119,7 +119,7 @@ export default function CoreValues() {
                   aria-label="Trò chơi"
                   title="Trò chơi"
                   onClick={() => router.push('/quiz')}
-                  className="cursor-pointer w-30 h-30 md:w-30 md:h-30 rounded-full bg-yellow-400 text-[#0b3b8a] flex items-center justify-center text-lg md:text-xl font-extrabold shadow-lg transform transition hover:scale-105 focus:outline-none focus:ring-4 focus:ring-yellow-300/60"
+                  className="cursor-pointer w-40 h-40 md:w-40 md:h-40 rounded-full bg-yellow-400 text-[#0b3b8a] flex items-center justify-center text-2xl md:text-2xl font-extrabold shadow-lg transform transition hover:scale-105 focus:outline-none focus:ring-4 focus:ring-yellow-300/60"
                 >
                   Trò chơi
                 </button>
@@ -137,7 +137,7 @@ export default function CoreValues() {
                   aria-label="Phòng họp online"
                   title="Phòng họp online"
                   onClick={() => router.push('/meeting')}
-                  className="cursor-pointer w-30 h-30 md:w-30 md:h-30 rounded-full bg-pink-500 text-white flex items-center justify-center text-lg md:text-xl font-extrabold shadow-lg transform transition hover:scale-105 focus:outline-none focus:ring-4 focus:ring-pink-300/60"
+                  className="cursor-pointer w-40 h-40 md:w-40 md:h-40 rounded-full bg-pink-500 text-amber-100 flex items-center justify-center text-2xl md:text-2xl font-extrabold shadow-lg transform transition hover:scale-105 focus:outline-none focus:ring-4 focus:ring-pink-300/60"
                 >
                   Trò chuyện
                 </button>

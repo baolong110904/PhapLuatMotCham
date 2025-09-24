@@ -8,7 +8,7 @@ import { useRouter } from "next/navigation";
 
 export default function MeetingPage() {
   const router = useRouter();
-
+  
   return (
     <div className="overflow-hidden min-h-screen bg-gradient-to-br from-indigo-100 via-white to-indigo-50 p-6">
       <div className=" justify-start">

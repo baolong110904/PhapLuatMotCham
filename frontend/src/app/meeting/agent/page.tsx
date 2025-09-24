@@ -19,13 +19,12 @@ export default function MascotPage() {
   ]
 
   const handleClick = () => {
-    if (isTalking) return; // prevent multiple clicks while TTS is playing
+    if (isTalking) return;
 
     if (!isActive) {
       // When user clicks button → activate (change appearance)
       setIsActive(true);
     } else {
-      // When user unclicks button → play random audio
       setIsActive(false);
 
       const randomAudio = audios[Math.floor(Math.random() * audios.length)];
@@ -37,7 +36,7 @@ export default function MascotPage() {
       audio.play().catch((err) => console.error("Audio play error:", err));
     }
   };
-  
+
   return (
     <div className="flex flex-col items-center justify-center min-h-screen bg-gradient-to-br from-[#3576e5] via-blue-300 to-blue-50 p-6">
       {/* Mascot GIF */}

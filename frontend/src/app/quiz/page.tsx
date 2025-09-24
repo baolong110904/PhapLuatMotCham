@@ -3,13 +3,14 @@
 import QuizBox from "@/components/lesson/QuizBox";
 
 const quizList = [
-  { quizName: "Cấp lại CCCD", img: "/assets/cic.png", route: "/quiz/cic" },
-  { quizName: "Nhận lương hưu", img: "/assets/pension.png", route: "/quiz/pension" },
+  { quizName: "Thủ tục cấp lại CCCD", img: "/assets/cic.png", route: "/quiz/cic" },
+  { quizName: "Thủ tục nhận lương hưu", img: "/assets/pension.png", route: "/quiz/pension" },
 ];
 
 export default function QuizPage() {
   return (
-    <div className="min-h-[600px] grid grid-cols-1 sm:grid-cols-2 md:grid-cols-5 gap-6 p-6">
+    <div className="min-h-[600px]">
+    <div className=" grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6 p-6">
       {quizList.map((quiz, index) => (
         <QuizBox
           key={index}
@@ -18,6 +19,7 @@ export default function QuizPage() {
           route={quiz.route}
         />
       ))}
+    </div>
     </div>
   );
 }
