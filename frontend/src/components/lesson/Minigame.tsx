@@ -4,12 +4,12 @@ import { useState, useEffect, useRef } from "react";
 import { useRouter, useSearchParams } from "next/navigation";
 import { motion, AnimatePresence } from "framer-motion";
 
-import { Header } from "@/components/lesson/Header";
+import { Header } from "@/components/Lesson/Header";
 import { Button } from "@/components/ui/button";
-import { Card } from "@/components/lesson/Card";
-import { useSoundEffect } from "@/components/lesson/SoundEffects";
+import { Card } from "@/components/Lesson/Card";
+import { useSoundEffect } from "@/components/Lesson/SoundEffects";
 import Badge from "./Badge";
-import Firework from "@/components/lesson/Fireworks";
+import Firework from "@/components/Lesson/Fireworks";
 import CicIntro from "./CicIntro";
 
 type GameIntro = {

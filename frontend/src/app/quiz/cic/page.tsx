@@ -328,8 +328,8 @@
 "use client";
 
 import { useState } from "react";
-import Minigame from "@/components/lesson/Minigame";
-import CicIntro from "@/components/lesson/CicIntro";
+import Minigame from "@/components/Lesson/Minigame";
+import CicIntro from "@/components/Lesson/CicIntro";
 import GameData from "@/mock/minigame1.json";
 
 export default function CICPage() {

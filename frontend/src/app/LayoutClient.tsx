@@ -6,7 +6,7 @@ import React, { useEffect, useMemo } from "react";
 import { usePathname } from "next/navigation";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import { ExitModal } from "@/components/lesson/exit-modal";
+import { ExitModal } from "@/components/Lesson/exit-modal";
 import AudioWidget from '@/components/AudioWidget'
 
 export default function LayoutClient({
