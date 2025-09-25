@@ -7,9 +7,9 @@ import { useSoundEffect } from "./SoundEffects";
 
 // badges
 const badges = [
-  { id: 1, threshold: 2, image: "/assets/badge_1.svg" },
-  { id: 2, threshold: 4, image: "/assets/badge_2.svg" },
-  { id: 3, threshold: 6, image: "/assets/badge_3.svg" },
+  { id: 1, threshold: 2, image: "/assets/badge_1.png" },
+  { id: 2, threshold: 4, image: "/assets/badge_2.png" },
+  { id: 3, threshold: 6, image: "/assets/badge_3.png" },
 ];
 
 type Props = {
@@ -58,7 +58,7 @@ export default function Badge({ score }: Props) {
           <div
             key={b.id}
             data-badge-slot={b.id}
-            className="w-12 h-12 border-2 border-dashed border-gray-400 rounded-full flex items-center justify-center"
+            className="w-20 h-20 border-2 border-dashed border-gray-400 rounded-full flex items-center justify-center"
           >
             {earnedBadges.includes(b.id) && (
               <motion.div
@@ -69,8 +69,8 @@ export default function Badge({ score }: Props) {
                 <Image
                   src={b.image}
                   alt={`Badge ${b.id}`}
-                  width={48}
-                  height={48}
+                  width={96}
+                  height={96}
                   className="rounded-full"
                 />
               </motion.div>
@@ -99,7 +99,7 @@ export default function Badge({ score }: Props) {
                   translateY: "-50%",
                 }}
                 initial={{ scale: 0, opacity: 0 }}
-                animate={{ scale: 1.5, opacity: 1 }}
+                animate={{ scale: 1.6, opacity: 1 }}
                 transition={{ duration: 1.2 }}
                 onAnimationComplete={() => {
                   // After pop-in duration, start flying
@@ -109,8 +109,8 @@ export default function Badge({ score }: Props) {
                 <Image
                   src={badges.find((b) => b.id === newBadge)!.image}
                   alt={`Badge ${newBadge}`}
-                  width={100}
-                  height={100}
+                  width={240}
+                  height={240}
                   className="rounded-full shadow-xl"
                 />
               </motion.div>
@@ -130,7 +130,7 @@ export default function Badge({ score }: Props) {
                 animate={{
                   x: targetPosition.x,
                   y: targetPosition.y,
-                  scale: 0.5,
+                  scale: 0.6,
                   opacity: 0,
                 }}
                 transition={{ duration: 0.6, ease: easeInOut }}
@@ -145,8 +145,8 @@ export default function Badge({ score }: Props) {
                 <Image
                   src={badges.find((b) => b.id === newBadge)!.image}
                   alt={`Badge ${newBadge}`}
-                  width={100}
-                  height={100}
+                  width={160}
+                  height={160}
                   className="rounded-full shadow-xl"
                 />
               </motion.div>

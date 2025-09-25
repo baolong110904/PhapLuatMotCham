@@ -19,8 +19,34 @@ export default function LayoutClient({
 
   useEffect(() => {
     if (typeof window === "undefined") return;
-    if (noLayoutRoutes.includes(pathname)) return;
 
+    // Treat excluded routes as prefixes so /quiz/pension/... also hides the widget
+    const isExcluded = noLayoutRoutes.some((r) => pathname?.startsWith(r));
+
+    // If route is excluded, try to hide/remove any previously injected Tawk widget
+    if (isExcluded) {
+      try {
+        const Tawk = (window as any).Tawk_API
+        if (Tawk && typeof Tawk.hideWidget === 'function') {
+          Tawk.hideWidget()
+        }
+      } catch (e) {}
+
+      // Remove our inline marker script if present
+      const inlineEl = document.getElementById('tawk-script')
+      if (inlineEl) inlineEl.remove()
+
+      // Remove any loaded tawk script tags
+      document.querySelectorAll('script[src*="embed.tawk.to"]').forEach(s => s.remove())
+
+      // Try to remove elements inserted by Tawk (best-effort)
+      document.querySelectorAll('[id^="tawk"], [class*="tawk"]').forEach(el => el.remove())
+
+      // don't inject when excluded
+      return
+    }
+
+    // If not excluded, and script not yet added, inject the loader as before
     if (document.getElementById("tawk-script")) return;
 
     (window as any).Tawk_API = (window as any).Tawk_API || {};

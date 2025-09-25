@@ -242,10 +242,52 @@ export default function AudioWidget() {
     try { localStorage.setItem('audioWidgetPos', JSON.stringify(pos)) } catch {}
   }, [pos])
 
+  useEffect(() => {
+    // Add document-level pointer handlers so dragging continues even if pointer
+    // goes outside the button (more robust than relying on element pointer events).
+    const onPointerMoveDoc = (e: PointerEvent) => {
+      if (!draggingRef.current || !dragStartRef.current) return
+      const ds = dragStartRef.current
+      const dx = e.clientX - ds.pointerX
+      const dy = e.clientY - ds.pointerY
+      let nx = ds.startX + dx
+      let ny = ds.startY + dy
+      // clamp to viewport
+      const btnSize = 80
+      const margin = 8
+      const ww = typeof window !== 'undefined' ? window.innerWidth : 800
+      const wh = typeof window !== 'undefined' ? window.innerHeight : 600
+      nx = Math.max(margin, Math.min(ww - btnSize - margin, nx))
+      ny = Math.max(margin, Math.min(wh - btnSize - margin, ny))
+      posRef.current = { x: nx, y: ny }
+      setPos({ x: nx, y: ny })
+      preventClickRef.current = true
+    }
+
+    const onPointerUpDoc = (e: PointerEvent) => {
+      if (!draggingRef.current) return
+      draggingRef.current = false
+      dragStartRef.current = null
+      try { (e.target as Element).releasePointerCapture?.((e as any).pointerId) } catch {}
+      const wasPrevent = preventClickRef.current
+      if (wasPrevent) {
+        setTimeout(() => { preventClickRef.current = false }, 50)
+      }
+    }
+
+    document.addEventListener('pointermove', onPointerMoveDoc)
+    document.addEventListener('pointerup', onPointerUpDoc)
+    return () => {
+      document.removeEventListener('pointermove', onPointerMoveDoc)
+      document.removeEventListener('pointerup', onPointerUpDoc)
+    }
+  }, [])
+
   return (
     <div
       ref={rootRef}
-      style={{ position: 'fixed', left: pos ? pos.x : 16, top: pos ? pos.y : undefined, bottom: pos ? undefined : 16, zIndex: 9999, touchAction: 'none' }}
+      // ensure the widget is above content and receives pointer events
+      style={{ position: 'fixed', left: pos ? pos.x : 16, top: pos ? pos.y : undefined, bottom: pos ? undefined : 16, zIndex: 2147483647, touchAction: 'none', pointerEvents: 'auto' }}
     >
       {/* Circular main button */}
       <div className="relative">
