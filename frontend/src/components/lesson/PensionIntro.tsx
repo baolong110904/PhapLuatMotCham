@@ -24,7 +24,13 @@ export default function PensionIntro({ onStart }: Props) {
     timersRef.current.push(t1, t2);
 
     try {
-      if (videoRef.current) videoRef.current.volume = 0.15;
+      // Ensure video is muted so mobile browsers allow autoplay.
+      if (videoRef.current) {
+        try { videoRef.current.muted = true; } catch {}
+        try { videoRef.current.volume = 0.15; } catch {}
+        // attempt to play programmatically (best-effort)
+        try { videoRef.current.play().catch(() => {}); } catch {}
+      }
     } catch (e) {}
 
     return () => {
@@ -53,6 +59,8 @@ export default function PensionIntro({ onStart }: Props) {
             playsInline
             autoPlay
             loop
+            muted
+            preload="auto"
           />
 
           <div

@@ -213,7 +213,7 @@
         "id": 4,
         "question": "Câu 4: Trong VssID, ông/bà vào mục nào để đổi hình thức nhận lương hưu?",
         "img": [],
-        "video": "/mascot/23.png",
+        "video": "/mascot/23.jpg",
         "options": [
           { "label": "A. Dịch vụ công", "correct": true },
           { "label": "B. Tra cứu quá trình tham gia", "correct": false },
@@ -230,11 +230,11 @@
         "img": [],
         "video": "/mascot/24.png",
         "options": [
-          { "label": "A. Thay đổi hình thức lĩnh", "correct": true },
+          { "label": "A. Thay đổi hình thức lĩnh hoặc thông tin người hưởng chế độ BHXH", "correct": true },
           { "label": "B. Khám chữa bệnh BHYT", "correct": false },
           { "label": "C. Tra cứu đơn đã nộp", "correct": false }
         ],
-        "feedback": {
+        "feedback": { 
           "correct": "Xịn sò ghê 👏, vào đúng chỗ Dịch vụ công rồi đó!",
           "wrong": "Ui hỏng rồi 😅, muốn đổi hình thức nhận thì phải chọn mục Dịch vụ công nha."
         }
@@ -243,7 +243,7 @@
         "id": 6,
         "question": "Câu 6: Sau khi chọn “Thay đổi hình thức lĩnh”, ông/bà cần làm gì?",
         "img": [],
-        "video": "/mascot/14.png",
+        "video": "/mascot/25.png",
         "options": [
           { "label": "A. Kiểm tra thông tin và chọn hình thức nhận", "correct": true },
           { "label": "B. Đăng xuất ứng dụng", "correct": false },
@@ -258,7 +258,7 @@
         "id": 7,
         "question": "Câu 7: Bước cuối cùng để hoàn tất việc đăng ký nhận lương hưu qua ATM là gì?",
         "img": [],
-        "video": "/mascot/15.png",
+        "video": "/mascot/26.png",
         "options": [
           { "label": "A. Xác nhận bằng mã OTP", "correct": true },
           { "label": "B. Gửi giấy về cơ quan BHXH", "correct": false },
@@ -288,7 +288,7 @@
         "id": 9,
         "question": "Câu 9: Sau khi hồ sơ được giải quyết, ông/bà sẽ nhận kết quả bằng cách nào?",
         "img": [],
-        "video": "/mascot/16.png",
+        "video": "/mascot/26.png",
         "options": [
           { "label": "A. Nhận qua tin nhắn SMS.", "correct": true },
           { "label": "B. Nhận trực tiếp tại cơ quan BHXH/Trung tâm hành chính công (HCC).", "correct": false },

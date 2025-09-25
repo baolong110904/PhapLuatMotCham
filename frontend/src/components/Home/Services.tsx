@@ -26,9 +26,9 @@ export function Services() {
   const pauseHandlerRef = useRef<(() => void) | null>(null)
 
   const services = [
-    { icon: FileTextIcon, title: 'Sao y công chứng', description: 'Hướng dẫn trực quan các bước sao y công chứng giấy tờ quan trọng.', audio: '/assets/saoy.mp3', route: '/saoy', link: '/quiz'},
     { icon: CreditCardIcon, title: 'Cấp lại CCCD', description: 'Quy trình đơn giản để làm lại Căn cước công dân khi bị mất hoặc hết hạn.', audio: '/assets/cccd.mp3', route: '/cccd', link: '/quiz/cic'},
     { icon: PiggyBankIcon, title: 'Lương hưu', description: 'Hướng dẫn thủ tục nhận lương hưu và các quyền lợi liên quan một cách rõ ràng.', audio: '/assets/luonghuu.mp3', route: '/luonghuu', link: '/quiz/pension'},
+    { icon: FileTextIcon, title: 'Sao y công chứng', description: 'Hướng dẫn trực quan các bước sao y công chứng giấy tờ quan trọng.', audio: '/assets/saoy.mp3', route: '/saoy', link: '/quiz'},
     { icon: UserCheckIcon, title: 'Xác nhận cư trú', description: 'Các bước xác nhận cư trú tại địa phương với thủ tục đơn giản.', audio: '/assets/xacnhancutru.mp3', route: '/cutru', link: '/quiz'},
     { icon: HomeIcon, title: 'Giấy tờ nhà đất', description: 'Hướng dẫn làm các thủ tục liên quan đến sổ đỏ và giấy tờ nhà đất.', audio: '/assets/nhadat.mp3', route: '/nhadat', link: '/quiz'},
     { icon: HeartHandshakeIcon, title: 'Di chúc và thừa kế', description: 'Thông tin về cách lập di chúc hợp pháp và thủ tục thừa kế.', audio: '/assets/dichuc.mp3', route: '/dichuc', link: '/quiz'},
