@@ -1,6 +1,6 @@
 "use client"
 
-import QuizBox from "@/components/Lesson/QuizBox";
+import QuizBox from "@/components/lesson/QuizBox";
 
 const quizList = [
   { quizName: "Thủ tục cấp lại CCCD", img: "/assets/cic.png", route: "/quiz/cic" },

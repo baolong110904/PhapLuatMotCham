@@ -1,8 +1,8 @@
 "use client";
 
 import { useState } from "react";
-import Minigame from "@/components/Lesson/Minigame";
-import PensionIntro from "@/components/Lesson/PensionIntro";
+import Minigame from "@/components/lesson/Minigame";
+import PensionIntro from "@/components/lesson/PensionIntro";
 import GameData from "@/mock/minigame2.json";
 
 export default function PensionPage() {
