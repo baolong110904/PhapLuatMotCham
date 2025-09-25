@@ -18,18 +18,18 @@
   },
   "situations": {
     "expired": {
-      "description": "Ông An/Bà ra ngân hàng rút tiền, nhân viên báo: 'Bác ơi, thẻ căn cước công dân đã hết hạn rồi, phải đổi sang thẻ căn cước mới nha.'",
+      "description": "Cô/chú ra ngân hàng rút tiền, nhân viên báo: “Bác ơi, thẻ căn cước công dân đã hết hạn rồi, phải đổi sang thẻ căn cước mới nha.",
       "mascot": "Thẻ hết hạn rồi thì mình phải đi cấp đổi thẻ căn cước mới thôi. Bác sẵn sàng chưa?"
     },
     "lost": {
-      "description": "Ông An/Bà đi khám bệnh, tìm mãi không thấy thẻ đâu. Nhân viên quầy nói: 'Bà cần làm cấp lại thẻ căn cước thì mới làm hồ sơ BHYT được.'",
+      "description": "Cô/chú đi khám bệnh, tìm mãi không thấy thẻ đâu. Nhân viên quầy nói: “Bác cần làm cấp lại thẻ căn cước thì mới làm hồ sơ BHYT được.",
       "mascot": "Thẻ mất thì mình làm thủ tục cấp lại. Cháu sẽ dẫn bà đi từng bước nhé!"
     }
   },
   "questions": [
     {
       "id": 1,
-      "question": "Đi làm thẻ, cô/chú cần chuẩn bị gì nè?",
+      "question": "Câu 1. Đi làm thẻ, cô/chú cần chuẩn bị gì nè?",
       "img": [],
       "video": "/mascot/5.mp4",
       "options": [
@@ -53,7 +53,7 @@
     },
     {
       "id": 2,
-      "question": "Vậy đi làm thẻ căn cước thì tới đâu?",
+      "question": "Câu 2. Vậy đi làm thẻ căn cước thì cô/chú tới đâu?",
       "img": [],
       "video": "/mascot/5.png",
       "options": [
@@ -78,7 +78,7 @@
     },
     {
       "id": 3,
-      "question": "Đến công an rồi, cô chú sẽ làm gì?",
+      "question": "Câu 3. Đến công an rồi, cô/chú sẽ làm gì?",
       "img": [],
       "video": "/mascot/6.png",
       "options": [
@@ -102,7 +102,7 @@
     },
     {
       "id": 4,
-      "question": "Sau khi ký xác nhận xong, bước kế tiếp là gì?",
+      "question": "Câu 4. Sau khi ký xác nhận xong, bước kế tiếp là gì?",
       "img": [],
       "video": "/mascot/7.png",
       "options": [
@@ -126,31 +126,31 @@
     },
     {
       "id": 5,
-      "question": "Ở thành phố, thị xã, nếu làm cấp mới hoặc đổi thẻ căn cước thì tối đa bao nhiêu ngày có kết quả?",
+      "question": "Câu 5. Khi làm thẻ căn cước mới, đổi hay cấp lại, cô/chú sẽ nhận thẻ sau bao lâu?",
       "img": [],
       "video": "/mascot/8.png",
       "options": [
         {
-          "label": "A. Không quá 07 ngày làm việc (cấp mới/đổi), 15 ngày (cấp lại)",
-          "correct": true
-        },
-        {
-          "label": "B. 15 ngày làm việc",
+          "label": "A. 03 ngày làm việc",
           "correct": false
         },
         {
-          "label": "C. 20 ngày làm việc",
+          "label": "B. 07 ngày làm việc",
+          "correct": true
+        },
+        {
+          "label": "C. 15 ngày làm việc",
           "correct": false
         }
       ],
       "feedback": {
         "correct": "Chuẩn quá 👏 Ở thành phố thì nhanh gọn, chỉ tối đa 7 ngày là có thẻ mới rồi ông bà ơi!",
-        "wrong": "Hơi nhầm một chút 😅 Ở thành phố thì nhanh hơn í ông bà ơii ^^."
+        "wrong": "Ơ hông phải 😅 Luật mới quy định là 7 ngày làm việc là có thẻ rồi đó ạ."
       }
     },
     {
       "id": 6,
-      "question": "Đầu tiên, để khai báo đổi/cấp lại thẻ căn cước, cô chú cần truy cập trang web nào?",
+      "question": "Câu 6. Đầu tiên, để khai báo đổi/cấp lại thẻ căn cước, cô/chú cần truy cập trang web nào?",
       "img": [],
       "video": "/mascot/9.png",
       "options": [
@@ -198,7 +198,7 @@
     },
     {
       "id": 8,
-      "question": "Nếu thẻ căn cước cũ đã hết hạn khiến tài khoản VNeID bị khóa, cô chú có thể đăng nhập bằng tài khoản của ai?",
+      "question": "Câu 8. Nếu thẻ căn cước cũ đã hết hạn khiến tài khoản VNeID bị khóa, cô/chú có thể đăng nhập bằng tài khoản của ai?",
       "img": [],
       "video": "/mascot/11.png",
       "options": [
@@ -222,7 +222,7 @@
     },
     {
       "id": 9,
-      "question": "Khi chọn thủ tục trên hệ thống, cô chú cần bấm vào đâu?",
+      "question": "Câu 9. Khi chọn thủ tục trên hệ thống, cô/chú cần bấm vào đâu?",
       "img": [],
       "options": [
         {
@@ -245,7 +245,7 @@
     },
     {
       "id": 10,
-      "question": "Sau khi chọn thủ tục, cô chú cần làm gì tiếp theo?",
+      "question": "Câu 10. Sau khi chọn thủ tục, cô/chú cần làm gì tiếp theo?",
       "img": [],
       "video": "/mascot/12.png",
       "options": [
@@ -269,7 +269,31 @@
     },
     {
       "id": 11,
-      "question": "Sau khi điền thông tin, cô chú phải chọn gì?",
+      "question": "Câu 11. Sau khi đã nộp hồ sơ online, cô chú còn phải làm gì nữa?",
+      "img": [],
+      "video": "/mascot/13.png",
+      "options": [
+        {
+          "label": "A. Đúng hẹn đến công an để chụp ảnh, lấy vân tay, nộp lệ phí",
+          "correct": true
+        },
+        {
+          "label": "B. Ngồi nhà chờ bưu điện gửi thẻ luôn",
+          "correct": false
+        },
+        {
+          "label": "C. Nhờ hàng xóm đi hộ",
+          "correct": false
+        }
+      ],
+      "feedback": {
+        "correct": "Đúng rồi 🎉 Phải chọn địa điểm và thời gian hẹn để tới công an làm thủ tục.",
+        "wrong": "Hơi nhầm ạ 😅phải chọn chính xác địa điểm và thời gian làm thủ tục nhé."
+      }
+    },
+    {
+      "id": 12,
+      "question": "Câu 12. Sau khi điền thông tin, cô chú phải chọn gì?",
       "img": [],
       "video": "/mascot/14.png",
       "options": [
@@ -289,30 +313,6 @@
       "feedback": {
         "correct": "Đúng rồi 🎉 Phải chọn địa điểm và thời gian hẹn để tới công an làm thủ tục.",
         "wrong": "Hơi nhầm ạ 😅phải chọn chính xác địa điểm và thời gian làm thủ tục nhé."
-      }
-    },
-    {
-      "id": 12,
-      "question": "Sau khi đã nộp hồ sơ online, cô chú còn phải làm gì nữa?",
-      "img": [],
-      "video": "/mascot/13.png",
-      "options": [
-        {
-          "label": "A. Đúng hẹn đến công an để chụp ảnh, lấy vân tay, nộp lệ phí",
-          "correct": true
-        },
-        {
-          "label": "B. Ngồi nhà chờ bưu điện gửi thẻ luôn",
-          "correct": false
-        },
-        {
-          "label": "C. Nhờ hàng xóm đi hộ",
-          "correct": false
-        }
-      ],
-      "feedback": {
-        "correct": "Chính xác 👏 Dù đăng ký online vẫn phải đến công an chụp ảnh, lấy vân tay, ký xác nhận.",
-        "wrong": "Chưa chuẩn đâu 😅 Không thể chỉ ngồi nhà hay nhờ người khác đi hộ, vì cần chính cô chú đến để xác thực."
       }
     }
   ],
