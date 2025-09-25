@@ -11,10 +11,10 @@ export default function MeetingPage() {
   
   return (
     <div className="overflow-hidden min-h-screen bg-gradient-to-br from-indigo-100 via-white to-indigo-50 p-6">
-      <div className=" justify-start">
+      <div className="flex justify-start">
         <button
           onClick={() => router.push("/")}
-          className="rounded-2xl cursor-pointer shadow-sm border bg-[#3576e5] font-bold text-white text-2xl hover:scale-102 transition-all p-3"
+          className="rounded-2xl cursor-pointer shadow-sm border bg-[#3576e5] font-bold text-white text-xl hover:scale-101 transition-all p-2"
         >
           Quay về trang chủ
         </button>
@@ -45,16 +45,16 @@ export default function MeetingPage() {
               <Bot className="w-16 h-16 text-gray-800" />
             </motion.div>
 
-            <h2 className="text-xl font-semibold text-gray-700 mb-4">
+            <h2 className="text-xl font-extrabold text-gray-700 mb-4">
               Trò chuyện cùng Tâm Lạc Nhí
             </h2>
-            <p className="text-gray-500 text-center mb-6">
+            <p className="text-gray-500 text-center mb-6 font-semibold">
               Tâm Lạc Nhí là một trợ lý ảo rất dễ thương, hỗ trợ trò chuyện và
               tâm sự cùng ông bà.
             </p>
 
             <Button
-              onClick={() => router.push("/meeting/agent")}
+              onClick={() => router.push("/meeting/mascot")}
               variant={"secondary"}
               className="flex items-center gap-2"
             >
@@ -76,10 +76,10 @@ export default function MeetingPage() {
               <Users className="w-16 h-16 text-gray-800" />
             </motion.div>
 
-            <h2 className="text-xl font-semibold text-gray-700 mb-4">
+            <h2 className="text-xl font-extrabold text-gray-700 mb-4">
               Trò chuyện cùng mọi người
             </h2>
-            <p className="text-gray-500 text-center mb-6">
+            <p className="text-gray-500 text-center mb-6 font-semibold">
               Kết nối và trò chuyện cùng với những người dùng khác trong cộng
               đồng Tâm Lạc
             </p>

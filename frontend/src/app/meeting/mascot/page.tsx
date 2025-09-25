@@ -22,7 +22,7 @@ export default function MascotPage() {
 
   const handleClick = () => {
     if (isTalking) return;
-
+    
     if (!isActive) {
       setIsActive(true);
     } else {
