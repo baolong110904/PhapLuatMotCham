@@ -268,7 +268,7 @@ export default function AboutPage() {
         }} />
 
         <div className="max-w-7xl mx-auto px-8 lg:px-10 pt-5">
-          <ReviewsSection overallRating={4.9} totalReviews={sampleReviews.length} reviews={sampleReviews} />
+          <ReviewsSection overallRating={5} totalReviews={sampleReviews.length} reviews={sampleReviews} />
         </div>
       </section>
     </main>
