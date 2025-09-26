@@ -19,12 +19,12 @@ export default function Mascot({
 }: MascotProps) {
   const isLeft = variant === "left";
   const bg = isLeft
-    ? "bg-gradient-to-br from-yellow-100 to-yellow-400"
-    : "bg-gradient-to-br from-blue-100 to-blue-400";
+    ? "bg-gradient-to-br from-blue-100 to-blue-400"
+    : "bg-gradient-to-br from-yellow-100 to-yellow-400";
 
   const mascotImg = isLeft
-    ? "/mascot/old-woman-mascot-rm-bg.png"
-    : "/mascot/old-man-mascot-rm-bg.png";
+  ? "/mascot/old-man-mascot-rm-bg.png"
+  : "/mascot/old-woman-mascot-rm-bg.png";
 
   return (
     <div
@@ -42,10 +42,10 @@ export default function Mascot({
         />
 
         <div className="text-sm md:text-base font-bold text-[#0b3b8a]">
-          {isLeft ? "Lạc" : "Tâm"}
+          {isLeft ? "Tâm" : "Lạc"}
         </div>
         <div className="text-xs md:text-sm text-[#07305f]/70">
-          {isLeft ? "Bà Lạc" : "Ông Tâm"}
+          {isLeft ? "Ông Tâm" : "Bà Lạc"}
         </div>
       </div>
 

@@ -7,8 +7,8 @@ import Mascot from "@/components/Meeting/Mascot";
 // Main component
 export default function MeetingPage() {
   const [messages, setMessages] = useState([
-    { id: 1, from: "left", text: "Xin chào! Mình là Lạc.", time: new Date() },
-    { id: 2, from: "right", text: "Chào bạn! Mình là Tâm.", time: new Date() },
+    { id: 1, from: "left", text: "Xin chào! Mình là Tâm.", time: new Date() },
+    { id: 2, from: "right", text: "Chào bạn! Mình là Lạc.", time: new Date() },
   ]);
 
   const [input, setInput] = useState("");

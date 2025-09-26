@@ -1,8 +1,8 @@
 {
   "type": "cic",
   "intro": {
-    "mascot": "Xin chào Cô/Chú, cháu là Tâm Lạc Nhí – hướng dẫn viên dễ thương của trò chơi hôm nay. Chào mừng ông bà đến với trò chơi Hành trình công dân cùng chúng cháu!",
-    "chooseScenario": "Giờ Cô/Chú cùng cháu tình huống cho hành trình hôm nay nha!",
+    "mascot": "Xin chào cô/chú, cháu là Tâm Lạc Nhí – hướng dẫn viên dễ thương của trò chơi hôm nay. Chào mừng ông bà đến với trò chơi Hành trình công dân cùng chúng cháu!",
+    "chooseScenario": "Giờ cô/chú cùng cháu tình huống cho hành trình hôm nay nha!",
     "options": [
       {
         "label": "A. Thẻ cũ đã hết hạn",

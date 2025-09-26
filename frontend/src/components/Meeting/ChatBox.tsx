@@ -44,8 +44,8 @@ export default function ChatBox({
               <div
                 className={`max-w p-3 rounded-xl ${
                   m.from === "left"
-                    ? "bg-[#fff7e0] text-[#0b3b8a]"
-                    : "bg-[#e8f0ff] text-[#07305f]"
+                  ? "bg-[#e8f0ff] text-[#07305f]"
+                  : "bg-[#fff7e0] text-[#0b3b8a]"
                 }`}
               >
                 <div className="text-lg">{m.text}</div>
