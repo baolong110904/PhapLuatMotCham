@@ -66,11 +66,11 @@ export default function ChatBox({
             if (e.key === "Enter") onSend("left");
           }}
           placeholder="Gõ tin nhắn và nhấn Enter/Gửi"
-          className="flex-1 px-4 py-2 rounded-xl border border-gray-200 focus:outline-none focus:ring-2 focus:ring-yellow-300/40"
+          className="flex-1 px-4 py-2 rounded-xl border border-gray-200 focus:outline-none focus:ring-2 focus:ring-blue-200"
         />
         <button
           onClick={() => onSend("left")}
-          className="px-4 py-2 rounded-xl bg-yellow-400 text-[#0b3b8a] font-bold shadow cursor-pointer"
+          className="px-4 py-2 rounded-xl bg-[#0b3b8a] text-white font-bold shadow cursor-pointer"
         >
           Gửi
         </button>

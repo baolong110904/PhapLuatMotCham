@@ -14,7 +14,7 @@ export default function MeetingPage() {
   const [input, setInput] = useState("");
   const [leftVoiceOn, setLeftVoiceOn] = useState(true);
   const [rightVoiceOn, setRightVoiceOn] = useState(false);
-  const [speaking, setSpeaking] = useState(false);
+  // const [speaking, setSpeaking] = useState(false);
 
   function handleSend(from: "left" | "right") {
     if (!input.trim()) return;
@@ -26,7 +26,6 @@ export default function MeetingPage() {
     };
     setMessages((m) => [...m, next]);
     setInput("");
-
   }
 
 

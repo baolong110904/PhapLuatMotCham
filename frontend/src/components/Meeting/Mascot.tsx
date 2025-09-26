@@ -38,9 +38,9 @@ export default function Mascot({
           alt={isLeft ? "Mascot Lạc" : "Mascot Tâm"}
           width={256}
           height={256}
+          draggable={false}
           className="mb-2 object-contain w-20 sm:w-28 md:w-40 lg:w-52 h-auto"
         />
-
         <div className="text-sm md:text-base font-bold text-[#0b3b8a]">
           {isLeft ? "Tâm" : "Lạc"}
         </div>
