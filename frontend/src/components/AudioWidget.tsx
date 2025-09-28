@@ -253,7 +253,9 @@ export default function AudioWidget() {
       let nx = ds.startX + dx
       let ny = ds.startY + dy
       // clamp to viewport
-      const btnSize = 80
+      // use smaller effective btn size on small screens to allow nicer margins
+      const isSmall = typeof window !== 'undefined' && window.innerWidth < 640
+      const btnSize = isSmall ? 56 : 80
       const margin = 8
       const ww = typeof window !== 'undefined' ? window.innerWidth : 800
       const wh = typeof window !== 'undefined' ? window.innerHeight : 600
@@ -344,7 +346,7 @@ export default function AudioWidget() {
           }}
           aria-label="Mở điều khiển âm thanh"
           title="Mở điều khiển âm thanh"
-          className="w-20 h-20 rounded-full bg-[#1446a0] text-white flex flex-col items-center justify-center shadow-lg text-sm px-2 transition-transform transform hover:scale-105 active:scale-95 hover:shadow-xl cursor-pointer ring-4 ring-transparent focus:outline-none focus:ring-[#8fb3e6]"
+          className="w-20 h-20 sm:w-20 sm:h-20 md:w-20 md:h-20 rounded-full bg-[#1446a0] text-white flex flex-col items-center justify-center shadow-lg text-sm px-2 transition-transform transform hover:scale-105 active:scale-95 hover:shadow-xl cursor-pointer ring-4 ring-transparent focus:outline-none focus:ring-[#8fb3e6] audio-widget-btn"
         >
           {/* Show icon and state based on current playback */}
           {currentSrc || ttsSpeaking ? (
@@ -371,7 +373,7 @@ export default function AudioWidget() {
         </button>
 
         {open && (
-          <div className="mt-2 bg-white p-4 rounded-lg shadow-lg flex flex-col gap-3 min-w-[160px]">
+          <div className="mt-2 bg-white p-3 rounded-lg shadow-lg flex flex-col gap-3 min-w-[140px] audio-widget-menu">
             <>
               <button onMouseDown={(e) => e.stopPropagation()} onClick={pauseOrResumeReading} className="px-4 py-3 rounded-lg bg-yellow-400 text-[#0b3b8a] font-semibold text-base transition-transform transform hover:scale-102 active:scale-95 hover:shadow-md focus:outline-none">{userPaused ? 'Tiếp tục' : 'Tạm dừng'}</button>
               <button onMouseDown={(e) => e.stopPropagation()} onClick={restart} className="px-4 py-3 rounded-lg bg-[#1446a0] text-white font-semibold text-base transition-transform transform hover:scale-102 active:scale-95 hover:shadow-md focus:outline-none">Phát lại</button>
@@ -380,6 +382,16 @@ export default function AudioWidget() {
           </div>
         )}
       </div>
+      <style jsx>{`
+        /* make button a bit smaller on narrow screens */
+        .audio-widget-btn { }
+        @media (max-width: 640px) {
+          .audio-widget-btn { width: 56px; height: 56px; }
+          .audio-widget-btn span { display: none; }
+          .audio-widget-menu { min-width: 120px; padding: 8px; }
+          .audio-widget-menu button { padding: 8px 10px; font-size: 13px; }
+        }
+      `}</style>
     </div>
   )
 }

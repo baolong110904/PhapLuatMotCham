@@ -151,9 +151,10 @@ export default function CoreValues() {
               </motion.div>
             ))}
           </div>
-          {/* Mascot image with circular action buttons (left/right on md+, stacked on small) */}
+          {/* Desktop (md+) preserves original left/video/right layout. Mobile shows small mascot video first, then a horizontal row of two action buttons. */}
           <div className="mt-12 w-full flex flex-col items-center">
-            <div className="flex flex-col md:flex-row items-center justify-center gap-6">
+            {/* Desktop / tablet layout: left button, mascot video, right button */}
+            <div className="hidden md:flex items-center justify-center gap-6">
               <button
                 aria-label="Trò chơi"
                 title="Trò chơi"
@@ -165,16 +166,18 @@ export default function CoreValues() {
                   <p className="text-2xl font-extrabold">Trò chơi</p>
                 </div>
               </button>
+
               <video
                 src="/mascot/8.mp4"
                 aria-label="Mascot video"
-                className="w-128 h-128 md:w-128 md:h-128 object-cover mx-auto"
+                className="w-128 h-128 object-cover mx-auto"
                 playsInline
                 muted
                 loop
                 autoPlay
                 style={{ backgroundColor: "transparent" }}
               />
+
               <button
                 aria-label="Phòng họp online"
                 title="Phòng họp online"
@@ -186,6 +189,42 @@ export default function CoreValues() {
                   <p className="text-2xl font-extrabold">Trò chuyện</p>
                 </div>
               </button>
+            </div>
+
+            {/* Mobile layout: small mascot video first, then a single row with two buttons */}
+            <div className="flex flex-col md:hidden items-center gap-4 w-full">
+              <video
+                src="/mascot/8.mp4"
+                aria-label="Mascot video"
+                className="w-40 h-40 object-cover mx-auto rounded-lg"
+                playsInline
+                muted
+                loop
+                autoPlay
+                style={{ backgroundColor: "transparent" }}
+              />
+
+              <div className="flex gap-6 justify-center w-full px-4">
+                <button
+                  aria-label="Trò chơi"
+                  title="Trò chơi"
+                  onClick={() => router.push("/quiz")}
+                  className="w-36 h-36 rounded-full bg-yellow-400 text-[#0b3b8a] flex flex-col items-center justify-center gap-1 shadow-md transform transition hover:scale-105 focus:outline-none focus:ring-4 focus:ring-yellow-300/60"
+                >
+                  <PiGameControllerBold size={28} />
+                  <span className="text-sm font-extrabold">Trò chơi</span>
+                </button>
+
+                <button
+                  aria-label="Phòng họp online"
+                  title="Phòng họp online"
+                  onClick={() => router.push("/meeting")}
+                  className="w-36 h-36 rounded-full bg-pink-500 text-white flex flex-col items-center justify-center gap-1 shadow-md transform transition hover:scale-105 focus:outline-none focus:ring-4 focus:ring-pink-300/60"
+                >
+                  <IoChatbubbleOutline size={28} />
+                  <span className="text-sm font-extrabold">Trò chuyện</span>
+                </button>
+              </div>
             </div>
           </div>
         </motion.div>

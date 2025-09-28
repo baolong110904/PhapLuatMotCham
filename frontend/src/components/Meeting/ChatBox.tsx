@@ -17,7 +17,7 @@ export default function ChatBox({
   }, [messages]);
 
   return (
-    <div className=" col-span-1 md:col-span-1 flex flex-col bg-white rounded-2xl shadow-lg p-4">
+    <div className="col-span-1 md:col-span-1 flex flex-col bg-transparent rounded-2xl p-4">
       <div className="flex items-center justify-between mb-3">
         <div className="flex items-center gap-3">
           <div className="w-18 h-18 rounded-full bg-[#0b3b8a]/10 flex items-center justify-center text-2xl text-[#0b3b8a] font-bold">
@@ -31,7 +31,7 @@ export default function ChatBox({
 
       <div
         ref={msgBoxRef}
-        className="overflow h-[500px] max-h-[1200px] p-3 border border-gray-100 rounded-lg mb-3"
+        className="overflow h-[500px] max-h-[1200px] p-3 rounded-lg mb-3"
       >
         <div className="flex flex-col gap-3">
           {messages.map((m: any) => (
