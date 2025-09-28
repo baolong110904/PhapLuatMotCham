@@ -85,7 +85,7 @@ export default function PensionIntro({ onStart }: Props) {
               <button
                 onClick={() => onStart()}
                 aria-label="Bắt đầu - vào phần câu hỏi"
-                className="bg-[#3576e5] text-white font-semibold text-lg md:text-xl py-3 px-6 min-w-[140px] rounded-full hover:scale-105 transition-transform focus:outline-none focus:ring-4 focus:ring-[#3576e5]/30"
+                className="bg-[#3576e5] text-white cursor-pointer font-semibold text-lg md:text-xl py-3 px-6 min-w-[140px] rounded-full hover:scale-105 transition-transform focus:outline-none focus:ring-4 focus:ring-[#3576e5]/30"
               >
                 Bắt đầu
               </button>

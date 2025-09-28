@@ -79,12 +79,12 @@ export default function CicIntro({ onStart }: Props) {
             </div>
           </div>
           {/* Start button positioned inside the video container, bottom-right */}
-          <div className="absolute bottom-4 right-0 md:bottom-6 md:right-0 lg:right-0 translate-x-12 md:translate-x-20 lg:translate-x-28">
+          <div className="absolute right-15 md:bottom-6 md:right-0 lg:right-0 translate-x-12 md:translate-x-20 lg:translate-x-28">
             <div className="bg-white rounded-full px-3 py-2 shadow-md">
               <button
                 onClick={onStart}
                 aria-label="Bắt đầu - vào phần câu hỏi"
-                className="bg-[#3576e5] text-white font-semibold text-lg md:text-xl py-3 px-6 min-w-[140px] rounded-full hover:scale-105 transition-transform focus:outline-none focus:ring-4 focus:ring-[#3576e5]/30"
+                className="bg-[#3576e5] cursor-pointer text-white font-semibold text-lg md:text-xl py-3 px-6 min-w-[140px] rounded-full hover:scale-105 transition-transform focus:outline-none focus:ring-4 focus:ring-[#3576e5]/30"
               >
                 Bắt đầu
               </button>

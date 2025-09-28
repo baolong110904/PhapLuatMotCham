@@ -3,7 +3,7 @@
 import { useState, useEffect, useRef } from "react";
 import { useRouter, useSearchParams } from "next/navigation";
 import { motion, AnimatePresence } from "framer-motion";
-
+import Image from "next/image"
 import { Header } from "@/components/lesson/Header";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/lesson/Card";
@@ -302,8 +302,7 @@ export default function Minigame({ data, hideHeader = false, triggerUiIntro }: P
                     <div className="md:col-span-5">
                       <div className="w-full h-full md:h-[460px] rounded-lg overflow-hidden bg-black flex items-center justify-center">
                         {isImage ? (
-                          // eslint-disable-next-line @next/next/no-img-element
-                          <img src={String(mediaSrc)} alt={`Image for question ${currentQ?.id ?? ''}`} className="w-full h-full object-cover" />
+                          <Image src={String(mediaSrc)} alt={`Image for question ${currentQ?.id ?? ''}`} className="w-full h-full object-cover"/>
                         ) : (
                           <video
                             key={String(mediaSrc)}
