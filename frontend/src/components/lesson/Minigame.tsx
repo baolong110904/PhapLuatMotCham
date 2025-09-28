@@ -169,7 +169,7 @@ export default function Minigame({ data, hideHeader = false, triggerUiIntro }: P
   {!hideHeader && !(stage === "intro" && data.type === "cic") && <Header percentage={percentage} />}
   {!hideHeader && !(stage === "intro" && data.type === "cic") && <Badge score={score} />}
       <div className={`flex-1 ${stage === "intro" && data.type === "cic" ? 'mt-12' : 'mt-20'} flex items-center justify-center`}>
-  <div className="lg:min-h-[400px] sm:pb-16 max-w-7xl w-full px-8 lg:px-20 mx-auto flex flex-col gap-y-12">
+  <div className="lg:min-h-[350px] max-w-7xl w-full px-8 pb-16 lg:px-20 mx-auto flex flex-col gap-y-12">
           <AnimatePresence mode="wait">
             {stage === "intro" && data.type === "cic" && !cicIntroPlayed && !skipIntro ? (
               <motion.div
