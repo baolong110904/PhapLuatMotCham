@@ -168,7 +168,7 @@ export default function CoreValues() {
               </button>
 
               <video
-                src="/mascot/8.mp4"
+                src="https://res.cloudinary.com/ddul274oe/video/upload/v1759063099/8_jyd6iu.mp4"
                 aria-label="Mascot video"
                 className="w-128 h-128 object-cover mx-auto"
                 playsInline
@@ -194,7 +194,7 @@ export default function CoreValues() {
             {/* Mobile layout: small mascot video first, then a single row with two buttons */}
             <div className="flex flex-col md:hidden items-center gap-4 w-full">
               <video
-                src="/mascot/8.mp4"
+                src="https://res.cloudinary.com/ddul274oe/video/upload/v1759063099/8_jyd6iu.mp4"
                 aria-label="Mascot video"
                 className="w-40 h-40 object-cover mx-auto rounded-lg"
                 playsInline

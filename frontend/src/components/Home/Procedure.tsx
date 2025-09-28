@@ -78,7 +78,7 @@
 //                 description: descData.translatedText || item.description,
 //               };
 "use client";
-import Image from "next/image";
+import OptimizedImage from '@/components/ui/OptimizedImage';
 import { useContext, useEffect, useState } from "react";
 import { LangContext } from "../LangContext";
 import { AnimatedBackground } from '../ui/AnimatedBackground'
@@ -182,7 +182,7 @@ export default function Procedure() {
 			<div className="relative z-20 grid grid-cols-1 sm:grid-cols-2 gap-6 w-full">
 				{items.map((item) => (
 					<div key={item.title} className="bg-white rounded-xl shadow-md p-6 flex flex-col items-center gap-3">
-						<Image src={item.img} alt={item.title} width={48} height={48} />
+						<OptimizedImage src={item.img} alt={item.title} width={48} height={48} />
 						<h2 className="text-xl font-semibold text-[#233a5e] text-center">{item.title}</h2>
 						<p className="text-base text-[#233a5e] text-center">{item.description}</p>
 						<button

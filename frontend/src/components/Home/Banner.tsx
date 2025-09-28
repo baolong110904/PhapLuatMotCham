@@ -76,7 +76,7 @@ export default function Banner() {
         <div className="absolute inset-0 z-0 flex justify-end items-center pointer-events-none">
           <video
             ref={videoRef}
-            src="/banner.mp4"
+            src="https://res.cloudinary.com/ddul274oe/video/upload/v1759062985/banner_owbvbb.mp4"
             autoPlay
             muted
             loop

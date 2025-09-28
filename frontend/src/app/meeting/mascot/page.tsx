@@ -2,6 +2,7 @@
 
 import React, { useState } from "react";
 import { Mic, MicOff } from "lucide-react";
+import OptimizedImage from '@/components/ui/OptimizedImage';
 
 export default function MascotPage() {
   const [isActive, setIsActive] = useState(false);
@@ -47,18 +48,21 @@ export default function MascotPage() {
     >
       {/* Liquid Glass Circle */}
       <div className="lg:w-128 lg:h-128 md:h-100 md:w-100 sm:h-80 sm:w-80 h-64 w-64 flex items-center justify-center rounded-full shadow-2xl relative backdrop-blur-xs bg-white/20 border border-white/30">
-        <img
-          src={
-            isTalking
-              ? speakingMascots[
-                  Math.floor(Math.random() * speakingMascots.length)
-                ]
-              : "/assets/mascot_idle.gif"
-          }
-          alt="Mascot"
-          className="max-w-full max-h-full object-contain select-none"
-          draggable={false}
-        />
+        <div className="relative w-full h-full">
+          <OptimizedImage
+            src={
+              isTalking
+                ? speakingMascots[
+                    Math.floor(Math.random() * speakingMascots.length)
+                  ]
+                : "/assets/mascot_idle.gif"
+            }
+            alt="Mascot"
+            fill
+            className="object-contain select-none"
+            draggable={false}
+          />
+        </div>
 
         {/* Extra glass shine effect */}
         <div className="absolute inset-0 rounded-full bg-gradient-to-br from-white/30 to-transparent pointer-events-none" />

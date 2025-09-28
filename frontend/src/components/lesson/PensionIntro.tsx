@@ -54,7 +54,7 @@ export default function PensionIntro({ onStart }: Props) {
         <div className="relative w-full max-w-2xl">
           <video
             ref={videoRef}
-            src="/mascot/1.mp4"
+            src="https://res.cloudinary.com/ddul274oe/video/upload/v1759063440/1_ukrap1.mp4"
             className="w-full h-auto object-contain"
             playsInline
             autoPlay

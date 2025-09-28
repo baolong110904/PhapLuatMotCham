@@ -1,5 +1,5 @@
 import React from 'react';
-import Image from 'next/image';
+import OptimizedImage from './ui/OptimizedImage';
 
 export default function Footer() {
   return (
@@ -8,7 +8,7 @@ export default function Footer() {
   <div className="grid grid-cols-1 md:grid-cols-4 gap-12">
           <div>
             <div className="flex items-center mb-6">
-              <Image src="/logo.png" alt="Tâm Lạc Center Logo" width={48} height={48} className="h-12 mr-3" />
+              <OptimizedImage src="/logo.png" alt="Tâm Lạc Center Logo" width={48} height={48} className="h-12 mr-3" priority />
               <span className="text-2xl font-bold">Tâm Lạc Center</span>
             </div>
             <p className="text-gray-300 mb-4">
@@ -59,7 +59,7 @@ export default function Footer() {
           </div>
           <div className="flex items-center justify-center md:justify-start">
             <div className="text-center md:text-left">
-              <Image src="/game_qrcode.jpg" alt="QR code Tâm Lạc" width={160} height={160} className="rounded-md" />
+              <OptimizedImage src="/game_qrcode.jpg" alt="QR code Tâm Lạc" width={160} height={160} className="rounded-md" />
               <div className="mt-2 text-gray-300 text-sm">Quét mã để chơi</div>
             </div>
           </div>

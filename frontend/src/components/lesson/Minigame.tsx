@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useEffect, useRef } from "react";
+import OptimizedImage from '@/components/ui/OptimizedImage';
 import { useRouter, useSearchParams } from "next/navigation";
 import { motion, AnimatePresence } from "framer-motion";
 
@@ -300,10 +301,14 @@ export default function Minigame({ data, hideHeader = false, triggerUiIntro }: P
                 {(mediaSrc) ? (
                   <div className="w-full grid grid-cols-1 md:grid-cols-12 gap-6 items-start">
                     <div className="md:col-span-5">
-                      <div className="w-full h-full md:h-[460px] rounded-lg overflow-hidden bg-black flex items-center justify-center">
+                      <div className="w-full h-full md:h-[460px] rounded-lg overflow-hidden bg-black flex items-center justify-center relative">
                         {isImage ? (
-                          // eslint-disable-next-line @next/next/no-img-element
-                          <img src={String(mediaSrc)} alt={`Image for question ${currentQ?.id ?? ''}`} className="w-full h-full object-cover" />
+                          <OptimizedImage
+                            src={String(mediaSrc)}
+                            alt={`Image for question ${currentQ?.id ?? ''}`}
+                            className="object-cover"
+                            fill
+                          />
                         ) : (
                           <video
                             key={String(mediaSrc)}
