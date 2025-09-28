@@ -13,7 +13,7 @@ import { X } from "lucide-react";
 import { Button } from "../ui/button";
 import { useExitModal } from "./use-exit-modal";
 
-import Image from "next/image";
+import OptimizedImage from '@/components/ui/OptimizedImage';
 import { useRouter } from "next/navigation";
 
 export const ExitModal = () => {
@@ -31,7 +31,7 @@ export const ExitModal = () => {
         </DialogClose>
         <DialogHeader>
           <div className="flex items-center w-full justify-center mb-5">
-            <Image
+            <OptimizedImage
               src="/assets/crying-emoji-emoticon-svgrepo-com.svg"
               alt="Sad face"
               height={80}

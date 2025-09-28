@@ -7,12 +7,12 @@
       {
         "label": "A. Thẻ cũ đã hết hạn",
         "id": "expired",
-        "video": "/mascot/3.mp4"
+        "video": "https://res.cloudinary.com/ddul274oe/video/upload/v1759063522/3_ar9sp6.mp4"
       },
       {
         "label": "B. Thẻ chẳng may thất lạc mất rồi",
         "id": "lost",
-        "video": "/mascot/7.mp4"
+        "video": "https://res.cloudinary.com/ddul274oe/video/upload/v1759063532/7_vqea7f.mp4"
       }
     ]
   },
@@ -31,7 +31,7 @@
       "id": 1,
       "question": "Câu 1. Đi làm thẻ, cô/chú cần chuẩn bị gì nè?",
       "img": [],
-      "video": "/mascot/5.mp4",
+      "video": "https://res.cloudinary.com/ddul274oe/video/upload/v1759063736/5_bmowaq.mp4",
       "options": [
         {
           "label": "A. Mang thật nhiều giấy tờ: hộ khẩu, giấy khai sinh, giấy kết hôn…",

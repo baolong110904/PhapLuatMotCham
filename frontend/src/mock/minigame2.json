@@ -7,12 +7,12 @@
       {
         "label": "1. Làm trực tiếp (Offline)",
         "id": "offline",
-        "video": "/mascot/9.mp4"
+        "video": "https://res.cloudinary.com/ddul274oe/video/upload/v1759063675/9_gvwmyg.mp4"
       },
       {
         "label": "2. Làm trực tuyến (Online)",
         "id": "online",
-        "video": "/mascot/10.mp4"
+        "video": "https://res.cloudinary.com/ddul274oe/video/upload/v1759063613/10_vzlw3q.mp4"
       }
     ]
   },

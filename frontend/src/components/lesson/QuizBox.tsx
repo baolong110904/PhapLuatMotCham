@@ -1,6 +1,6 @@
 "use client";
 
-import Image from "next/image";
+import OptimizedImage from '@/components/ui/OptimizedImage';
 import { Play } from "lucide-react";
 import { useRouter } from "next/navigation";
 
@@ -16,7 +16,7 @@ export default function QuizBox({ quizName, img, route }: Props) {
       <div className="bg-white rounded-2xl hover:scale-[1.01] shadow-md overflow-hidden transition-all border border-transparent hover:border-blue-50">
         {/* Image */}
         <div className="w-full h-60 relative">
-          <Image
+          <OptimizedImage
             src={img}
             alt={quizName}
             fill

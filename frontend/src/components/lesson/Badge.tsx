@@ -3,6 +3,7 @@
 import { useEffect, useState, useRef } from "react";
 import { motion, AnimatePresence, easeInOut } from "framer-motion";
 import Image from "next/image";
+import OptimizedImage from '@/components/ui/OptimizedImage';
 import { useSoundEffect } from "./SoundEffects";
 
 // badges
@@ -66,7 +67,7 @@ export default function Badge({ score }: Props) {
                 animate={{ scale: 1, opacity: 1 }}
                 transition={{ duration: 0.2 }}
               >
-                <Image
+                <OptimizedImage
                   src={b.image}
                   alt={`Badge ${b.id}`}
                   width={96}
@@ -106,7 +107,7 @@ export default function Badge({ score }: Props) {
                   setFlyStart(true);
                 }}
               >
-                <Image
+                <OptimizedImage
                   src={badges.find((b) => b.id === newBadge)!.image}
                   alt={`Badge ${newBadge}`}
                   width={240}
@@ -142,7 +143,7 @@ export default function Badge({ score }: Props) {
                   setFlyStart(false);
                 }}
               >
-                <Image
+                <OptimizedImage
                   src={badges.find((b) => b.id === newBadge)!.image}
                   alt={`Badge ${newBadge}`}
                   width={160}

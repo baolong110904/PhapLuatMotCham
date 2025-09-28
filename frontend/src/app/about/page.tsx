@@ -1,6 +1,6 @@
 "use client";
 
-import Image from 'next/image';
+import OptimizedImage from '@/components/ui/OptimizedImage';
 import { useState } from 'react';
 import ImagePreview from '@/components/ImagePreview';
 import ReviewsSection from '@/components/ReviewsSection';
@@ -26,7 +26,7 @@ function ShowMoreMission() {
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-center">
             <div className="lg:col-span-5 flex flex-col gap-4">
               <div className="rounded-xl overflow-hidden shadow-lg">
-                <Image
+                <OptimizedImage
                   src="/about/AI/8.jpg"
                   alt="activity-left"
                   width={1000}
@@ -74,7 +74,7 @@ function ShowMoreMission() {
             <div className="lg:col-span-5">
               <div className="grid grid-cols-1 md:grid-cols-1 gap-4 items-stretch">
                 <div className="md:col-span-2 rounded-xl overflow-hidden shadow-lg">
-                  <Image
+                  <OptimizedImage
                     src="/about/AI/5.jpg"
                     alt="activity-right"
                     width={1000}
@@ -125,7 +125,7 @@ export default function AboutPage() {
 
           <div className="lg:w-1/2">
             <div className="rounded-xl overflow-hidden">
-              <video src="/mascot/2.mp4" className="object-cover w-full h-full" controls={false} autoPlay muted loop playsInline />
+              <video src="https://res.cloudinary.com/ddul274oe/video/upload/v1759063889/2_dbokyc.mp4" className="object-cover w-full h-full" controls={false} autoPlay muted loop playsInline />
             </div>
           </div>
   </div>
@@ -183,7 +183,7 @@ export default function AboutPage() {
           
           <div className="space-y-8">
             <div className="rounded-xl overflow-hidden shadow-lg">
-              <Image src="/about/AI/7.jpg" alt="activities" width={1000} height={680} className="w-full h-100 object-cover" />
+              <OptimizedImage src="/about/AI/7.jpg" alt="activities" width={1000} height={680} className="w-full h-100 object-cover" />
             </div>
             {/* <div className="rounded-xl overflow-hidden shadow-lg">
               <Image src="/about/AI/6.jpg" alt="elderly care" width={1000} height={680} className="w-full h-100 object-cover" />

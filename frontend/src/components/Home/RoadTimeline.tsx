@@ -1,7 +1,7 @@
 import React, { useEffect, useRef, useState, useLayoutEffect } from 'react'
 import { motion } from 'framer-motion'
 import FeatureBox, { FeatureStep } from './FeatureBox'
-import Image from 'next/image'
+import OptimizedImage from '@/components/ui/OptimizedImage'
 
 export default function RoadTimeline({ steps, onSelect }: { steps: FeatureStep[]; onSelect?: (i: number) => void }) {
   const roadVariants = {
@@ -300,7 +300,7 @@ export default function RoadTimeline({ steps, onSelect }: { steps: FeatureStep[]
             >
               <div className="flex flex-col items-center">
                 <div className="relative rounded-full overflow-hidden" style={{ width: Math.round((boxWState ?? 300) * 0.8), height: Math.round((boxWState ?? 300) * 0.8) }}>
-                  <Image 
+                  <OptimizedImage 
                     src={steps[i].image} 
                     alt={steps[i].title} 
                     fill
@@ -335,7 +335,7 @@ export default function RoadTimeline({ steps, onSelect }: { steps: FeatureStep[]
             <motion.div className={`w-full`} initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: 0.25 + index * 0.05, duration: 0.5 }}>
               <div className="flex flex-col items-center bg-transparent px-2">
                 <div className="relative w-56 h-56 md:w-44 md:h-44 lg:w-44 lg:h-44 mb-2 rounded-full overflow-hidden">
-                  <Image 
+                  <OptimizedImage 
                     src={step.image} 
                     alt={step.title} 
                     fill

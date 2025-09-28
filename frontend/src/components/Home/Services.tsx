@@ -1,6 +1,6 @@
 'use client'
 import React, { useState, useRef } from 'react'
-import Image from 'next/image'
+import OptimizedImage from '@/components/ui/OptimizedImage'
 import { motion } from 'framer-motion'
 import {
   FileTextIcon,
@@ -222,7 +222,7 @@ export function Services() {
               >
                 {/* Image */}
                 <div className="w-full h-48 bg-gray-100 flex items-center justify-center relative">
-                  <Image
+                  <OptimizedImage
                     src={imgSrc}
                     alt={service.title}
                     fill

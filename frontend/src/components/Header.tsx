@@ -1,6 +1,6 @@
 "use client";
 import { useState } from "react";
-import Image from "next/image";
+import OptimizedImage from './ui/OptimizedImage';
 import Link from "next/link";
 import { Menu, X } from "lucide-react";
 import { motion, AnimatePresence, Variants } from "framer-motion";
@@ -35,7 +35,7 @@ export default function Header() {
         {/* Left: Logo */}
         <div className="flex items-center">
           <Link href="/">
-            <Image src="/logo.png" alt="Logo" width={60} height={60} />
+            <OptimizedImage src="/logo.png" alt="Logo" width={60} height={60} priority />
           </Link>
         </div>
         

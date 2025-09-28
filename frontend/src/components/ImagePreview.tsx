@@ -43,8 +43,17 @@ export default function ImagePreview({ imgUrls }: ImagePreviewProps) {
 
   return (
     <div>
-      {/* Grid preview */}
-      <div className="grid grid-cols-4 gap-2">
+      {/* Mobile: vertical stack of first 3 images (clickable) - larger display */}
+      <div className="flex md:hidden flex-col gap-3">
+        {imgUrls.slice(0, 3).map((item, idx) => (
+          <div key={idx} onClick={() => openModal(idx)} className="relative w-full h-[200px] cursor-pointer">
+            <Image src={item} alt={`Preview ${idx}`} fill className="object-cover rounded-xl" />
+          </div>
+        ))}
+      </div>
+
+      {/* Desktop grid preview (hidden on mobile) - keeps original 5-image appearance on md+ */}
+      <div className="hidden md:grid grid-cols-4 gap-2">
         <div
           onClick={() => openModal(0)}
           className="col-span-2 cursor-pointer relative h-[500px]"

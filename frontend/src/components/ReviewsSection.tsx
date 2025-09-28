@@ -1,6 +1,6 @@
 "use client";
 
-import Image from 'next/image'
+import OptimizedImage from './ui/OptimizedImage'
 import { useState } from "react";
 import { motion } from "framer-motion";
 
@@ -39,7 +39,7 @@ export default function ReviewsSection({ overallRating = 5.0, totalReviews, revi
             <div className="flex items-start gap-4">
               {review.avatar ? (
                 <div className="relative w-12 h-12 rounded-full overflow-hidden">
-                  <Image src={review.avatar} alt={review.userName} fill className="object-cover" />
+                  <OptimizedImage src={review.avatar} alt={review.userName} fill className="object-cover" />
                 </div>
               ) : (
                 <div className="w-12 h-12 bg-gradient-to-br from-blue-500 to-purple-600 rounded-full flex items-center justify-center text-white font-bold text-lg">{getInitials(review.userName)}</div>
