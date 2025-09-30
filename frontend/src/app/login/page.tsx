@@ -1,23 +1,19 @@
 "use client";
+import { useRouter } from "next/navigation";
 import { useState } from "react";
 
 export default function LoginPage() {
   const [user, setUser] = useState("");
   const [pass, setPass] = useState("");
   const [error, setError] = useState("");
-
+  const router = useRouter();
   async function handleLogin(e: React.FormEvent) {
     e.preventDefault();
-
-    const res = await fetch("/api/login", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ user, pass }),
-    });
-
-    if (res.ok) {
-      window.location.href = "/";
-    } else {
+    console.log("test:", process.env.NEXT_PUBLIC_AUTH_USER)
+    if (user === process.env.NEXT_PUBLIC_AUTH_USER && pass === process.env.NEXT_PUBLIC_AUTH_PASSWORD) {
+      sessionStorage.setItem("auth", "true");
+      router.push("/");
+    }  else {
       setError("Invalid credentials");
     }
   }
