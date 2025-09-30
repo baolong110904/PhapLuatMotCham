@@ -3,8 +3,10 @@ import type { NextRequest } from "next/server";
 
 export function middleware(req: NextRequest) {
   // allow static assets
-  if (req.nextUrl.pathname.startsWith("/_next") ||
-      req.nextUrl.pathname.startsWith("/favicon.ico")) {
+  if (
+    req.nextUrl.pathname.startsWith("/_next") ||
+    req.nextUrl.pathname.startsWith("/favicon.ico")
+  ) {
     return NextResponse.next();
   }
 
@@ -19,6 +21,8 @@ export function middleware(req: NextRequest) {
   if (!req.nextUrl.pathname.startsWith("/login")) {
     return NextResponse.redirect(new URL("/login", req.url));
   }
+  console.log("Middleware hit:", req.nextUrl.pathname);
+  console.log("Cookies:", req.cookies.get("auth"));
 
   return NextResponse.next();
 }
