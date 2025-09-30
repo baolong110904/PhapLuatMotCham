@@ -7,7 +7,7 @@ import { usePathname } from "next/navigation";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { ExitModal } from "@/components/lesson/exit-modal";
-import AudioWidget from '@/components/AudioWidget'
+import AudioWidget from "@/components/AudioWidget";
 
 export default function LayoutClient({
   children,
@@ -15,7 +15,17 @@ export default function LayoutClient({
   children: React.ReactNode;
 }) {
   const pathname = usePathname();
-  const noLayoutRoutes = useMemo(() => ["/quiz/cic", "/quiz/pension", "/meeting", "/meeting/mascot", "/meeting/people"], []);
+  const noLayoutRoutes = useMemo(
+    () => [
+      "/quiz/cic",
+      "/quiz/pension",
+      "/meeting",
+      "/meeting/mascot",
+      "/meeting/people",
+      "/login"
+    ],
+    []
+  );
 
   useEffect(() => {
     if (typeof window === "undefined") return;
@@ -26,24 +36,28 @@ export default function LayoutClient({
     // If route is excluded, try to hide/remove any previously injected Tawk widget
     if (isExcluded) {
       try {
-        const Tawk = (window as any).Tawk_API
-        if (Tawk && typeof Tawk.hideWidget === 'function') {
-          Tawk.hideWidget()
+        const Tawk = (window as any).Tawk_API;
+        if (Tawk && typeof Tawk.hideWidget === "function") {
+          Tawk.hideWidget();
         }
       } catch (e) {}
 
       // Remove our inline marker script if present
-      const inlineEl = document.getElementById('tawk-script')
-      if (inlineEl) inlineEl.remove()
+      const inlineEl = document.getElementById("tawk-script");
+      if (inlineEl) inlineEl.remove();
 
       // Remove any loaded tawk script tags
-      document.querySelectorAll('script[src*="embed.tawk.to"]').forEach(s => s.remove())
+      document
+        .querySelectorAll('script[src*="embed.tawk.to"]')
+        .forEach((s) => s.remove());
 
       // Try to remove elements inserted by Tawk (best-effort)
-      document.querySelectorAll('[id^="tawk"], [class*="tawk"]').forEach(el => el.remove())
+      document
+        .querySelectorAll('[id^="tawk"], [class*="tawk"]')
+        .forEach((el) => el.remove());
 
       // don't inject when excluded
-      return
+      return;
     }
 
     // If not excluded, and script not yet added, inject the loader as before
@@ -69,13 +83,17 @@ s0.parentNode.insertBefore(s1,s0);
   }, [pathname]);
 
   if (noLayoutRoutes.includes(pathname)) {
-    return (
-      <>
-        {children}
-        <ExitModal />
-        <AudioWidget />
-      </>
-    );
+    if (pathname === "/login") {
+      return <>{children}</>;
+    } else {
+      return (
+        <>
+          {children}
+          <ExitModal />
+          <AudioWidget />
+        </>
+      );
+    }
   }
 
   return (
