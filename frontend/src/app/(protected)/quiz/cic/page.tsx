@@ -331,17 +331,24 @@ import { useState } from "react";
 import Minigame from "@/components/lesson/Minigame";
 import CicIntro from "@/components/lesson/CicIntro";
 import GameData from "@/mock/minigame1.json";
+import ProtectedLayout from "@/components/Private/ProtectedLayout";
 
 export default function CICPage() {
   const [started, setStarted] = useState(false);
 
   if (!started) {
     return (
-      <div className="min-h-screen flex items-center justify-center bg-white">
-        <CicIntro onStart={() => setStarted(true)} />
-      </div>
+      <ProtectedLayout>
+        <div className="min-h-screen flex items-center justify-center bg-white">
+          <CicIntro onStart={() => setStarted(true)} />
+        </div>
+      </ProtectedLayout>
     );
   }
 
-  return <Minigame data={GameData} triggerUiIntro={true} />;
+  return (
+    <ProtectedLayout>
+      <Minigame data={GameData} triggerUiIntro={true} />
+    </ProtectedLayout>
+  );
 }

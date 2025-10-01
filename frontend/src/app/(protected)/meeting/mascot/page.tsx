@@ -3,6 +3,7 @@
 import React, { useState } from "react";
 import { Mic, MicOff } from "lucide-react";
 import OptimizedImage from '@/components/ui/OptimizedImage';
+import ProtectedLayout from "@/components/Private/ProtectedLayout";
 
 export default function MascotPage() {
   const [isActive, setIsActive] = useState(false);
@@ -40,6 +41,7 @@ export default function MascotPage() {
   };
 
   return (
+    <ProtectedLayout>
     <div
       className="flex flex-col items-center justify-center min-h-screen p-6 bg-cover bg-center bg-no-repeat"
       style={{
@@ -81,5 +83,6 @@ export default function MascotPage() {
         {isActive ? "Đang nghe..." : "Nói chuyện với Tâm Lạc Nhí"}
       </button>
     </div>
+    </ProtectedLayout>
   );
 }

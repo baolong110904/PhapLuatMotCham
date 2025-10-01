@@ -4,6 +4,7 @@ import OptimizedImage from '@/components/ui/OptimizedImage';
 import { useState } from 'react';
 import ImagePreview from '@/components/ImagePreview';
 import ReviewsSection from '@/components/ReviewsSection';
+import ProtectedLayout from '@/components/Private/ProtectedLayout';
 
 function ShowMoreMission() {
   const [open, setOpen] = useState(false);
@@ -110,6 +111,8 @@ export default function AboutPage() {
   ];
 
   return (
+    <ProtectedLayout>
+
     <main className="w-full text-lg">
       {/* Hero */}
       <section className="relative bg-white pt-24 pb-20">
@@ -272,5 +275,6 @@ export default function AboutPage() {
         </div>
       </section>
     </main>
+    </ProtectedLayout>
   );
 }

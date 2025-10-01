@@ -3,7 +3,7 @@ import { Be_Vietnam_Pro } from "next/font/google";
 import "./globals.css";
 import { PageTransition } from "@/components/ui/PageTransition";
 import LayoutClient from "./LayoutClient";
-import ProtectedLayout from "@/components/ProtectedLayout";
+import { AuthContextProvider } from "@/components/Context/AuthContext";
 
 const beVietnamPro = Be_Vietnam_Pro({
   subsets: ["latin", "vietnamese"],
@@ -26,11 +26,11 @@ export default function RootLayout({
   return (
     <html lang="vi">
       <body className={`${beVietnamPro.className} antialiased`}>
-        <ProtectedLayout>
-          <LayoutClient>
-            <PageTransition>{children}</PageTransition>
-          </LayoutClient>
-        </ProtectedLayout>
+        <AuthContextProvider>
+            <LayoutClient>
+              <PageTransition>{children}</PageTransition>
+            </LayoutClient>
+        </AuthContextProvider>
       </body>
     </html>
   );
