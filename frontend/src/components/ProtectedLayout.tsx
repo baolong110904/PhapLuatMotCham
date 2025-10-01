@@ -10,19 +10,16 @@ export default function ProtectedLayout({ children }: ProtectedLayoutProps) {
   const router = useRouter();
   const pathname = usePathname();
   const [authChecked, setAuthChecked] = useState(false);
-  const [isAuth, setIsAuth] = useState(false);
 
   useEffect(() => {
     const auth = sessionStorage.getItem("auth");
 
     if (pathname === "/login") {
       setAuthChecked(true);
-      setIsAuth(true);
       return;
     }
-    
-    if (auth) {
-      setIsAuth(true);
+
+    if (auth) { 
     } else {
       router.replace("/login");
     }
@@ -32,8 +29,8 @@ export default function ProtectedLayout({ children }: ProtectedLayoutProps) {
 
   if (!authChecked) {
     return (
-      <div className="min-h-screen flex items-center justify-center">
-        <p>Loading...</p>
+      <div className="min-h-screen flex flex-col items-center justify-center bg-white">
+        <p className="text-gray-500 text-lg">Loading...</p>
       </div>
     );
   }
