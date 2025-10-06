@@ -338,17 +338,13 @@ export default function CICPage() {
 
   if (!started) {
     return (
-      <ProtectedLayout>
         <div className="min-h-screen flex items-center justify-center bg-white">
           <CicIntro onStart={() => setStarted(true)} />
         </div>
-      </ProtectedLayout>
     );
   }
 
   return (
-    <ProtectedLayout>
       <Minigame data={GameData} triggerUiIntro={true} />
-    </ProtectedLayout>
   );
 }

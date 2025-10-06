@@ -29,7 +29,6 @@ export default function MeetingPage() {
   }
 
   return (
-    <ProtectedLayout>
       <div className="relative min-h-screen p-6 md:p-10 bg-white">
         {/* Mobile: mascots side-by-side on top, chatbox below (no horizontal scroll) */}
         <div className="md:hidden flex flex-col items-center gap-4 w-full">
@@ -131,6 +130,5 @@ export default function MeetingPage() {
           </div>
         </div>
       </div>
-    </ProtectedLayout>
   );
 }

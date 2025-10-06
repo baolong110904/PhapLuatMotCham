@@ -41,7 +41,6 @@ export default function MascotPage() {
   };
 
   return (
-    <ProtectedLayout>
     <div
       className="flex flex-col items-center justify-center min-h-screen p-6 bg-cover bg-center bg-no-repeat"
       style={{
@@ -83,6 +82,5 @@ export default function MascotPage() {
         {isActive ? "Đang nghe..." : "Nói chuyện với Tâm Lạc Nhí"}
       </button>
     </div>
-    </ProtectedLayout>
   );
 }

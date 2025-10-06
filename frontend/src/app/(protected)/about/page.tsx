@@ -111,7 +111,6 @@ export default function AboutPage() {
   ];
 
   return (
-    <ProtectedLayout>
 
     <main className="w-full text-lg">
       {/* Hero */}
@@ -275,6 +274,5 @@ export default function AboutPage() {
         </div>
       </section>
     </main>
-    </ProtectedLayout>
   );
 }

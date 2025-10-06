@@ -1,7 +1,6 @@
 "use client";
 
 import QuizBox from "@/components/lesson/QuizBox";
-import ProtectedLayout from "@/components/Private/ProtectedLayout";
 
 const quizList = [
   {
@@ -18,7 +17,6 @@ const quizList = [
 
 export default function QuizPage() {
   return (
-    <ProtectedLayout>
       <div className="min-h-[600px]">
         <div className=" grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6 p-6">
           {quizList.map((quiz, index) => (
@@ -31,6 +29,5 @@ export default function QuizPage() {
           ))}
         </div>
       </div>
-    </ProtectedLayout>
   );
 }
