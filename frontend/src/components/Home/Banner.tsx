@@ -8,7 +8,7 @@ import { MorphingBlob } from '../ui/MorphingBlob';
 export default function Banner() {
   // Nội dung chữ bên trái
   const title = "Tâm an - Lạc sống - Vẹn tròn tuổi già";
-
+  
   const controls = useAnimation();
   const router = useRouter();
   const [ref, inView] = useInView({
@@ -25,7 +25,7 @@ export default function Banner() {
       if (videoRef.current) {
         videoRef.current.play().catch(error => console.log("Video autoplay was prevented:", error));
         if (!soundPlayedRef.current) {
-          videoRef.current.muted = false;
+          videoRef.current.muted = true;
           soundPlayedRef.current = true;
         } else {
           videoRef.current.muted = true;
@@ -77,9 +77,10 @@ export default function Banner() {
             ref={videoRef}
             src="https://res.cloudinary.com/ddul274oe/video/upload/v1759062985/banner_owbvbb.mp4"
             autoPlay
-            muted
+            muted={true}
             loop
             playsInline
+            preload='auto'
             className="h-[520px] md:h-[650px] w-[65vw] object-cover transition-opacity duration-500 ease-in-out opacity-90"
             style={{
               transform: 'translateX(25%)',
