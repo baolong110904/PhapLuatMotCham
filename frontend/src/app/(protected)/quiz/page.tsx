@@ -1,5 +1,3 @@
-"use client";
-
 import QuizBox from "@/components/lesson/QuizBox";
 
 const quizList = [

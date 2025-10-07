@@ -1,6 +1,6 @@
-import OptimizedImage from '@/components/ui/OptimizedImage';
+import OptimizedImage from "@/components/ui/OptimizedImage";
 import { Play } from "lucide-react";
-import { useRouter } from "next/navigation";
+import Link from "next/link";
 
 type Props = {
   quizName: string;
@@ -9,34 +9,34 @@ type Props = {
 };
 
 export default function QuizBox({ quizName, img, route }: Props) {
-  const router = useRouter();
+  // const router = useRouter();
   return (
-      <div className="bg-white rounded-2xl hover:scale-[1.01] shadow-md overflow-hidden transition-all border border-transparent hover:border-blue-50">
-        {/* Image */}
-        <div className="w-full h-60 relative">
-          <OptimizedImage
-            src={img}
-            alt={quizName}
-            fill
-            className="object-cover w-full h-full rounded-t-2xl"
-          />
-        </div>
-
-        {/* Content */}
-        <div className="p-4 flex flex-col">
-          <h3 className="text-2xl text-start font-bold text-gray-800 mb-3">
-            {quizName}
-          </h3>
-          <div className="justify-end flex">
-            <button 
-              className="cursor-pointer flex items-center gap-2 px-4 py-2 bg-[#0b3b8a] text-white font-bold text-2xl rounded-2xl hover:bg-[#005fcc] transition"
-              onClick={() => router.push(route)}
-            >
-              <Play size={24} />
-              Chơi
-            </button>
-          </div>
+    <div className="bg-white rounded-2xl hover:scale-[1.01] shadow-md overflow-hidden transition-all border border-transparent hover:border-blue-50">
+      {/* Image */}
+      <div className="w-full h-60 relative">
+        <OptimizedImage
+          src={img}
+          alt={quizName}
+          fill
+          className="object-cover w-full h-full rounded-t-2xl"
+        />
+      </div>
+      
+      {/* Content */}
+      <div className="p-4 flex flex-col">
+        <h3 className="text-2xl text-start font-bold text-gray-800 mb-3">
+          {quizName}
+        </h3>
+        <div className="justify-end flex">
+          <Link
+            href={route}
+            className="flex items-center gap-2 px-4 py-2 bg-[#0b3b8a] text-white font-bold text-2xl rounded-2xl hover:bg-[#005fcc] transition"
+          >
+            <Play size={24} />
+            Chơi
+          </Link>
         </div>
       </div>
+    </div>
   );
 }
