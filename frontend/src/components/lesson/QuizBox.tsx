@@ -1,5 +1,3 @@
-"use client";
-
 import OptimizedImage from '@/components/ui/OptimizedImage';
 import { Play } from "lucide-react";
 import { useRouter } from "next/navigation";
