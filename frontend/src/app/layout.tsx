@@ -27,9 +27,9 @@ export default function RootLayout({
     <html lang="vi">
       <body className={`${beVietnamPro.className} antialiased`}>
         <AuthContextProvider>
-            <LayoutClient>
-              <PageTransition>{children}</PageTransition>
-            </LayoutClient>
+          <LayoutClient>
+            <PageTransition>{children}</PageTransition>
+          </LayoutClient>
         </AuthContextProvider>
       </body>
     </html>

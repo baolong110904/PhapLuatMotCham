@@ -2,8 +2,8 @@ import { motion, useAnimation, Variants } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
 import { useEffect, useRef } from 'react';
 import { useRouter } from 'next/navigation';
-import { AnimatedBackground } from '../ui/AnimatedBackground';
-import { MorphingBlob } from '../ui/MorphingBlob';
+// import { AnimatedBackground } from '../ui/AnimatedBackground';
+// import { MorphingBlob } from '../ui/MorphingBlob';
 
 export default function Banner() {
   // Nội dung chữ bên trái
@@ -39,34 +39,34 @@ export default function Banner() {
     }
   }, [controls, inView]);
 
-  const containerVariants: Variants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.2,
-      },
-    },
-  };
+  // const containerVariants: Variants = {
+  //   hidden: { opacity: 0 },
+  //   visible: {
+  //     opacity: 1,
+  //     transition: {
+  //       staggerChildren: 0.2,
+  //     },
+  //   },
+  // };
 
-  const itemVariants: Variants = {
-    hidden: { y: 20, opacity: 0 },
-    visible: {
-      y: 0,
-      opacity: 1,
-      transition: {
-        duration: 0.6,
-      },
-    },
-  };
+  // const itemVariants: Variants = {
+  //   hidden: { y: 20, opacity: 0 },
+  //   visible: {
+  //     y: 0,
+  //     opacity: 1,
+  //     transition: {
+  //       duration: 0.6,
+  //     },
+  //   },
+  // };
 
   return (
     <div className="relative w-full bg-white overflow-hidden">
       {/* backgrounds - always behind content */}
       <div aria-hidden className="absolute inset-0 -z-10 pointer-events-none">
-        <AnimatedBackground className="opacity-70" />
+        {/* <AnimatedBackground className="opacity-70" />
         <MorphingBlob className="-top-20 left-0 w-1/2 h-72 opacity-90" />
-        <MorphingBlob className="-bottom-16 right-0 w-1/3 h-56 opacity-80 rotate-45" />
+        <MorphingBlob className="-bottom-16 right-0 w-1/3 h-56 opacity-80 rotate-45" /> */}
       </div>
 
       {/* Main container */}
@@ -91,40 +91,37 @@ export default function Banner() {
         </div>
 
         {/* Content */}
-        <motion.div
+        <div
           ref={ref}
-          variants={containerVariants}
-          initial="hidden"
-          animate={controls}
+          // variants={containerVariants}
+          // initial="hidden"
+          // animate={controls}
           className="relative z-20 flex flex-col md:flex-row items-center justify-between w-full pt-20 pb-32 px-4"
           style={{ minHeight: 450 }}
         >
-          <motion.div variants={itemVariants} className="w-full md:w-1/2 p-6">
-            <motion.h1
+          <div className="w-full md:w-1/2 p-6">
+            <h1
               className="text-4xl md:text-5xl font-extrabold text-[#3576e5] mb-8 drop-shadow"
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6 }}
             >
               {title}
-            </motion.h1>
-            <motion.div variants={itemVariants} className="text-[#222] text-base sm:text-xl font-medium mb-10 max-w-xl drop-shadow-lg" style={{ wordSpacing: '0.25rem', lineHeight: 1.7 }}>
+            </h1>
+            <div className="text-[#222] text-base sm:text-xl font-medium mb-10 max-w-xl drop-shadow-lg" style={{ wordSpacing: '0.25rem', lineHeight: 1.7 }}>
               <p>
                 Tâm Lạc Center là không gian <span className="whitespace-nowrap">chăm sóc tinh thần</span> cho người cao tuổi với các hoạt động <span className="whitespace-nowrap">kết nối</span>, sáng tạo và ý nghĩa.
               </p>
               <p className="mt-4">Chúng tôi tin rằng tuổi già cũng là thời gian để sống hạnh phúc!</p>
-            </motion.div>
-            <motion.button
-              variants={itemVariants}
+            </div>
+            <button
+            
               onClick={() => router.push('/about')}
               className="bg-[#0074F8] text-white text-lg font-bold px-8 py-4 rounded-lg shadow-lg hover:bg-[#005ecb] transition-all cursor-pointer"
             >
               Tìm hiểu thêm <span className="ml-2">→</span>
-            </motion.button>
-          </motion.div>
+            </button>
+          </div>
 
           <div className="hidden md:block w-1/2" />
-        </motion.div>
+        </div>
       </div>
 
       {/* Wave SVG separator */}

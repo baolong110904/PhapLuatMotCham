@@ -13,15 +13,17 @@ export default function Header() {
     visible: {
       opacity: 1,
       y: 0,
-      transition: { duration: 0.3, ease: "easeInOut" as const },
+      height: "auto",
+      transition: { duration: 0.3, ease: "easeInOut" },
     },
     exit: {
       opacity: 0,
       y: -20,
       height: 0,
-      transition: { duration: 0.2, ease: "easeInOut" as const },
+      transition: { duration: 0.2, ease: "easeInOut" },
     },
   };
+
 
   return (
     <header
@@ -64,7 +66,7 @@ export default function Header() {
         {/* Right: Mobile button (hidden on desktop) */}
         <div className="md:hidden">
           <button
-            className="p-2 rounded-lg hover:bg-gray-100"
+            className="p-2 rounded-lg hover:bg-gray-100 cursor-pointer"
             onClick={() => setIsOpen(!isOpen)}
           >
             {isOpen ? <X size={28} /> : <Menu size={28} />}
