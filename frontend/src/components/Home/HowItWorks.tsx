@@ -1,10 +1,11 @@
-import React from 'react'
+import React, { memo, useMemo } from 'react'
 import { motion } from 'framer-motion'
 import { ImageIcon, VolumeIcon, MousePointerIcon, SmartphoneIcon } from 'lucide-react'
 import RoadTimeline from './RoadTimeline'
 
-export function HowItWorks() {
-  const steps = [
+export const HowItWorks = memo(function HowItWorks() {
+  // Memoize steps array to prevent recreation on each render
+  const steps = useMemo(() => [
     {
       icon: <ImageIcon size={36} className="text-primary-500" />,
       title: 'Hình ảnh minh họa',
@@ -25,7 +26,7 @@ export function HowItWorks() {
       title: 'Mọi thiết bị',
       image: '/mascot/Mascot4.png',
     },
-  ]
+  ], [])
 
   return (
     <>
@@ -100,5 +101,5 @@ export function HowItWorks() {
       </section>
     </>
   )
-}
+});
 

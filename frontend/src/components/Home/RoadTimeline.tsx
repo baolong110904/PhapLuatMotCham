@@ -1,9 +1,9 @@
-import React, { useEffect, useRef, useState, useLayoutEffect } from 'react'
+import React, { useEffect, useRef, useState, useLayoutEffect, memo } from 'react'
 import { motion } from 'framer-motion'
 import FeatureBox, { FeatureStep } from './FeatureBox'
 import OptimizedImage from '@/components/ui/OptimizedImage'
 
-export default function RoadTimeline({ steps, onSelect }: { steps: FeatureStep[]; onSelect?: (i: number) => void }) {
+const RoadTimeline = memo(function RoadTimeline({ steps, onSelect }: { steps: FeatureStep[]; onSelect?: (i: number) => void }) {
   const roadVariants = {
     hidden: { pathLength: 0, opacity: 0 },
     visible: { pathLength: 1, opacity: 1, transition: { pathLength: { duration: 1.2, bounce: 0 }, opacity: { duration: 0.6 } } },
@@ -352,4 +352,6 @@ export default function RoadTimeline({ steps, onSelect }: { steps: FeatureStep[]
       </div>
     </div>
   )
-}
+});
+
+export default RoadTimeline;

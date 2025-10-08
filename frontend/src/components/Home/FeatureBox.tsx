@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { memo } from 'react'
 import { motion } from 'framer-motion'
 
 export type FeatureStep = {
@@ -7,7 +7,7 @@ export type FeatureStep = {
   image: string // Added image property
 }
 
-export default function FeatureBox({ step, index, onHover }: { step: FeatureStep; index?: number; onHover?: () => void }) {
+const FeatureBox = memo(function FeatureBox({ step, index, onHover }: { step: FeatureStep; index?: number; onHover?: () => void }) {
   return (
     <motion.div
       className="bg-white rounded-xl shadow-md p-4 relative cursor-pointer w-full sm:max-w-[240px] min-h-[72px] flex items-center justify-center"
@@ -28,4 +28,6 @@ export default function FeatureBox({ step, index, onHover }: { step: FeatureStep
       </motion.div>
     </motion.div>
   )
-}
+});
+
+export default FeatureBox;
