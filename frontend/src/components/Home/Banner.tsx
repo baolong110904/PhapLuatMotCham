@@ -1,11 +1,11 @@
 import { motion, useAnimation, Variants } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
-import { useEffect, useRef } from 'react';
+import { useEffect, useRef, memo } from 'react';
 import { useRouter } from 'next/navigation';
 // import { AnimatedBackground } from '../ui/AnimatedBackground';
 // import { MorphingBlob } from '../ui/MorphingBlob';
 
-export default function Banner() {
+const Banner = memo(function Banner() {
   // Nội dung chữ bên trái
   const title = "Tâm an - Lạc sống - Vẹn tròn tuổi già";
   
@@ -134,4 +134,6 @@ export default function Banner() {
       </div>
     </div>
   );
-}
+});
+
+export default Banner;

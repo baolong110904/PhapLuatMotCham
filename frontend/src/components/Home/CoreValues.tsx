@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import React, { useEffect, useRef, useState, memo, useMemo, useCallback } from "react";
 import { useRouter } from "next/navigation";
 import { FaBrain, FaHeartbeat, FaUsers } from "react-icons/fa";
 import { motion, useAnimation, easeOut } from "framer-motion";
@@ -52,7 +52,7 @@ const itemVariants = {
   },
 };
 
-export default function CoreValues() {
+const CoreValues = memo(function CoreValues() {
   const controls = useAnimation();
   const router = useRouter();
   const [ref, inView] = useInView({
@@ -77,8 +77,8 @@ export default function CoreValues() {
     }
   }, [controls, inView]);
 
-  const readAll = () => {
-    // Combined playlist: CoreValues audio1, Services playlist, HowItWorks audio
+  // Memoize playlist to prevent recreation on each render
+  const playlist = useMemo(() => {
     const servicesList = [
       "/assets/dichvuhotro.mp3",
       "/assets/saoy.mp3",
@@ -88,13 +88,16 @@ export default function CoreValues() {
       "/assets/nhadat.mp3",
       "/assets/dichuc.mp3",
     ];
-    const list = [
+    return [
       "/audio1.mp3",
       ...servicesList,
       "/assets/cachthuchoatdong.mp3",
     ];
-    globalAudio.playAll(list).catch?.(() => {});
-  };
+  }, []);
+
+  const readAll = useCallback(() => {
+    globalAudio.playAll(playlist).catch?.(() => {});
+  }, [playlist]);
 
   const togglePauseAll = () => {
     globalAudio.togglePause();
@@ -231,4 +234,6 @@ export default function CoreValues() {
       </div>
     </div>
   );
-}
+});
+
+export default CoreValues;
